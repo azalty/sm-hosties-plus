@@ -1,0 +1,578 @@
+"Phrases"
+{
+	"Knife Fight"
+	{
+		"fr"		"Combat de Cut"
+	}
+	"Shot4Shot"
+	{
+		"fr"		"Roulette"
+	}
+	"Gun Toss"
+	{
+		"fr"		"Lancer de Deagle"
+	}
+	"Chicken Fight"
+	{
+		"fr"		"Combat de Poulet"
+	}
+	"Hot Potato"
+	{
+		"fr"		"Patate Chaude"
+	}
+	"Dodgeball"
+	{
+		"fr"		"Balle aux Prisonniers"
+	}
+	"No Scope Battle"
+	{
+		"fr"		"Combat No Scope"
+	}
+	"Rock Paper Scissors"
+	{
+		"fr"		"Pierre Feuille Ciseaux"
+	}
+	"Russian Roulette"
+	{
+		"fr"		"Roulette Russe"
+	}
+	"Jumping Contest"
+	{
+		"fr"		"Concours de Saut"
+	}
+	"Rebel!"
+	{
+		"fr"		"Rebelle !"
+	}
+	"Mag4Mag"
+	{
+		"fr"		"Magasine"
+	}
+	"Race"
+	{
+		"fr"		"Course"
+	}
+	"Shield Fight"
+	{
+		"fr"		"Bataille de bouclier"
+	}
+	"Fist Fight"
+	{
+		"fr"		"Combat à mains nues"
+	}
+	"Juggernout Battle"
+	{
+		"fr"		"Combat de mastodonte"
+	}
+	"Only Headshot"
+	{
+		"fr"		"Headshot Uniquement"
+	}
+	"Grenade Fight"
+	{
+		"fr"		"Combat de Grenades"
+	}
+	"LR Countdown"
+	{
+		"#format"	"{1:i}"
+		"fr"		"Début de la DV dans {1}..."
+	}
+	"LR Grace TimeBlock"
+	{
+		"fr"		"Tu ne peux pas lancer de DV tant que des joueurs peuvent rejoindre la partie."
+	}
+	"Already Dropped Deagle"
+	{
+		"fr"		"Vous avez déjà jeté votre Deagle !"
+	}
+	"Hot Potato PickUp"
+	{
+		"fr"		"{1} a ramassé la patate chaude !"
+	}
+	"Powered By Hosties"
+	{
+		"fr"		"Ce serveur utilise ENT_Hosties V3. Amusez-vous bien !"
+	}
+	"Please Follow Rules"
+	{
+		"fr"		"Veuillez lire les Règles en tapant !regles dans le chat."
+	}
+	"Knife Fight Gun Attack Slay"
+	{
+		"fr"		"{1} a été tué pour avoir attaqué {2} avec {3} durant un Combat de Cut."
+	}
+	"Knife Fight Gun Attack Abort"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"fr"		"{1} a attaqué {2} avec {3} - Combat de Cut abandonné."
+	}
+	"Chicken Fight Gun Attack Slay"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"fr"		"{1} a été tué pour avoir attaqué {2} avec {3} durant un Combat de Poule."
+	}
+	"Chicken Fight Gun Attack Abort"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"fr"		"{1} a attaqué {2} avec {3} - Combat de Poule abandonné."
+	}
+	"Hot Potato Attack Slay"
+	{
+		"#format"	"{1:N},{2:N}"
+		"fr"		"{1} a été tué pour avoir attaqué {2} pendant le Duel de la Patate Chaude."
+	}
+	"Hot Potato Attack Abort"
+	{
+		"#format"	"{1:N},{2:N}"
+		"fr"		"{1} a attaqué {2} - Duel de la Patate Chaude abandonné."
+	}
+	"New Rebel"
+	{
+		"#format"	"{1:N}"
+		"fr"		"{1} est maintenant un Rebelle."
+	}
+	"Freeattack"
+	{
+		"#format"	"{1:N},{2:N}"
+		"fr"		"{1} a attaqué {2}."
+	}
+	"Non LR Kill LR Slay"
+	{
+		"#format"	"{1:N},{2:N}"
+		"fr"		"Le Joueur [Hors DV] {1} a été tué pour avoir tué le Joueur [EN DV] {2}."
+	}
+	"Non LR Kill LR Abort"
+	{
+		"#format"	"{1:N},{2:N}"
+		"fr"		"Le Joueur [Hors DV] {1} a tué le Joueur [EN DV] {2} - DV abandonnée."
+	}
+	"Rebel Kill"
+	{
+		"#format"	"{1:N},{2:N}"
+		"fr"		"{1} a tué le Rebelle {2}."
+	}
+	"LR Available"
+	{
+		"fr"		"Le dernier Terroriste peut maintenant avoir sa Dernière Volonté grâce à la commande !dv."
+	}
+	"LR Player Disconnect"
+	{
+		"fr"		"Le Joueur [EN DV] {1} s'est déconnecté - DV abandonnée."
+	}
+	"Chicken Fight Win And Slay"
+	{
+		"fr"		"{1} a gagné le Combat de Poule - {2} a été tué."
+	}
+	"Chicken Fight Win"
+	{
+		"fr"		"{1} a gagné le Combat de Poule."
+	}
+	"Chicken Fight Kill Loser"
+	{
+		"fr"		"Tue {1} !"
+	}
+	"S4S Shot Taken"
+	{
+		"fr"		"{1} a tiré une fois."
+	}
+	"Distance Meter"
+	{
+		"fr"		"Distance :"
+	}
+	"LR Rebel Not Allowed"
+	{
+		"fr"		"Vous ne pouvez avoir votre DV lorsque vous êtes un Rebelle."
+	}
+	"LR Choose"
+	{
+		"fr"		"Choisissez une Dernière Volonté"
+	}
+	"No CTs Alive"
+	{
+		"fr"		"Il n'y a pas de CT en vie pour avoir votre DV."
+	}
+	"Too Many Ts"
+	{
+		"fr"		"Il y a trop de Terroristes en vie pour avoir une DV maintenant !"
+	}
+	"Not Alive Or In Wrong Team"
+	{
+		"fr"		"Vous n'êtes pas en vie ou dans la bonne équipe (Terroristes) pour avoir une DV."
+	}
+	"Another LR In Progress"
+	{
+		"fr"		"Il y a déjà une Dernière Volonté en cours."
+	}
+	"LR Disabled"
+	{
+		"fr"		"Désolé, les Dernière Volonté ont été momentanément désactivées sur le Serveur."
+	}
+	"Choose A Player"
+	{
+		"fr"		"Choisissez un Joueur :"
+	}
+	"Rebel Ask CT For LR"
+	{
+		"fr"		"Le Rebelle {1} veut avoir sa DV {2} avec vous. Acceptez-vous ?"
+	}
+	"Yes"
+	{
+		"fr"		"Oui"
+	}
+	"No"
+	{
+		"fr"		"Non"
+	}
+	"Asking For Permission"
+	{
+		"fr"		"Demande à {1} en cours pour avoir votre DV car vous êtes une Rebelle ..."
+	}
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"fr"		"La cible n'est pas en vie ou dans la bonne équipe (Anti-Terroristes) pour la DV."
+	}
+	"Declined LR Request"
+	{
+		"fr"		"{1} a refusé votre demande de DV."
+	}
+	"LR Partner Died"
+	{
+		"fr"		"Votre partenaire de Dernière Volonté est mort."
+	}
+	"Too Slow Another LR In Progress"
+	{
+		"fr"		"Désolé, une autre Dernière Volonté est déjà en Cours."
+	}
+	"LR Request Decline Or Too Long"
+	{
+		"fr"		"{1} a refusé votre demande de DV ou a mis trop de temps à répondre."
+	}
+	"LR Has Chosen to Rebel!"
+	{
+		"fr"		"{1} a choisi de se Rebeller !"
+	}
+	"Start Selected Game"
+	{
+		"fr"		"{1} a sélectionné {2} contre {3}."
+	}
+	"No Rebels ATM"
+	{
+		"fr"		"Il n'y a pas de Terroriste Rebelle pour le moment."
+	}
+	"Rebelling Terrorists"
+	{
+		"fr"		"Terroristes Rebelles actuels :"
+	}
+	"CheckPlayers CMD Disabled"
+	{
+		"fr"		"La commande !checkplayer est momentanément désactivée."
+	}
+	"Server Rules"
+	{
+		"fr"		"Règles du Serveur :"
+	}
+	"HP Win"
+	{
+		"fr"		"{1} a gagné le Duel de la Patate Chaude - {2} a été tué."
+	}
+	"HP Last One To Have The Potato"
+	{
+		"fr"		"Vous avez été le dernier détenteur de la Patate Chaude !"
+	}
+	"Ts Muted"
+	{
+		"fr"		"Les Terroristes sont muté les {1} premières secondes du rounds !"
+	}
+	"Ts Can Speak Again"
+	{
+		"fr"		"Les Terroristes peuvent maintenant parler. Tout abus du Micro sera sanctionné !"
+	}
+	"Now Muted"
+	{
+		"fr"		"Vous êtes maintenant muté. Vous aurez le droit de parler à la fin du Round."
+	}
+	"NS Weapon Chooser Menu"
+	{
+		"fr"		"Choisissez une arme à utiliser lors du Combat No Scope:"
+	}
+	"CT Attack T Gun"
+	{
+		"fr"		"{1} a attaqué {2} possédant une arme ..."
+	}
+	"Rock"
+	{
+		"fr"		"Pierre"
+	}
+	"Paper"
+	{
+		"fr"		"Feuille"
+	}
+	"Scissors"
+	{
+		"fr"		"Ciseaux"
+	}
+	"LR RPS No Answer"
+	{
+		"fr"		"{1} n'a rien choisi, ou n'a pas choisi à temps."
+	}
+	"LR RPS Done"
+	{
+		"fr"		"{1} a choisi {2}, {3} a choisi {4} - {5} a gagné"
+	}
+	"LR RPS Tie"
+	{
+		"fr"		"{1} a choisi {2}, {3} a choisi {4} - Match Nul"
+	}
+	"LR Not With Bot"
+	{
+		"fr"		"Désolé, vous ne pouvez avoir de DV avec un Bot."
+	}
+	"LR Not Available"
+	{
+		"fr"		"Vous ne pouvez pas avoir de DV pour le moment."
+	}
+	"LR Delay Announcement"
+	{
+		"fr"		"Les Terroristes ne peuvent avoir de DV avant que {1} seconde(s) se soit écoulée(s) !"
+	}
+	"Freekill Slay"
+	{
+		"fr"		"{1} a été tué pour avoir tué beaucoup de Terroristes Innocents."
+	}
+	"Freekill Kick"
+	{
+		"fr"		"{1} a été Exclu pour avoir tué beaucoup de Terroristes Innocents."
+	}
+	"Freekill Kick Reason"
+	{
+		"fr"		"Exclu pour avoir tue beaucoups de Terroristes Innocents"
+	}
+	"Freekill Ban"
+	{
+		"fr"		"{1} a été Banni pour avoir tué beaucoup de Terroristes Innocents."
+	}
+	"Freekill Ban Reason"
+	{
+		"fr"		"Banni pour avoir tue beaucoups de Terroristes Innocents"
+	}
+	"Freekill Record Increased"
+	{
+		"fr"		"Vous avez tué {1} sur {2} Terroristes Innoncent. Si vous continuez vous serez Sanctionné !"
+	}
+	"Race Won"
+	{
+		"fr"		"{1} a gagné la Course !"
+	}
+	"Won Jump Contest"
+	{
+		"fr"		"{1} a gagné le Concours de Saut !"
+	}
+	"Russian Roulette - Hit"
+	{
+		"fr"		"Roulette Russe : La balle touche {1} !"
+	}
+	"Russian Roulette - Miss"
+	{
+		"fr"		"Roulette Russe : Tir manqué. Au tour l'adversaire..."
+	}
+	"Randomly Chose First Player"
+	{
+		"fr"		" {1} a été aléatoirement choisi pour tirer le premier."
+	}
+	"LR Interference Slay"
+	{
+		"fr"		"{1} a été tué pour avoir attaqué {2} avec {3} durant une DV."
+	}
+	"LR Interference Abort"
+	{
+		"fr"		"{1} a attaqué {2} avec {3}. Dernière Volonté abandonnée."
+	}
+	"LR Interference Slay - No Victim"
+	{
+		"fr"		"{1} a été tué pour avoir attaqué {2} durant une DV."
+	}
+	"LR Interference Abort - No Victim"
+	{
+		"fr"		"{1} a attaqué avec {2}. DV abandonnée."
+	}
+	"LR Cheating Abort"
+	{
+		"fr"		"{1} a triché ! DV abandonnée."
+	}
+	"LR Cheating Slay"
+	{
+		"fr"		"{1} a été tué pour avoir triché durant une DV."
+	}
+	"Noscope Knife Attack Slay"
+	{
+		"fr"		"{1} a été tué pour avoir attaqué {2} avec un Couteau durant un Combat No Scope."
+	}
+	"Noscope Knife Attack Abort"
+	{
+		"fr"		"{1} a attaqué {2} avec un Couteau - Combat No Scope abandonné."
+	}
+	"S4S Rebel Slayed"
+	{
+		"fr"		"{1} a été tué pour s'être rebellé durant une Roulette."
+	}
+	"S4S Rebel Aborted"
+	{
+		"fr"		"{1} s'est rebellé durant une DV - Roulette abandonnée."
+	}
+	"M4M Mag Used"
+	{
+		"fr"		"{1} a utilisé son Magasine."
+	}
+	"LR No CTs Available"
+	{
+		"fr"		"Il n'y a actuellement pas de CT disponible pour avoir votre DV."
+	}
+	"LR Aborted"
+	{
+		"fr"		"Toutes les Dernières Volontés actives ont été abandonnées !"
+	}
+	"Knife Fight Selection Menu"
+	{
+		"fr"		"Choisissez votre Combat de Cut:"
+	}
+	"Knife_Vintage"
+	{
+		"fr"		"Normal"
+	}
+	"Knife_Drunk"
+	{
+		"fr"		"Ivre"
+	}
+	"Knife_LowGrav"
+	{
+		"fr"		"Faible gravité"
+	}
+	"Knife_HiSpeed"
+	{
+		"fr"		"Vitesse augmentée"
+	}
+	"Knife_Drugs"
+	{
+		"fr"		"Drogué"
+	}
+	"Knife_ThirdPerson"
+	{
+		"fr"		"Troisième Personne"
+	}
+	"Pistol Selection Menu"
+	{
+		"fr"		"Choisissez une arme :"
+	}
+	"Pistol_Deagle"
+	{
+		"fr"		"Deagle"
+	}
+	"Pistol_P228"
+	{
+		"fr"		"P228"
+	}
+	"Pistol_Glock"
+	{
+		"fr"		"Glock"
+	}
+	"Pistol_FiveSeven"
+	{
+		"fr"		"Five-Seven"
+	}
+	"Pistol_Dualies"
+	{
+		"fr"		"Dualies"
+	}
+	"Pistol_USP"
+	{
+		"fr"		"USP"
+	}
+	"NSW_AWP"
+	{
+		"fr"		"AWP"
+	}
+	"NSW_Scout"
+	{
+		"fr"		"Scout"
+	}
+	"NSW_SG550"
+	{
+		"fr"		"SG550"
+	}
+	"NSW_G3SG1"
+	{
+		"fr"		"G3SG1"
+	}
+	"Find a Starting Location"
+	{
+		"fr"		"Choisissez une position de Départ"
+	}
+	"Choose an End Point"
+	{
+		"fr"		"Choisissez une position d'Arrivée"
+	}
+	"Use Current Position"
+	{
+		"fr"		"Utiliser la Position actuelle"
+	}
+	"Race Points too Close"
+	{
+		"fr"		"Votre position d'Arrivée est trop proche de la position de Départ."
+	}
+	"Too Near Obstruction"
+	{
+		"fr"		"Quelque chose bloque le passage. Réessayez avec un endroit plus vaste."
+	}
+	"Jump Contest Menu"
+	{
+		"fr"		"Choisissez un Concours de Saut:"
+	}
+	"Jump_TheMost"
+	{
+		"fr"		"Plus de Sauts"
+	}
+	"Jump_Farthest"
+	{
+		"fr"		"Saut en Longueur"
+	}
+	"Jump_BrinkOfDeath"
+	{
+		"fr"		"Au Bord de la Mort"
+	}
+	"Must Be On Ground"
+	{
+		"fr"		"Vous devez être par terre pour choisir cette Option."
+	}
+	"Farthest Jump Won"
+	{
+		"fr"		"{1} a gagné le Saut en Longueur avec {3} par rapport à {2} {4}."
+	}
+	"Race Could Start Soon"
+	{
+		"fr"		"{1} a choisi de faire une Course. Veuillez placer le Point de départ et d'arrivée!"
+	}
+	"Blocked Warmup"
+	{
+		"fr"		"Vous ne pouvez pas lancer une dernière volonté pendant l'échauffement."
+	}
+	"GT No Throw"
+	{
+		"fr"		"{1} gagne le lancé de deagle car {2} n'a pas lancé son deagle."
+	}
+	"JF No Jump"
+	{
+		"fr"		"{1} gagne le concours de saut car {2} n'a pas sauté."
+	}
+	"JF Jump Warning"
+	{
+		"fr"		"Ton adversaire a sauté, tu as 10 secondes pour sauter."
+	}
+	"GT Throw Warning"
+	{
+		"fr"		"Ton adversaire a jeté son arme, tu as 10 secondes pour jeter la tienne."
+	}
+	"LR Block EventDay"
+	{
+		"fr"		"Les DV sont bloquées dû à un Evènement."
+	}
+}

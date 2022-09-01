@@ -1,0 +1,596 @@
+"Phrases"
+{
+	"Knife Fight"
+	{
+		"de"		"Messer Kampf"
+	}
+	"Shot4Shot"
+	{
+		"de"		"Shot4Shot"
+	}
+	"Gun Toss"
+	{
+		"de"		"Waffenweitwurf"
+	}
+	"Chicken Fight"
+	{
+		"de"		"Hühnchen Kampf"
+	}
+	"Hot Potato"
+	{
+		"de"		"Heiße Kartoffel"
+	}
+	"Dodgeball"
+	{
+		"de"		"Völkerball"
+	}
+	"No Scope Battle"
+	{
+		"de"		"No Scope Kampf"
+	}
+	"Rock Paper Scissors"
+	{
+		"de"		"Schere Stein Papier"
+	}
+	"Russian Roulette"
+	{
+		"de"		"Russisches Roulette"
+	}
+	"Jumping Contest"
+	{
+		"de"		"Sprung Wettbewerb"
+	}
+	"Rebel!"
+	{
+		"de"		"Rebell!"
+	}
+	"Mag4Mag"
+	{
+		"de"		"Mag4Mag"
+	}
+	"Race"
+	{
+		"de"		"Wettrennen"
+	}
+	"LR Grace TimeBlock"
+	{
+		"de"		"Du kannst keinen LR starten wenn Spieler noch beitreten können..."
+	}
+	"Already Dropped Deagle"
+	{
+		"de"		"Du hast bereits deine Deagle fallen lassen!"
+	}
+	"Hot Potato PickUp"
+	{
+		"de"		"{1} hat die heiße Kartoffel aufgehoben!"
+	}
+	"Powered By Hosties"
+	{
+		"de"		"Dieser Server nutzt ENT_Hosties V3. Viel Spaß!"
+	}
+	"Please Follow Rules"
+	{
+		"de"		"Halte dich bitte an die Regeln unter !rules."
+	}
+	"Knife Fight Gun Attack Slay"
+	{
+		"de"		"{1} wurde gekillt weil er {2} mit {3} angegriffen hat während eines Messer Kampfs."
+	}
+	"Knife Fight Gun Attack Abort"
+	{
+		"de"		"{1} attackiert {2} mit {3} - Messer Kampf abgebrochen."
+	}
+	"Chicken Fight Gun Attack Slay"
+	{
+		"de"		"{1} wurde gekillt weil er {2} mit {3} angegriffen hat während eines Hühnchen Kampfs."
+	}
+	"Chicken Fight Gun Attack Abort"
+	{
+		"de"		"{1} attackiert {2} mit {3} - Chicken Fight aborted."
+	}
+	"Hot Potato Attack Slay"
+	{
+		"de"		"{1} wurde gekillt da er {2} angegriffen hat während heißer Kartoffel."
+	}
+	"Hot Potato Attack Abort"
+	{
+		"de"		"{1} attackiert {2} - Heiße Kartoffel abgebrochen."
+	}
+	"New Rebel"
+	{
+		"de"		"{1} ist nun ein Rebell."
+	}
+	"Freeattack"
+	{
+		"de"		"{1} attackiert {2}."
+	}
+	"Non LR Kill LR Slay"
+	{
+		"de"		"Nicht LR-Spieler {1} wurde gekillt für das töten von LR-Spieler {2}."
+	}
+	"Non LR Kill LR Abort"
+	{
+		"de"		"Nicht LR-Spieler {1} hat LR-Spieler {2} getötet - LR abgebrochen."
+	}
+	"Rebel Kill"
+	{
+		"de"		"{1} hat den Rebell {2} getötet."
+	}
+	"LR Available"
+	{
+		"de"		"Terroristen können jetzt !lr schreiben um einen last request zu haben."
+	}
+	"LR Player Disconnect"
+	{
+		"de"		"LR-Spieler {1} hat die Verbindung getrennt - LR abgebrochen."
+	}
+	"Chicken Fight Win And Slay"
+	{
+		"de"		"{1} hat den Hühnchen Kampf gewonnen - {2} gekillt."
+	}
+	"Chicken Fight Win"
+	{
+		"de"		"{1} hat den Hühnchen Kampf gewonnen."
+	}
+	"Chicken Fight Kill Loser"
+	{
+		"de"		"Kill {1}!"
+	}
+	"S4S Shot Taken"
+	{
+		"de"		"{1} hat seinen Schuss genutzt."
+	}
+	"Distance Meter"
+	{
+		"de"		"Abstands Anzeige:"
+	}
+	"LR Rebel Not Allowed"
+	{
+		"de"		"Du kannst keinen LR haben wenn du ein Rebell bist."
+	}
+	"LR Choose"
+	{
+		"de"		"Wähle einen Last Request"
+	}
+	"No CTs Alive"
+	{
+		"de"		"Es gibt keine CTs (lebend) die mit dir einen LR haben können."
+	}
+	"Too Many Ts"
+	{
+		"de"		"Es sind zu viele Terroristen am leben um einen LR zu wünschen!"
+	}
+	"Not Alive Or In Wrong Team"
+	{
+		"de"		"Du bist tot oder im falschen Team für einen LR."
+	}
+	"Another LR In Progress"
+	{
+		"de"		"Es läuft bereits ein LR."
+	}
+	"LR Disabled"
+	{
+		"de"		"Sorry, last requests sind deaktiviert auf diesem Server."
+	}
+	"Choose A Player"
+	{
+		"de"		"Wähle einen Spieler"
+	}
+	"Rebel Ask CT For LR"
+	{
+		"de"		"Rebell {1} möchte gerne {2} mit dir. Akzeptieren?"
+	}
+	"Yes"
+	{
+		"de"		"Ja"
+	}
+	"No"
+	{
+		"de"		"Nein"
+	}
+	"Asking For Permission"
+	{
+		"de"		"Frage {1} ob du einen LR haben darfst..."
+	}
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"de"		"Der Ziel Spieler für deinen LR ist im falschen Team oder tot."
+	}
+	"Declined LR Request"
+	{
+		"de"		"{1} hat deinen LR Wunsch abgelehnt."
+	}
+	"LR Partner Died"
+	{
+		"de"		"Dein LR Partner ist gestorben."
+	}
+	"Too Slow Another LR In Progress"
+	{
+		"de"		"Oops, too slow. There's already another LR in progress."
+	}
+	"LR Request Decline Or Too Long"
+	{
+		"de"		"{1} declined your LR request or took to long to answer it."
+	}
+	"LR Has Chosen to Rebel!"
+	{
+		"de"		"{1} hat sich entschieden zu rebellieren!"
+	}
+	"No Rebels ATM"
+	{
+		"de"		"Es gibt zur Zeit keine rebelierenden Terroristen."
+	}
+	"Rebelling Terrorists"
+	{
+		"de"		"Rebelierende Terroristen:"
+	}
+	"CheckPlayers CMD Disabled"
+	{
+		"de"		"Das !checkplayers-command ist auf diesem Server deaktiviert."
+	}
+	"Server Rules"
+	{
+		"de"		"Server Regeln:"
+	}
+	"HP Win"
+	{
+		"de"		"{1} hat heiße Kartoffel gewonnen - {2} gekillt."
+	}
+	"HP Last One To Have The Potato"
+	{
+		"de"		"Du warst der letzte der die Kartoffel hatte!"
+	}
+	"Ts Muted"
+	{
+		"de"		"Terroristen sind für die ersten {1} Sekunden der Runde stumm!"
+	}
+	"Ts Can Speak Again"
+	{
+		"de"		"Terroristen können nun sprechen... leise..."
+	}
+	"Now Muted"
+	{
+		"de"		"Du bist gemutet, du wirst am Ende der Runde entmutet."
+	}
+	"NS Weapon Chooser Menu"
+	{
+		"de"		"Bitte wähle eine Waffe für den No Scope Kampf:"
+	}
+	"CT Attack T Gun"
+	{
+		"de"		"{1} attackiert {2} der eine Waffe hat..."
+	}
+	"Rock"
+	{
+		"de"		"Stein"
+	}
+	"Paper"
+	{
+		"de"		"Papier"
+	}
+	"Scissors"
+	{
+		"de"		"Schere"
+	}
+	"LR RPS No Answer"
+	{
+		"de"		"{1} hat kein Stein, Papier oder Schere, oder etwas anderes in der Zeit ausgewählt."
+	}
+	"LR RPS Done"
+	{
+		"de"		"{1} wählt {2}, {3} wählt {4} - {5} gewinnt"
+	}
+	"LR RPS Tie"
+	{
+		"de"		"{1} wählt {2}, {3} wählt {4} - unentschieden"
+	}
+	"LR Not With Bot"
+	{
+		"de"		"Sorry, du kannst keinen last request mit einem Bot haben."
+	}
+	"LR Not Available"
+	{
+		"de"		"Du hast jetzt keinen last request haben."
+	}
+	"LR Delay Announcement"
+	{
+		"de"		"Terroristen können keine last requests haben bis {1} sekunde(n) vergangen sind!"
+	}
+	"Freekill Slay"
+	{
+		"de"		"{1} wurde gekillt da er zu viele nicht rebelierenden Terroristen getötet hat."
+	}
+	"Freekill Kick"
+	{
+		"de"		"{1} wurde gekickt da er zu viele nicht rebelierenden Terroristen getötet hat."
+	}
+	"Freekill Kick Reason"
+	{
+		"de"		"Gekickt für das Töten von zu vielen nicht rebelierenden Terroristen"
+	}
+	"Freekill Ban"
+	{
+		"de"		"{1} wurde gebannt da er zu viele nicht rebelierenden Terroristen getötet hat."
+	}
+	"Freekill Ban Reason"
+	{
+		"de"		"Gebannt für das Töten von zu vielen nicht rebelierenden Terroristen"
+	}
+	"Freekill Record Increased"
+	{
+		"de"		"Du hast {1} von {2} nicht Rebellen kills (before action is taken)..."
+	}
+	"Race Won"
+	{
+		"de"		"{1} hat das Rennen gewonnen!"
+	}
+	"Won Jump Contest"
+	{
+		"de"		"{1} hat den Sprung Wettbewerb gewonnen!"
+	}
+	"Russian Roulette - Hit"
+	{
+		"de"		"Russisches Roulette: Kugel traf {1}!"
+	}
+	"Russian Roulette - Miss"
+	{
+		"de"		"Russisches Roulette: Verfehlt. Drehe erneut..."
+	}
+	"Randomly Chose First Player"
+	{
+		"de"		"{1} wurde zufällig ausgewählt um als erster zu schießen."
+	}
+	"LR Interference Slay"
+	{
+		"de"		"{1} wurde gekillt da er {2} mit {3} angegriffen hat während eines LR."
+	}
+	"LR Interference Abort"
+	{
+		"de"		"{1} attackiert {2} mit {3}. LR abgebrochen."
+	}
+	"LR Interference Slay - No Victim"
+	{
+		"de"		"{1} wurde gekillt da er mit {2} angegriffen hat während eines LR."
+	}
+	"LR Interference Abort - No Victim"
+	{
+		"de"		"{1} attackiert mit {2}. LR abgebrochen."
+	}
+	"LR Cheating Abort"
+	{
+		"de"		"{1} hat gecheatet! LR abgebrochen."
+	}
+	"LR Cheating Slay"
+	{
+		"de"		"{1} wurde gekillt da er während eines LR gecheatet hat."
+	}
+	"Noscope Knife Attack Slay"
+	{
+		"de"		"{1} wurde gekillt da er {2} mit einem Messer während No Scope angegriffen hat."
+	}
+	"Noscope Knife Attack Abort"
+	{
+		"de"		"{1} attackiert {2} mit einem Messer - No Scope abgebrochen."
+	}
+	"S4S Rebel Slayed"
+	{
+		"de"		"{1} wurde gekillt da er während S4S rebelliert hat."
+	}
+	"S4S Rebel Aborted"
+	{
+		"de"		"{1} rebellierte während des LR - S4S abgebrochen."
+	}
+	"M4M Mag Used"
+	{
+		"de"		"{1} hat das Magazin verbraucht."
+	}
+	"LR No CTs Available"
+	{
+		"de"		"Es gibt momentan keinen CT der dir einen LR erfüllen kann."
+	}
+	"LR Aborted"
+	{
+		"de"		"Alle aktiven Last Requests abgebrochen!"
+	}
+	"Knife Fight Selection Menu"
+	{
+		"de"		"Wähle deinen Messer Kampf:"
+	}
+	"Knife_Vintage"
+	{
+		"de"		"Altes Messern"
+	}
+	"Knife_Drunk"
+	{
+		"de"		"Betrunkenes Boxen"
+	}
+	"Knife_LowGrav"
+	{
+		"de"		"Mond Schuhe"
+	}
+	"Knife_HiSpeed"
+	{
+		"de"		"Meep-Meep Geschwindigkeit"
+	}
+	"Knife_Drugs"
+	{
+		"de"		"Drogen"
+	}
+	"Knife_ThirdPerson"
+	{
+		"de"		"Third Person"
+	}
+	"Pistol Selection Menu"
+	{
+		"de"		"Wähle eine Pistole:"
+	}
+	"Pistol_Deagle"
+	{
+		"de"		"Deagle"
+	}
+	"Pistol_P228"
+	{
+		"de"		"P228"
+	}
+	"Pistol_P250"
+	{
+		"de"		"P250"
+	}
+	"Pistol_Glock"
+	{
+		"de"		"Glock"
+	}
+	"Pistol_FiveSeven"
+	{
+		"de"		"Five-Seven"
+	}
+	"Pistol_Dualies"
+	{
+		"de"		"Dualies"
+	}
+	"Pistol_USP"
+	{
+		"de"		"USP"
+	}
+	"Pistol_P2000"
+	{
+		"de"		"P2000"
+	}
+	"Pistol_Tec9"
+	{
+		"de"		"Tec 9"
+	}
+	"Pistol_CZ75"
+	{
+		"de"		"CZ75"
+	}
+	"Pistol_USPS"
+	{
+		"de"		"USP-S"
+	}
+	"Pistol_Revolver"
+	{
+		"de"		"Revolver"
+	}
+	"NSW_AWP"
+	{
+		"de"		"AWP"
+	}
+	"NSW_Scout"
+	{
+		"de"		"Scout"
+	}
+	"NSW_SSG08"
+	{
+		"de"		"SSG08 (Scout)"
+	}
+	"NSW_SG550"
+	{
+		"de"		"SG550"
+	}
+	"NSW_SCAR20"
+	{
+		"de"		"SCAR20"
+	}
+	"NSW_G3SG1"
+	{
+		"de"		"G3SG1"
+	}
+	"Find a Starting Location"
+	{
+		"de"		"Wähle eine Start Position"
+	}
+	"Choose an End Point"
+	{
+		"de"		"Wähle eine End Position"
+	}
+	"Use Current Position"
+	{
+		"de"		"Aktuelle Position nutzen"
+	}
+	"Race Points too Close"
+	{
+		"de"		"Dein Endpunkt ist zu nah am Startpunkt."
+	}
+	"Too Near Obstruction"
+	{
+		"de"		"Jemand blockiert den Weg. Beweg dich ins freie und probiere es erneut."
+	}
+	"Jump Contest Menu"
+	{
+		"de"		"Wähle einen Sprungwettbewerb:"
+	}
+	"Jump_TheMost"
+	{
+		"de"		"Meisten Sprünge"
+	}
+	"Jump_Farthest"
+	{
+		"de"		"Weitsprung"
+	}
+	"Jump_BrinkOfDeath"
+	{
+		"de"		"Am Rande des Todes"
+	}
+	"Must Be On Ground"
+	{
+		"de"		"Du musst am Boden sein um diese Option auswählen zu können."
+	}
+	"Farthest Jump Won"
+	{
+		"de"		"{1} hat Weitsprung gewonnen mit {3} im Vergleich zu {2}'s {4}."
+	}
+	"Race Could Start Soon"
+	{
+		"de"		"{1} hat den Wettrennen LR ausgewählt. Schaut nach Start- und Endpunkt!"
+	}
+	"Race Aborted"
+	{
+		"#format"	"{1:N}"
+		"de"		"{1} hat das Wettrennen abgebrochen. Du kannst in 10 Sekunden einen neuen LR starten!"
+	}
+	"Race CoolDown"
+	{
+		"de"		"Du hast das Wettrennen abgebrochen! Du kannst nach 10 Sekunden einen neuen LR starten."
+	}
+	"Race CoolDown Done"
+	{
+		"de"		"Du kannst nun einen neuen LR starten."
+	}
+	"Respawned Target"
+	{
+		"de"		"Wiederbelebt {1}"
+	}	
+	"Player Alive"
+	{
+		"de"		"Spieler ist bereits am Leben."
+	}
+	"Respawn Player"
+	{
+		"de"		"Spieler wiederbeleben"
+	}	
+	"Respawn Data Unavailable"
+	{
+		"de"		"Spieler {1} hatte keine gültigen Spawndaten und wurde zu den Zellen zurück geschickt."
+	}
+	"Blocked Warmup"
+	{
+		"de"		"Du kannst keinen LR ausführen während der Aufwärmzeit."
+	}
+	"GT No Throw"
+	{
+		"de"		"{1} hat Waffenweitwurf gewonnen, da {2} seine Waffe nicht geworfen hat"
+	}
+	"JF No Jump"
+	{
+		"de"		"{1} hat den Sprungwettbewerb gewonnen, da {2} nicht gesprungen ist"
+	}
+	"JF Jump Warning"
+	{
+		"de"		"Deine Gegner ist gesprungen. Du hast 10 Sekunden Zeit es zu tun."
+	}
+	"GT Throw Warning"
+	{
+		"de"		"Dein Gegner hat seine Waffe geworfen. Du hast 10 Sekunden Zeit es zu tun."
+	}
+}

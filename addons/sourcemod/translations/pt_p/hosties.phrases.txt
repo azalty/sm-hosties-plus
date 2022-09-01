@@ -1,0 +1,531 @@
+"Phrases"
+{
+	"Knife Fight"
+	{
+		"pt_p"		"Luta de Faca"
+	}
+	"Shot4Shot"
+	{
+		"pt_p"		"Shot4Shot"
+	}
+	"Gun Toss"
+	{
+		"pt_p"		"Gun Toss"
+	}
+	"Chicken Fight"
+	{
+		"pt_p"		"Chicken Fight"
+	}
+	"Hot Potato"
+	{
+		"pt_p"		"Hot Potato"
+	}
+	"Dodgeball"
+	{
+		"pt_p"		"Dodgeball"
+	}
+	"No Scope Battle"
+	{
+		"pt_p"		"No Scope"
+	}
+	"Rock Paper Scissors"
+	{
+		"pt_p"		"Pedra Papel Tesoura"
+	}
+	"Russian Roulette"
+	{
+		"pt_p"		"Roleta Russa"
+	}
+	"Jumping Contest"
+	{
+		"pt_p"		"Jumping Contest"
+	}
+	"Rebel!"
+	{
+		"pt_p"		"Rebel!"
+	}
+	"Mag4Mag"
+	{
+		"pt_p"		"Mag4Mag"
+	}
+	"Race"
+	{
+		"pt_p"		"Corrida"
+	}
+	"LR Grace TimeBlock"
+	{
+		"pt_p"		"Nao podes comeĂ§ar o LR enquanto os jogadores nao entrarem no servidor."
+	}
+	"Already Dropped Deagle"
+	{
+		"pt_p"		"Voce ja dropou sua deagle!"
+	}
+	"Hot Potato PickUp"
+	{
+		"pt_p"		"{1} pegou a batata quente!"
+	}
+	"Powered By Hosties"
+	{
+		"pt_p"		"Este servidor usa o ENT_Hosties V3. Aproveita!"
+	}
+	"Please Follow Rules"
+	{
+		"pt_p"		"Por favor, siga as regras listadas em !rules."
+	}
+	"Knife Fight Gun Attack Slay"
+	{
+		"pt_p"		"{1} foi morto por atacar {2} com {3} durante uma Briga de faca."
+	}
+	"Knife Fight Gun Attack Abort"
+	{
+		"pt_p"		"{1} atacou {2} com {3} - Briga de faca terminada."
+	}
+	"Chicken Fight Gun Attack Slay"
+	{
+		"pt_p"		"{1} foi morto por atacar {2} com {3} durante a Briga de Galo."
+	}
+	"Chicken Fight Gun Attack Abort"
+	{
+		"pt_p"		"{1} atacou {2} com {3} - Briga de Galo terminada."
+	}
+	"Hot Potato Attack Slay"
+	{
+		"pt_p"		"{1} foi morto por atacar {2} durante a competicao de Batata Quente."
+	}
+	"Hot Potato Attack Abort"
+	{
+		"pt_p"		"{1} atacou {2} - Batata Quente terminada."
+	}
+	"New Rebel"
+	{
+		"pt_p"		"{1} agora esta rebelde."
+	}
+	"Freeattack"
+	{
+		"pt_p"		"{1} atacou {2}."
+	}
+	"Non LR Kill LR Slay"
+	{
+		"pt_p"		"Nao LR-player {1} foi morto por atacar um LR-player {2}."
+	}
+	"Non LR Kill LR Abort"
+	{
+		"pt_p"		"Nao LR-player {1} matou LR-player {2} - LR terminado."
+	}
+	"Rebel Kill"
+	{
+		"pt_p"		"{1} matou o rebelde {2}."
+	}
+	"LR Available"
+	{
+		"pt_p"		"Prisioneiros podem agora digitar !lr para ter um último pedido."
+	}
+	"LR Player Disconnect"
+	{
+		"pt_p"		"LR-player {1} desconectado - LR terminado."
+	}
+	"Chicken Fight Win And Slay"
+	{
+		"pt_p"		"{1} venceu a Briga de Galo - {2} morto."
+	}
+	"Chicken Fight Win"
+	{
+		"pt_p"		"{1} venceu a Briga de Galo."
+	}
+	"Chicken Fight Kill Loser"
+	{
+		"pt_p"		"{1} morreu!"
+	}
+	"S4S Shot Taken"
+	{
+		"pt_p"		"{1} ja fez seu disparo."
+	}
+	"Distance Meter"
+	{
+		"pt_p"		"Medidor de distancia:"
+	}
+	"LR Rebel Not Allowed"
+	{
+		"pt_p"		"Voce nao pode ter um ultimo pedido enquanto estiver rebelde."
+	}
+	"LR Choose"
+	{
+		"pt_p"		"Escolha seu Ultimo Pedido"
+	}
+	"No CTs Alive"
+	{
+		"pt_p"		"Nao ha nenhum guarda (vivo) para ter um ultimo pedido com voce."
+	}
+	"Too Many Ts"
+	{
+		"pt_p"		"Ainda ha muitos prisioneiros vivos para ter um ultimo pedido agora!"
+	}
+	"Not Alive Or In Wrong Team"
+	{
+		"pt_p"		"Voce nao esta vivo ou esta no time errado para ter um ultimo pedido."
+	}
+	"Another LR In Progress"
+	{
+		"pt_p"		"Ja ha outro ultimo pedido em andamento."
+	}
+	"LR Disabled"
+	{
+		"pt_p"		"Desculpe, ultimo pedido esta desabilitado neste servidor."
+	}
+	"Choose A Player"
+	{
+		"pt_p"		"Escolha um adversario"
+	}
+	"Rebel Ask CT For LR"
+	{
+		"pt_p"		"Rebelde {1} deseja ter {2} com voce. Aceita?"
+	}
+	"Yes"
+	{
+		"pt_p"		"Sim"
+	}
+	"No"
+	{
+		"pt_p"		"Nao"
+	}
+	"Asking For Permission"
+	{
+		"pt_p"		"{1} esta pedindo permissao devido estar rebelde..."
+	}
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"pt_p"		"O alvo nao esta vivo ou esta no time errado para o ultimo pedido."
+	}
+	"Declined LR Request"
+	{
+		"pt_p"		"{1} recusou seu ultimo pedido."
+	}
+	"LR Partner Died"
+	{
+		"pt_p"		"Seu parceiro de LR esta morto."
+	}
+	"Too Slow Another LR In Progress"
+	{
+		"pt_p"		"Oops, muito lento. Ja ha outro LR em andamento."
+	}
+	"LR Request Decline Or Too Long"
+	{
+		"pt_p"		"{1} recusou seu ultimo pedido ou levou muito tempo para responder."
+	}
+	"LR Has Chosen to Rebel!"
+	{
+		"pt_p"		"{1} escolheu se rebelar!"
+	}
+	"No Rebels ATM"
+	{
+		"pt_p"		"Nao ha nenhum prisioneiro rebelde neste momento."
+	}
+	"Rebelling Terrorists"
+	{
+		"pt_p"		"Prisioneiros rebeldes:"
+	}
+	"CheckPlayers CMD Disabled"
+	{
+		"pt_p"		"O comando !checkplayers esta desabilitado neste servidor."
+	}
+	"Server Rules"
+	{
+		"pt_p"		"Regras do servidor:"
+	}
+	"HP Win"
+	{
+		"pt_p"		"{1} venceu a disputa de Batata Quente - {2} foi morto."
+	}
+	"HP Last One To Have The Potato"
+	{
+		"pt_p"		"Voce foi o ultimo a segurar a batata!"
+	}
+	"Ts Muted"
+	{
+		"pt_p"		"Prisioneiros estarao mutados durante os primeiros {1} segundos do round!"
+	}
+	"Ts Can Speak Again"
+	{
+		"pt_p"		"Prisioneiros agora podem falar... com calma e respeito..."
+	}
+	"Now Muted"
+	{
+		"pt_p"		"Voce agora esta mutado. Voce sera desmutado no final do round."
+	}
+	"NS Weapon Chooser Menu"
+	{
+		"pt_p"		"Por favor escolha a arma que deseja usar em Sniper sem mira:"
+	}
+	"CT Attack T Gun"
+	{
+		"pt_p"		"{1} atacou {2} que tinha uma arma..."
+	}
+	"Rock"
+	{
+		"pt_p"		"Pedra"
+	}
+	"Paper"
+	{
+		"pt_p"		"Papel"
+	}
+	"Scissors"
+	{
+		"pt_p"		"Tesoura"
+	}
+	"LR RPS No Answer"
+	{
+		"pt_p"		"{1} nao escolheu pedra, papel ou tesoura, ou nao escolheu em tempo."
+	}
+	"LR RPS Done"
+	{
+		"pt_p"		"{1} escolheu {2}, {3} escolheu {4} - {5} venceu."
+	}
+	"LR RPS Tie"
+	{
+		"pt_p"		"{1} escolheu {2}, {3} escolheu {4} - empate."
+	}
+	"LR Not With Bot"
+	{
+		"pt_p"		"Desculpe, mas voce nao pode ter este ultimo pedido com um bot."
+	}
+	"LR Not Available"
+	{
+		"pt_p"		"Voce nao pode ter um ultimo pedido agora."
+	}
+	"LR Delay Announcement"
+	{
+		"pt_p"		"Prisioneiros nao podem ter um ultimo pedido antes de {1} segundo(s) terem se passado."
+	}
+	"Freekill Slay"
+	{
+		"pt_p"		"{1} foi morto por matar muitos prisioneiros que nao estavam rebeldes."
+	}
+	"Freekill Kick"
+	{
+		"pt_p"		"{1} foi kickado por matar muitos prisioneiros que nao estavam rebeldes."
+	}
+	"Freekill Kick Reason"
+	{
+		"pt_p"		"Kickado por matar muitos prisioneiros que nao estavam rebeldes"
+	}
+	"Freekill Ban"
+	{
+		"pt_p"		"{1} foi banido por matar muitos prisioneiros que nao estavam rebeldes."
+	}
+	"Freekill Ban Reason"
+	{
+		"pt_p"		"Banido por matar muitos prisioneiros que nao estavam rebeldes"
+	}
+	"Freekill Record Increased"
+	{
+		"pt_p"		"Voce ja matou {1} de no maximo {2} prisioneiros nao rebeldes (antes de uma acao ser tomada)..."
+	}
+	"Race Won"
+	{
+		"pt_p"		"{1} venceu a Corrida!"
+	}
+	"Won Jump Contest"
+	{
+		"pt_p"		"{1} venceu a Disputa de pulos!"
+	}
+	"Russian Roulette - Hit"
+	{
+		"pt_p"		"Roleta Russa: A bala atingiu {1}!"
+	}
+	"Russian Roulette - Miss"
+	{
+		"pt_p"		"Roleta Russa: Errou. Girando novamente..."
+	}
+	"Randomly Chose First Player"
+	{
+		"pt_p"		"Foi aleatoriamente escolhido {1} para atirar primeiro."
+	}
+	"LR Interference Slay"
+	{
+		"pt_p"		"{1} foi morto por atacar {2} com {3} durante o LR."
+	}
+	"LR Interference Abort"
+	{
+		"pt_p"		"{1} atacou {2} com {3}. LR terminado."
+	}
+	"LR Interference Slay - No Victim"
+	{
+		"pt_p"		"{1} foi morto por atacar {2} durante o LR."
+	}
+	"LR Interference Abort - No Victim"
+	{
+		"pt_p"		"{1} atacou {2}. LR terminado."
+	}
+	"LR Cheating Abort"
+	{
+		"pt_p"		"{1} burlou! LR terminado."
+	}
+	"LR Cheating Slay"
+	{
+		"pt_p"		"{1} foi morto por burlar o LR."
+	}
+	"Noscope Knife Attack Slay"
+	{
+		"pt_p"		"{1} foi morto por atacar {2} com uma faca durante o Sniper sem mira."
+	}
+	"Noscope Knife Attack Abort"
+	{
+		"pt_p"		"{1} atacou {2} com uma faca - Sniper sem mira terminado."
+	}
+	"S4S Rebel Slayed"
+	{
+		"pt_p"		"{1} foi morto por rebelar durante o Pente por pente."
+	}
+	"S4S Rebel Aborted"
+	{
+		"pt_p"		"{1} rebelou durante o LR - Pente por pente terminado."
+	}
+	"M4M Mag Used"
+	{
+		"pt_p"		"{1} ja usou seu pente."
+	}
+	"LR No CTs Available"
+	{
+		"pt_p"		"Nao ha nenhum guarda disponivel para ter LR com voce."
+	}
+	"LR Aborted"
+	{
+		"pt_p"		"Terminada todas as atividades de Ultimo Pedido!"
+	}
+	"Knife Fight Selection Menu"
+	{
+		"pt_p"		"Escolha o tipo de Briga de Faca:"
+	}
+	"Knife_Vintage"
+	{
+		"pt_p"		"Vintage Knife"
+	}
+	"Knife_Drunk"
+	{
+		"pt_p"		"Drunken Boxing"
+	}
+	"Knife_LowGrav"
+	{
+		"pt_p"		"Moon Shoes"
+	}
+	"Knife_HiSpeed"
+	{
+		"pt_p"		"Meep-Meep Speed"
+	}
+	"Knife_Drugs"
+	{
+		"pt_p"		"Trippy"
+	}
+	"Knife_ThirdPerson"
+	{
+		"pt_p"		"Third Person"
+	}
+	"Pistol Selection Menu"
+	{
+		"pt_p"		"Escolha uma Pistola:"
+	}
+	"Pistol_Deagle"
+	{
+		"pt_p"		"Deagle"
+	}
+	"Pistol_P228"
+	{
+		"pt_p"		"P228"
+	}
+	"Pistol_Glock"
+	{
+		"pt_p"		"Glock"
+	}
+	"Pistol_FiveSeven"
+	{
+		"pt_p"		"Five-Seven"
+	}
+	"Pistol_Dualies"
+	{
+		"pt_p"		"Dualies"
+	}
+	"Pistol_USP"
+	{
+		"pt_p"		"USP"
+	}
+	"NSW_AWP"
+	{
+		"pt_p"		"AWP"
+	}
+	"NSW_Scout"
+	{
+		"pt_p"		"Scout"
+	}
+	"NSW_SG550"
+	{
+		"pt_p"		"SG550"
+	}
+	"NSW_G3SG1"
+	{
+		"pt_p"		"G3SG1"
+	}
+	"Find a Starting Location"
+	{
+		"pt_p"		"Selecione o local de INICIO"
+	}
+	"Choose an End Point"
+	{
+		"pt_p"		"Selecione o local de TERMINO"
+	}
+	"Use Current Position"
+	{
+		"pt_p"		"Usar o local atual"
+	}
+	"Race Points too Close"
+	{
+		"pt_p"		"Seu local de termino esta muito proximo ao local de inicio."
+	}
+	"Too Near Obstruction"
+	{
+		"pt_p"		"Algo esta bloqueando o trajeto. Mova-se dentro e abra ou tente novamente."
+	}
+	"Jump Contest Menu"
+	{
+		"pt_p"		"Escolha o tipo de Disputa de pulos:"
+	}
+	"Jump_TheMost"
+	{
+		"pt_p"		"Most Jumps"
+	}
+	"Jump_Farthest"
+	{
+		"pt_p"		"Farthest Jump"
+	}
+	"Jump_BrinkOfDeath"
+	{
+		"pt_p"		"Brink of Death"
+	}
+	"Must Be On Ground"
+	{
+		"pt_p"		"Voce tem que estar no chao para selecionar esta opcao."
+	}
+	"Farthest Jump Won"
+	{
+		"pt_p"		"{1} ganhou o pulo mais longe com {3} comparado a {2} com {4}."
+	}
+	"Race Could Start Soon"
+	{
+		"pt_p"		"{1} escolheu ter uma Corrida. Olhe atentamente para o ponto de INICIO e TERMINO!"
+	}
+	"GT No Throw"
+	{
+		"pt_p"		"{1} ganhou o guntoss porque {2} nao atirou a arma."
+	}
+	"JF No Jump"
+	{
+		"pt_p"		"{1} ganhou o duelo de saltos, porque {2} nao saltou."
+	}
+	"JF Jump Warning"
+	{
+		"pt_p"		"O teu oponente já saltou. Tens 10 segundos para o fazer."
+	}
+	"GT Throw Warning"
+	{
+		"pt_p"		"O teu oponente atirou a arma. Tens 10 segundos para o fazer."
+	}
+}

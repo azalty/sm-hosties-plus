@@ -1,0 +1,595 @@
+﻿"Phrases"
+{
+	"Knife Fight"
+	{
+		"tr"		"Bıçak Dövüşü"
+	}
+	"Shot4Shot"
+	{
+		"tr"		"Shot4Shot"
+	}
+	"Gun Toss"
+	{
+		"tr"		"Silah Atışı"
+	}
+	"Chicken Fight"
+	{
+		"tr"		"Tavuk Dövüşü"
+	}
+	"Hot Potato"
+	{
+		"tr"		"Sıcak Patates"
+	}
+	"Dodgeball"
+	{
+		"tr"		"Yakar Top"
+	}
+	"No Scope Battle"
+	{
+		"tr"		"Zoomsuz Savaş"
+	}
+	"Rock Paper Scissors"
+	{
+		"tr"		"Taş Kağıt Makas"
+	}
+	"Russian Roulette"
+	{
+		"tr"		"Rus Ruleti"
+	}
+	"Jumping Contest"
+	{
+		"tr"		"Engel Atlama Yarışması"
+	}
+	"Rebel!"
+	{
+		"tr"		"İsyan!"
+	}
+	"Mag4Mag"
+	{
+		"tr"		"Mag4Mag"
+	}
+	"Race"
+	{
+		"tr"		"Yarış"
+	}
+	"LR Grace TimeBlock"
+	{
+		"tr"		"Oyuncular oyuna katılabilirken LR'yi başlatamazsınız."
+	}
+	"Already Dropped Deagle"
+	{
+		"tr"		"Deagle'ınızı zaten düşürdünüz!"
+	}
+	"Hot Potato PickUp"
+	{
+		"tr"		"{1} sıcak patatesi aldı!"
+	}
+	"Powered By Hosties"
+	{
+		"tr"		"Bu sunucu ENT_Hosties V3 tarafından desteklenmektedir. iyi eğlenceler!"
+	}
+	"Please Follow Rules"
+	{
+		"tr"		"Lütfen !rules listelenen kuralları izleyin."
+	}
+	"Knife Fight Gun Attack Slay"
+	{
+		"tr"		"{1}, Bıçak Dövüşü sırasında {3} ile {2} 'ye saldırdığı için öldürüldü."
+	}
+	"Knife Fight Gun Attack Abort"
+	{
+		"tr"		"{1}, {3} ile {2} saldırdı - Bıçak Dövüşü iptal edildi."
+	}
+	"Chicken Fight Gun Attack Slay"
+	{
+		"tr"		"{1}, Tavuk Dövüşü sırasında {3} ile {2} 'ye saldırdığı için öldürüldü."
+	}
+	"Chicken Fight Gun Attack Abort"
+	{
+		"tr"		"{1}, {3} ile {2} saldırdı - Tavuk Dövüşü iptal edildi."
+	}
+	"Hot Potato Attack Slay"
+	{
+		"tr"		"{1}, Sıcak Patates yarışması sırasında {2} 'ye saldırdığı için öldürüldü."
+	}
+	"Hot Potato Attack Abort"
+	{
+		"tr"		"{1} saldırdı {2} - Sıcak Patates yarışması iptal edildi."
+	}
+	"New Rebel"
+	{
+		"tr"		"{1} artık isyancı."
+	}
+	"Freeattack"
+	{
+		"tr"		"{1} saldırdı {2}."
+	}
+	"Non LR Kill LR Slay"
+	{
+		"tr"		"LR oyuncusu olmayan {1}, LR oyuncusunu {2} öldürdüğü için öldürüldü."
+	}
+	"Non LR Kill LR Abort"
+	{
+		"tr"		"LR oyuncusu olmayan {1} öldürülen LR oyuncusu {2} - LR iptal edildi."
+	}
+	"Rebel Kill"
+	{
+		"tr"		"{1} isyancı öldürdü {2}."
+	}
+	"LR Available"
+	{
+		"tr"		"Teröristler artık son istek için !lr yazabilir."
+	}
+	"LR Player Disconnect"
+	{
+		"tr"		"LR oyuncusu {1} bağlantısı kesildi - LR iptal edildi."
+	}
+	"Chicken Fight Win And Slay"
+	{
+		"tr"		"{1} Tavuk Dövüşünü kazandı - {2} katledildi."
+	}
+	"Chicken Fight Win"
+	{
+		"tr"		"{1} Tavuk Dövüşünü kazandı."
+	}
+	"Chicken Fight Kill Loser"
+	{
+		"tr"		"{1} öldü!"
+	}
+	"S4S Shot Taken"
+	{
+		"tr"		"{1} fotoğrafını çekti."
+	}
+	"Distance Meter"
+	{
+		"tr"		"Mesafe:"
+	}
+	"LR Rebel Not Allowed"
+	{
+		"tr"		"İsyancı olduğunuzda LR'niz olamaz."
+	}
+	"LR Choose"
+	{
+		"tr"		"Son Bir İstek Seçin"
+	}
+	"No CTs Alive"
+	{
+		"tr"		"LR'niz için CT (canlı) yoktur."
+	}
+	"Too Many Ts"
+	{
+		"tr"		"Şu anda LR'ye sahip olmak için çok fazla terörist var!"
+	}
+	"Not Alive Or In Wrong Team"
+	{
+		"tr"		"Hayatta değilsin ya da LR için yanlış takımda değilsin."
+	}
+	"Another LR In Progress"
+	{
+		"tr"		"Halen devam etmekte olan bir LR var."
+	}
+	"LR Disabled"
+	{
+		"tr"		"Maalesef, bu sunucuda son istekler devre dışı bırakıldı."
+	}
+	"Choose A Player"
+	{
+		"tr"		"Bir oyuncu seçin"
+	}
+	"Rebel Ask CT For LR"
+	{
+		"tr"		"İsyancı {1} sizinle {2} olmak istiyor. Kabul etmek?"
+	}
+	"Yes"
+	{
+		"tr"		"Evet"
+	}
+	"No"
+	{
+		"tr"		"Hayır"
+	}
+	"Asking For Permission"
+	{
+		"tr"		"İsyancı olduğunuz için {1} iznini istemek ..."
+	}
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"tr"		"Hedef oyuncu hayatta değil veya LR için yanlış takımda."
+	}
+	"Declined LR Request"
+	{
+		"tr"		"{1} LR isteğinizi reddetti."
+	}
+	"LR Partner Died"
+	{
+		"tr"		"LR partneriniz öldü."
+	}
+	"Too Slow Another LR In Progress"
+	{
+		"tr"		"Hata! Çok yavaş. Devam eden başka bir LR var."
+	}
+	"LR Request Decline Or Too Long"
+	{
+		"tr"		"{1} LR isteğinizi reddetti veya karar vermedi."
+	}
+	"LR Has Chosen to Rebel!"
+	{
+		"tr"		"{1} isyan atmayı seçti!"
+	}
+	"Start Jump Contest"
+	{
+		"tr"		"{1}, {2} ile bir En Atlar Yarışması seçti."
+	}
+	"Start Brink of Death"
+	{
+		"tr"		"{1}, {2} ile bir Ölümün Eşiğine Yarışması seçti."
+	}
+	"Start Farthest Jump"
+	{
+		"tr"		"{1}, {2} ile En Uzak Atlama yarışmasını seçti."
+	}
+	"No Rebels ATM"
+	{
+		"tr"		"Şu anda isyan eden teröristler yok."
+	}
+	"Rebelling Terrorists"
+	{
+		"tr"		"Teröristlerin İsyanı:"
+	}
+	"CheckPlayers CMD Disabled"
+	{
+		"tr"		"!checkplayers komutu bu sunucuda devre dışı bırakıldı."
+	}
+	"Server Rules"
+	{
+		"tr"		"Sunucu kuralları:"
+	}
+	"HP Win"
+	{
+		"tr"		"{1} Sıcak Patates yarışmasını kazandı - {2} katledildi."
+	}
+	"HP Last One To Have The Potato"
+	{
+		"tr"		"Patatesin sonuncusu sizdiniz!"
+	}
+	"Ts Muted"
+	{
+		"tr"		"Teröristler, turun ilk {1} saniyesini kapattı!"
+	}
+	"Ts Can Speak Again"
+	{
+		"tr"		"Teröristler artık konuşabiliyorlar ... sessizce ..."
+	}
+	"Now Muted"
+	{
+		"tr"		"Artık sessizsiniz, turun sonunda sesi açılmış olacaksınız."
+	}
+	"NS Weapon Chooser Menu"
+	{
+		"tr"		"Lütfen Kapsamsız Savaşta kullanılacak bir silah seçin:"
+	}
+	"CT Attack T Gun"
+	{
+		"tr"		"{1} silahı olan {2} 'ye saldırdı ..."
+	}
+	"Rock"
+	{
+		"tr"		"Taş"
+	}
+	"Paper"
+	{
+		"tr"		"Kağıt"
+	}
+	"Scissors"
+	{
+		"tr"		"Makas"
+	}
+	"LR RPS No Answer"
+	{
+		"tr"		"{1} taş, kağıt veya makas seçmedi veya zamanında seçmedi."
+	}
+	"LR RPS Done"
+	{
+		"tr"		"{1} seçin {2}, {3} seçin {4} - {5} kazandı"
+	}
+	"LR RPS Tie"
+	{
+		"tr"		"{1} şey {2}, {3} şey {4} - kravat"
+	}
+	"LR Not With Bot"
+	{
+		"tr"		"Maalesef, bu LR'yi bir botla alamazsınız."
+	}
+	"LR Not Available"
+	{
+		"tr"		"Şu anda son bir isteğiniz olamaz."
+	}
+	"LR Delay Announcement"
+	{
+		"tr"		"Teröristler {1} saniye geçene kadar son istekte bulunamazlar!"
+	}
+	"Freekill Slay"
+	{
+		"tr"		"{1} isyancı olmayan teröristleri öldürdüğü için öldürüldü."
+	}
+	"Freekill Kick"
+	{
+		"tr"		"{1} isyancı olmayan teröristleri öldürdüğü için sunucudan atıldı."
+	}
+	"Freekill Kick Reason"
+	{
+		"tr"		"İsyancı olmayan çok sayıda teröristi öldürdüğü için uzaklaştırıldın"
+	}
+	"Freekill Ban"
+	{
+		"tr"		"{1} isyancı olmayan teröristleri öldürmek için yasaklandı."
+	}
+	"Freekill Ban Reason"
+	{
+		"tr"		"İsyancı olmayan teröristleri öldürmek yasaklandı"
+	}
+	"Freekill Record Increased"
+	{
+		"tr"		"{1} {2} isyankar olmayan öldürmeniz var (harekete geçilmeden önce) ..."
+	}
+	"Race Won"
+	{
+		"tr"		"{1} Yarışı kazandı!"
+	}
+	"Won Jump Contest"
+	{
+		"tr"		"{1} Engel Atlama Yarışmasını kazandı!"
+	}
+	"Russian Roulette - Hit"
+	{
+		"tr"		"Rus Ruleti: Mermi vuruldu {1}!"
+	}
+	"Russian Roulette - Miss"
+	{
+		"tr"		"Rus Ruleti: Kaçırıldı. Tekrar dönüyor ..."
+	}
+	"Randomly Chose First Player"
+	{
+		"tr"		"Önce çekim yapmak için {1} rastgele seçildi."
+	}
+	"LR Interference Slay"
+	{
+		"tr"		"{1}, LR sırasında {3} ile {2} 'ye saldırdığı için öldürüldü."
+	}
+	"LR Interference Abort"
+	{
+		"tr"		"{1}, {3} ile {2} 'ye saldırdı. LR iptal edildi."
+	}
+	"LR Interference Slay - No Victim"
+	{
+		"tr"		"{1}, LR sırasında {2} 'ye saldırdığı için öldürüldü."
+	}
+	"LR Interference Abort - No Victim"
+	{
+		"tr"		"{1}, {2} ile saldırdı. LR iptal edildi."
+	}
+	"LR Cheating Abort"
+	{
+		"tr"		"{1} kandırdı! LR iptal edildi."
+	}
+	"LR Cheating Slay"
+	{
+		"tr"		"{1}, LR sırasında hile yapmak için öldürüldü."
+	}
+	"Noscope Knife Attack Slay"
+	{
+		"tr"		"Zoomsuz Savaş sırasında {1} bir bıçakla {2} saldırdığı için öldürüldü."
+	}
+	"Noscope Knife Attack Abort"
+	{
+		"tr"		"{1} bir bıçakla {2} saldırdı - Zoomsuz Savaş iptal edildi."
+	}
+	"S4S Rebel Slayed"
+	{
+		"tr"		"{1} S4S sırasında isyan ettiği için katledildi."
+	}
+	"S4S Rebel Aborted"
+	{
+		"tr"		"{1} LR - S4S sırasında isyan iptal edildi."
+	}
+	"M4M Mag Used"
+	{
+		"tr"		"{1} dergilerini kullandı."
+	}
+	"LR No CTs Available"
+	{
+		"tr"		"Şu anda LR'nizi alabileceğiniz herhangi bir CT yoktur."
+	}
+	"LR Aborted"
+	{
+		"tr"		"Tüm etkin Son İstekler iptal edildi!"
+	}
+	"Knife Fight Selection Menu"
+	{
+		"tr"		"Bıçak Savaşını Seç:"
+	}
+	"Knife_Vintage"
+	{
+		"tr"		"Nostaljik Bıçak"
+	}
+	"Knife_Drunk"
+	{
+		"tr"		"Sarhoş Boks"
+	}
+	"Knife_LowGrav"
+	{
+		"tr"		"Ay Ayakkabıları"
+	}
+	"Knife_HiSpeed"
+	{
+		"tr"		"Meep-Meep Hızı"
+	}
+	"Knife_Drugs"
+	{
+		"tr"		"Sanrılı"
+	}
+	"Knife_ThirdPerson"
+	{
+		"tr"		"Üçüncü şahıs"
+	}
+	"Pistol Selection Menu"
+	{
+		"tr"		"Bir Tabanca Seçin:"
+	}
+	"Pistol_Deagle"
+	{
+		"tr"		"Deagle"
+	}
+	"Pistol_P228"
+	{
+		"tr"		"P228"
+	}
+	"Pistol_P250"
+	{
+		"tr"		"P250"
+	}
+	"Pistol_Glock"
+	{
+		"tr"		"Glock"
+	}
+	"Pistol_FiveSeven"
+	{
+		"tr"		"Five-Seven"
+	}
+	"Pistol_Dualies"
+	{
+		"tr"		"Dualies"
+	}
+	"Pistol_USP"
+	{
+		"tr"		"USP"
+	}
+	"Pistol_P2000"
+	{
+		"tr"		"P2000"
+	}
+	"Pistol_Tec9"
+	{
+		"tr"		"Tec 9"
+	}
+	"Pistol_CZ75"
+	{
+		"tr"		"CZ75"
+	}
+	"Pistol_USPS"
+	{
+		"tr"		"USP-S"
+	}
+	"Pistol_Revolver"
+	{
+		"tr"		"Revolver"
+	}
+	"NSW_AWP"
+	{
+		"tr"		"AWP"
+	}
+	"NSW_Scout"
+	{
+		"tr"		"Scout"
+	}
+	"NSW_SSG08"
+	{
+		"tr"		"SSG08 (Scout)"
+	}
+	"NSW_SG550"
+	{
+		"tr"		"SG550"
+	}
+	"NSW_SCAR20"
+	{
+		"tr"		"SCAR20"
+	}
+	"NSW_G3SG1"
+	{
+		"tr"		"G3SG1"
+	}
+	"Find a Starting Location"
+	{
+		"tr"		"Bir Başlangıç Yeri Seçin"
+	}
+	"Choose an End Point"
+	{
+		"tr"		"Bir Bitiş Konumu Seçin"
+	}
+	"Use Current Position"
+	{
+		"tr"		"Mevcut Konumu Kullan"
+	}
+	"Race Points too Close"
+	{
+		"tr"		"Bitiş noktanız başlangıç noktasına çok yakındı."
+	}
+	"Too Near Obstruction"
+	{
+		"tr"		"Bir şey yolu tıkıyor. Açın ve tekrar deneyin."
+	}
+	"Jump Contest Menu"
+	{
+		"tr"		"Bir Atlama Yarışması Seçin:"
+	}
+	"Jump_TheMost"
+	{
+		"tr"		"En Çok Atlayan"
+	}
+	"Jump_Farthest"
+	{
+		"tr"		"En Uzak Atlama"
+	}
+	"Jump_BrinkOfDeath"
+	{
+		"tr"		"Ölümün eşiğinde"
+	}
+	"Must Be On Ground"
+	{
+		"tr"		"You must be on the ground to select this option."
+	}
+	"Farthest Jump Won"
+	{
+		"tr"		"{1}, {2} 'nin {4} ile karşılaştırıldığında {3} ile en uzak sıçramayı kazandı."
+	}
+	"Race Could Start Soon"
+	{
+		"tr"		"{1} Yarış LR'yi seçti. Başlangıç ve bitiş noktalarını izleyin!"
+	}
+	"Respawned Target"
+	{
+		"tr"		"Yeniden doğma {1}"
+	}	
+	"Player Alive"
+	{
+		"tr"		"Oyuncu zaten yaşıyor."
+	}
+	"Respawn Player"
+	{
+		"tr"		"Yeniden Canlanan Oyuncu"
+	}	
+	"Respawn Data Unavailable"
+	{
+		"tr"		"Oyuncu {1} henüz yeniden doğma verisine sahip olmadı ve hücrelere geri gönderildi."
+	}
+	"Blocked Warmup"
+	{
+		"tr"		"Isınma sırasında LR'yi başlatamazsınız."
+	}
+	"GT No Throw"
+	{
+		"tr"		"{1} Silah Atışını kazandı, çünkü {2} silahı atmadı"
+	}
+	"JF No Jump"
+	{
+		"tr"		"{1} Atlama Yarışmasını kazandı, çünkü {2} atlamadı"
+	}
+	"JF Jump Warning"
+	{
+		"tr"		"Rakibiniz atladı. Bunu yapmak için 10 saniyeniz var."
+	}
+	"GT Throw Warning"
+	{
+		"tr"		"Rakibiniz silahı fırlattı. Bunu yapmak için 10 saniyeniz var."
+	}
+}

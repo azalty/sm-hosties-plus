@@ -1,0 +1,578 @@
+"Phrases"
+{
+	"Knife Fight"
+	{
+		"ro"		"Bataie cu cutite"
+	}
+	"Shot4Shot"
+	{
+		"ro"		"Shot4Shot"
+	}
+	"Chicken Fight"
+	{
+		"ro"		"Chicken Fight"
+	}
+	"Hot Potato"
+	{
+		"ro"		"Hot Potato"
+	}
+	"Dodgeball"
+	{
+		"ro"		"Dodgeball"
+	}
+	"No Scope Battle"
+	{
+		"ro"		"Duel No Scope"
+	}
+	"Rock Paper Scissors"
+	{
+		"ro"		"Piatra Foarfeca Hartie"
+	}
+	"Russian Roulette"
+	{
+		"ro"		"Ruleta Ruseasca"
+	}
+	"Jumping Contest"
+	{
+		"ro"		"Concurs de sarituri"
+	}
+	"Rebel!"
+	{
+		"ro"		"Rebel!"
+	}
+	"Mag4Mag"
+	{
+		"ro"		"Mag4Mag"
+	}
+	"Race"
+	{
+		"ro"		"Cursa"
+	}
+	"LR Grace TimeBlock"
+	{
+		"ro"		"Nu poti avea un LR inainte de terminarea timpului de gratie."
+	}
+	"Already Dropped Deagle"
+	{
+		"ro"		"Ti-ai aruncat deja deagle-ul!"
+	}
+	"Hot Potato PickUp"
+	{
+		"ro"		"{1} a luat cartoful fierbinte!"
+	}
+	"Powered By Hosties"
+	{
+		"ro"		"Acest server ruleaza Hosties(Entity-Edition)!"
+	}
+	"Please Follow Rules"
+	{
+		"ro"		"Te rugam sa respecti regulile din !rules."
+	}
+	"Knife Fight Gun Attack Slay"
+	{
+		"ro"		"{1} a primit slay pentru atacarea lui {2} cu {3} in timpul unui Knife Fight."
+		
+	}
+	"Knife Fight Gun Attack Abort"
+	{
+		"ro"		"{1} l-a atacat pe {2} cu {3} - Knife Fight anulat."
+		
+	}
+	"Chicken Fight Gun Attack Slay"
+	{
+		"ro"		"{1} a primit slay pentru atacarea lui {2} cu {3} in timpul unui Chicken Fight."
+	}
+	"Chicken Fight Gun Attack Abort"
+	{
+		"ro"		"{1} l-a atacat pe {2} cu {3} - Chicken Fight anulat."
+	}
+	"Hot Potato Attack Slay"
+	{
+		"ro"		"{1} a primit slay pentru atacarea lui {2} cu {3} in timpul unei runde de Hot Potato."
+	}
+	"Hot Potato Attack Abort"
+	{
+		"ro"		"{1} l-a atacat pe {2} cu {3} - Hot Potato anulat."
+	}
+	"New Rebel"
+	{
+		"ro"		"{1} a devenit rebel."
+	}
+	"Freeattack"
+	{
+		"ro"		"{1} l-a atacat pe {2}."
+	}
+	"Non LR Kill LR Slay"
+	{
+		"ro"		"Jucatorul non-LR {1} a primit slay pentru uciderea jucatorului cu LR {2}."
+	}
+	"Non LR Kill LR Abort"
+	{
+		"ro"		"Jucatorul non-LR {1} l-a omorat pe jucatorul cu LR {2} - LR anulat."
+	}
+	"Rebel Kill"
+	{
+		"ro"		"{1} a omorat rebelul {2}."
+	}
+	"LR Available"
+	{
+		"ro"		"Prizonierii pot tasta !lr pentru a avea un Last Request."
+	}
+	"LR Player Disconnect"
+	{
+		"ro"		"Jucatorul cu LR {1} s-a deconectat - LR anulat."
+	}
+	"Chicken Fight Win And Slay"
+	{
+		"ro"		"{1} a castigat Chicken Fight - {2} a primit slay."
+	}
+	"Chicken Fight Win"
+	{
+		"ro"		"{1} a castigat Chicken Fight."
+	}
+	"Chicken Fight Kill Loser"
+	{
+		"ro"		"Omoara-l pe {1}"
+	}
+	"S4S Shot Taken"
+	{
+		"ro"		"{1} a tras glontul lui."
+	}
+	"Distance Meter"
+	{
+		"ro"		"Distanta in metri:"
+	}
+	"LR Rebel Not Allowed"
+	{
+		"ro"		"Nu poti avea un LR in timp ce esti un rebel."
+	}
+	"LR Choose"
+	{
+		"ro"		"Alege un Last Request"
+	}
+	"No CTs Alive"
+	{
+		"ro"		"Nu este niciun Gardian (in viata) cu care poti avea un LR."
+	}
+	"Too Many Ts"
+	{
+		"ro"		"Sunt prea multi Prizonieri in viata pentru a putea avea un LR acum!"
+	}
+	"Not Alive Or In Wrong Team"
+	{
+		"ro"		"Nu esti inviata sau esti in echipa gresita pentru LR."
+	}
+	"Another LR In Progress"
+	{
+		"ro"		"Deja exista un LR in decurs."
+	}
+	"LR Disabled"
+	{
+		"ro"		"Ne cerem scuze, Last Request-urile sunt dezactivate pe acest server."
+	}
+	"Choose A Player"
+	{
+		"ro"		"Alege un jucator"
+	}
+	"Rebel Ask CT For LR"
+	{
+		"ro"		"Rebelul {1} doreste sa aibe {2} cu tine. Accepti?"
+	}
+	"Yes"
+	{
+		"ro"		"Da"
+	}
+	"No"
+	{
+		"ro"		"Nu"
+	}
+	"Asking For Permission"
+	{
+		"ro"		"Se cere permisiunea lui {1}, deoarece esti un rebel..."
+
+	}
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"ro"		"Jucatorul selectat nu este in viata sau se afla in echipa gresita pentru LR."
+	}
+	"Declined LR Request"
+	{
+		"ro"		"{1} a refuzat cererea ta pentru LR."
+	}
+	"LR Partner Died"
+	{
+		"ro"		"Adversarul tau a murit."
+	}
+	"Too Slow Another LR In Progress"
+	{
+		"ro"		"Oops, prea incet. Deja exista un LR in decurs."
+	}
+	"LR Request Decline Or Too Long"
+	{
+		"ro"		"{1} a refuzat cererea ta de LR sau a durat prea mult pana a raspuns."
+	}
+	"LR Has Chosen to Rebel!"
+	{
+		"ro"		"{1} a ales sa devina rebel!"
+	}
+	"No Rebels ATM"
+	{
+		"ro"		"Nu sunt Prizonieri rebeli in acest moment."
+	}
+	"Rebelling Terrorists"
+	{
+		"ro"		"Prizonieri rebeli:"
+	}
+	"CheckPlayers CMD Disabled"
+	{
+		"ro"		"Comanda !checkplayers este dezactivata pe acest server."
+	}
+	"Server Rules"
+	{
+		"ro"		"Regulamentul acestui server:"
+	}
+	"HP Win"
+	{
+		"ro"		"{1} a castigat concursul Hot Potato - {2} a primit slay."
+	}
+	"HP Last One To Have The Potato"
+	{
+		"ro"		"Ai fost ultimul care a avut cartoful!"
+	}
+	"Ts Muted"
+	{
+		"ro"		"Prizonierii au mute pentru primele {1} secunde ale rundei!"
+	}
+	"Ts Can Speak Again"
+	{
+		"ro"		"Prizonierii pot vorbi, incet..."
+	}
+	"Now Muted"
+	{
+		"ro"		"Ai primit mute temporar, vei primi unmute la sfarsitul rundei."
+	}
+	"NS Weapon Chooser Menu"
+	{
+		"ro"		"Te rugam sa selectezi o arma pentru a o utiliza in lupta No Scope:"
+	}
+	"CT Attack T Gun"
+	{
+		"ro"		"{1} l-a atacat pe {2} care detine o arma..."
+	}
+	"Rock"
+	{
+		"ro"		"Piatra
+	}
+	"Paper"
+	{
+		"ro"		"Foarfeca"
+	}
+	"Scissors"
+	{
+		"ro"		"Hartie"
+	}
+	"LR RPS No Answer"
+	{
+		"ro"		"{1} nu a ales Piatra, Foarfeca sau Hartie ori nu a ales la timp"
+	}
+	"LR RPS Done"
+	{
+		"ro"		"{1} a ales {2}, {3} a ales {4} - {5} a castigat"
+	}
+	"LR RPS Tie"
+	{
+		"ro"		"{1} a ales {2}, {3} a ales {4} - egalitate"
+	}
+	"LR Not With Bot"
+	{
+		"ro"		"Ne cerem scuze, nu poti avea un LR cu un bot."
+	}
+	"LR Not Available"
+	{
+		"ro"		"Nu poti parasi Last Request-ul acum."
+	}
+	"LR Delay Announcement"
+	{
+		"ro"		"Prizonierii nu pot avea un Last Request pana cand nu vor/va trece {1} secunda/e."
+	}
+	"Freekill Slay"
+	{
+		"ro"		"{1} a primit slay pentru uciderea prea multor prizonieri care nu erau rebeli"
+	}
+	"Freekill Kick"
+	{
+		"ro"		"{1} a primit kick pentru uciderea prea multor prizonieri care nu erau rebeli"
+	}
+	"Freekill Kick Reason"
+	{
+		"ro"		"Ai primit kick pentru uciderea prea multor prizonieri care nu erau rebeli"
+	}
+	"Freekill Ban"
+	{
+		"ro"		"{1} a primit ban pentru uciderea prea multor prizonieri care nu erau rebeli"
+	}
+	"Freekill Ban Reason"
+	{
+		"ro"		"Ai primit ban pentru uciderea prea multor prizonieri care nu erau rebeli"
+	}
+	"Freekill Record Increased"
+	{
+		"ro"		"Ai {1} din {2} ucideri a jucatorilor care nu sunt rebeli."
+	}
+	"Race Won"
+	{
+		"ro"		"{1} a castigat cursa!"
+	}
+	"Won Jump Contest"
+	{
+		"ro"		"{1} a castigat concursul de sarituri!"
+	}
+	"Russian Roulette - Hit"
+	{
+		"ro"		"Ruleta Ruseasca: Glontul l-a lovit pe {1}!"
+	}
+	"Russian Roulette - Miss"
+	{
+		"ro"		"Ruleta Ruseasca: Pe langa. Se invarte din nou..."
+	}
+	"Randomly Chose First Player"
+	{
+		"ro"		"{1} a fost selectat aleatoriu pentru a trage primul"
+	}
+	"LR Interference Slay"
+	{
+		"ro"		"{1} a primit slay pentru atacarea lui {2} cu {3} in timpul unui LR."
+	}
+	"LR Interference Abort"
+	{
+		"ro"		"{1} l-a atacat pe {2} cu {3}. LR anulat."
+	}
+	"LR Interference Slay - No Victim"
+	{
+		"ro"		"{1} a primit slay pentru atacarea lui {2} in timpul unui LR."
+	}
+	"LR Interference Abort - No Victim"
+	{
+		"ro"		"{1} l-a atacat pe {2}. LR anulat."
+	}
+	"LR Cheating Abort"
+	{
+		"ro"		"{1} a trisat! LR anulat."
+	}
+	"LR Cheating Slay"
+	{
+		"ro"		"{1} a primit slay pentru trisarea in timpul unui LR"
+	}
+	"Noscope Knife Attack Slay"
+	{
+		"ro"		"{1} a primit slay pentru atacarea {2} cu un cutit in timpul unui LR de No Scope"
+	}
+	"Noscope Knife Attack Abort"
+	{
+		"ro"		"{1} l-a atacat cu un cutit pe {2} - No Scope anulat"
+	}
+	"S4S Rebel Slayed"
+	{
+		"ro"		"{1} a primit slay deoarece a devenit rebel in timpul unui S4S"
+	}
+	"S4S Rebel Aborted"
+	{
+		"ro"		"{1} a devenit rebel in timpul LR-ului - S4S anulat"
+	}
+	"M4M Mag Used"
+	{
+		"ro"		"{1} a terminat cartusul"
+	}
+	"LR No CTs Available"
+	{
+		"ro"		"Nu este niciun Gardian disponibil pentru a avea un LR."
+	}
+	"LR Aborted"
+	{
+		"ro"		"Toate LR-urile au fost anulate!"
+	}
+	"Knife Fight Selection Menu"
+	{
+		"ro"		"Alege Knife Fight-ul:"
+	}
+	"Knife_Vintage"
+	{
+		"ro"		"Cutit vintage"
+	}
+	"Knife_Drunk"
+	{
+		"ro"		"Box beat"
+	}
+	"Knife_LowGrav"
+	{
+		"ro"		"Pantofi lunari"
+	}
+	"Knife_HiSpeed"
+	{
+		"ro"		"Viteza Meep-Meep"
+	}
+	"Knife_Drugs"
+	{
+		"ro"		"Drogat"
+	}
+	"Knife_ThirdPerson"
+	{
+		"ro"		"A treia persoana"
+	}
+	"Pistol Selection Menu"
+	{
+		"ro"		"Alege un pistol:"
+	}
+	"Pistol_Deagle"
+	{
+		"ro"		"Deagle"
+	}
+	"Pistol_P228"
+	{
+		"ro"		"P228"
+	}
+	"Pistol_P250"
+	{
+		"ro"		"P250"
+	}
+	"Pistol_Glock"
+	{
+		"ro"		"Glock"
+	}
+	"Pistol_FiveSeven"
+	{
+		"ro"		"Five-Seven"
+	}
+	"Pistol_Dualies"
+	{
+		"ro"		"Dualies"
+	}
+	"Pistol_USP"
+	{
+		"ro"		"USP"
+	}
+	"Pistol_P2000"
+	{
+		"ro"		"P2000"
+	}
+	"Pistol_Tec9"
+	{
+		"ro"		"Tec 9"
+	}
+	"NSW_AWP"
+	{
+		"ro"		"AWP"
+	}
+	"NSW_Scout"
+	{
+		"ro"		"Scout"
+	}
+	"NSW_SSG08"
+	{
+		"ro"		"SSG08 (Scout)"
+	}
+	"NSW_SG550"
+	{
+		"ro"		"SG550"
+	}
+	"NSW_SCAR20"
+	{
+		"ro"		"SCAR20"
+	}
+	"NSW_G3SG1"
+	{
+		"ro"		"G3SG1"
+	}
+	"Find a Starting Location"
+	{
+		"ro"		"Selecteaza o locatie de incepere"
+	}
+	"Choose an End Point"
+	{
+		"ro"		"Selecteaza o locatie de incheiere"
+	}
+	"Use Current Position"
+	{
+		"ro"		"Foloseste pozitia curenta"
+	}
+	"Race Points too Close"
+	{
+		"ro"		"Punctul tau de incheiere este prea apropriat de punctul de inceput."
+	}
+	"Too Near Obstruction"
+	{
+		"ro"		"Ceva blocheaza calea. Muta-te intr-un loc deschis si incearca din nou."
+	}
+	"Jump Contest Menu"
+	{
+		"ro"		"Alege un concurs de sarituri:"
+	}
+	"Jump_TheMost"
+	{
+		"ro"		"Cele mai multe sarituri"
+	}
+	"Jump_Farthest"
+	{
+		"ro"		"Cea mai indepartata saritura"
+	}
+	"Jump_BrinkOfDeath"
+	{
+		"ro"		"La un pas de moarte"
+	}
+	"Must Be On Ground"
+	{
+		"ro"		"Trebuie sa fii pe jos pentru a selecta aceasta optiune"
+	}
+	"Farthest Jump Won"
+	{
+		"ro"		"{1} a castigat concursul pentru cea mai indepartata saritura cu {3} in comparatie cu saritura lui {2} de {4}."
+	}
+	"Race Could Start Soon"
+	{
+		"ro"		"{1} a ales un LR cu curse. Ai grija la punctul de inceput si de incheiere!"
+	}
+	"Respawned Target"
+	{
+		"ro"		"{1} a primit respawn"
+	}
+	"Player Alive"
+	{
+		"ro"		"Jucatorul este deja in viata"
+	}
+	"Respawn Player"
+	{
+		"ro"		"Reinvie Jucator"
+	}
+	"Respawn Data Unavailable"
+	{
+		"ro"		"Jucatorul {1} nu a putut fii reinviat si a fost trimis inapoi in celula."
+	}
+	"Blocked Warmup"
+    {
+       	"ro"        	"Nu poti sa pornesti un LR in timpul incalzirii."
+    }
+	"Gun Toss"
+    {
+       	"ro"        	"Gun Toss"
+    }
+	"LR GT Start"
+    {
+       	"ro"        	"{1} a ales sa aiba un Gun Toss cu {2}."
+   	}
+	"GT No Throw"
+	{
+		"ro"		"{1} a castigat Gun Toss-ul, deoarece {2} nu a aruncat arma."
+	}
+	"JF No Jump"
+	{
+		"ro"		"{1} a castigat concursul de sarituri, deoarece {2} nu a sarit."
+	}
+	"JF Jump Warning"
+	{
+		"ro"		"Adversarul tau a sarit. Ai 10 secunde pentru a face acelasi lucru."
+	}
+	"GT Throw Warning"
+	{
+		"ro"		"Adversarul tau a aruncat arma. Ai 10 secunde pentru a face acelasi lucru."
+	}
+}

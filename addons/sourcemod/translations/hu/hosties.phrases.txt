@@ -1,0 +1,605 @@
+"Phrases"
+{
+	"Knife Fight"
+	{
+		"hu"		"Kés Harc"
+	}
+	"Shot4Shot"
+	{
+		"hu"		"Shot4Shot"
+	}
+	"Chicken Fight"
+	{
+		"hu"		"Csirke Harc"
+	}
+	"Hot Potato"
+	{
+		"hu"		"Hot Potato"
+	}
+	"Dodgeball"
+	{
+		"hu"		"Kidobós"
+	}
+	"Gun Toss"
+	{
+		"hu"		"Gun Toss"
+	}
+	"No Scope Battle"
+	{
+		"hu"		"No Scope Harc"
+	}
+	"Rock Paper Scissors"
+	{
+		"hu"		"Kő Papír Olló"
+	}
+	"Russian Roulette"
+	{
+		"hu"		"Orosz Rulett"
+	}
+	"Jumping Contest"
+	{
+		"hu"		"Ugró verseny"
+	}
+	"Rebel!"
+	{
+		"hu"		"Lázadás!"
+	}
+	"Mag4Mag"
+	{
+		"hu"		"Mag4Mag"
+	}
+	"Race"
+	{
+		"hu"		"Verseny"
+	}
+	"Shield Fight"
+	{
+		"hu"		"Pajzs Párbaj"
+	}
+	"Fist Fight"
+	{
+		"hu"		"Ököl Harc"
+	}
+	"Juggernout Battle"
+	{
+		"hu"		"Juggernout Harc"
+	}
+	"Only Headshot"
+	{
+		"hu"		"Csak Fejlövés"
+	}
+	"Grenade Fight"
+	{
+		"hu"		"Gránát Harc"
+	}
+	"LR Countdown"
+	{
+		"hu"		"Az LR kezdődik {1}..."
+	}
+	"LR Grace TimeBlock"
+	{
+		"hu"		"Nem indíthatsz LR-t amíg játékosok csatlakozhatnak a körhöz."
+	}
+	"Already Dropped Deagle"
+	{
+		"hu"		"Már eldobtad a Deagleöd!"
+	}
+	"Hot Potato PickUp"
+	{
+		"hu"		"{1} felvette a Hot Potato-t!"
+	}
+	"Powered By Hosties"
+	{
+		"hu"		"Ezt a szervert az ENT_Hosties V3 támogatja. Jó játékot!"
+	}
+	"Please Follow Rules"
+	{
+		"hu"		"Kérjük kövesd a szabályokat, amit a !rules parancsal érsz el."
+	}
+	"Knife Fight Gun Attack Slay"
+	{
+		"hu"		"{1} meg lett ölve, mert megtámadta {2} játékost ezzel: {3}, Kés Harc alatt."
+		
+	}
+	"Knife Fight Gun Attack Abort"
+	{
+		"hu"		"{1} megtámadta {2} játékost ezzel: {3} - Kés Harc felfüggesztve."
+		
+	}
+	"Chicken Fight Gun Attack Slay"
+	{
+		"hu"		"{1} meg lett ölve, mert megtámadta {2} játékost ezzel: {3} Csirke harc alatt."
+	}
+	"Chicken Fight Gun Attack Abort"
+	{
+		"hu"		"{1} megtámadta {2} játékost ezzel: {3} - Chicken Fight aborted."
+	}
+	"Hot Potato Attack Slay"
+	{
+		"hu"		"{1} meg lett ölve, mert megtámadta {2} játékost ezzel: {3} Hot Potato verseny alatt ."
+	}
+	"Hot Potato Attack Abort"
+	{
+		"hu"		"{1} megtámadta {2} játékost - Hot Potato verseny alatt."
+	}
+	"New Rebel"
+	{
+		"hu"		"{1} Mostantól lázadó."
+	}
+	"Freeattack"
+	{
+		"hu"		"{1} megtámadta {2} játékost."
+	}
+	"Non LR Kill LR Slay"
+	{
+		"hu"		"Egy nem LR-játékos: {1} meg lett ölve, mert megölt egy LR játékost: {2}."
+	}
+	"Non LR Kill LR Abort"
+	{
+		"hu"		"Egy nem LR-játékos: {1}, megölt egy LR játékost: {2} - LR felfüggesztve."
+	}
+	"Rebel Kill"
+	{
+		"hu"		"{1} megölte a lázadó {2} játékost."
+	}
+	"LR Available"
+	{
+		"hu"		"A rabok mostantól használhatják !lr parancsot az utolsó kívánsághoz."
+	}
+	"LR Player Disconnect"
+	{
+		"hu"		"LR játékos: {1} lecsatlakozott - LR felfüggesztve."
+	}
+	"Chicken Fight Win And Slay"
+	{
+		"hu"		"{1} nyerte a Csirke Harcot - {2} megölve."
+	}
+	"Chicken Fight Win"
+	{
+		"hu"		"{1} nyerte a Csirke Harcot."
+	}
+	"Chicken Fight Kill Loser"
+	{
+		"hu"		"Csirke Harc vesztesének megölése: {1}."
+	}
+	"S4S Shot Taken"
+	{
+		"hu"		"{1} ellőtte a töltényeit."
+	}
+	"Distance Meter"
+	{
+		"hu"		"Távolság:"
+	}
+	"LR Rebel Not Allowed"
+	{
+		"hu"		"Mivel lázadó vagy, számodra nem engedélyezett az LR."
+	}
+	"LR Choose"
+	{
+		"hu"		"Válassz Utolsó Kívánságot"
+	}
+	"No CTs Alive"
+	{
+		"hu"		"Nincsen élő CT akivel LR-ezhetnél."
+	}
+	"Too Many Ts"
+	{
+		"hu"		"Túl sok rab él ahhoz, hogy LR-ezhess!"
+	}
+	"Not Alive Or In Wrong Team"
+	{
+		"hu"		"Nem élsz vagy rossz csapatban vagy ahhoz, hogy LR-ezhess."
+	}
+	"Another LR In Progress"
+	{
+		"hu"		"Már van folyamatban LR."
+	}
+	"LR Disabled"
+	{
+		"hu"		"Sajnálom, az Utolsó Kívánságok ezen a szerveren nem engedélyezettek."
+	}
+	"Choose A Player"
+	{
+		"hu"		"Válassz egy játékost"
+	}
+	"Rebel Ask CT For LR"
+	{
+		"hu"		"Lázadó {1} szeretne {2} kívánságot játszani veled. Elfogadod?"
+	}
+	"Yes"
+	{
+		"hu"		"Igen"
+	}
+	"No"
+	{
+		"hu"		"Nem"
+	}
+	"Asking For Permission"
+	{
+		"hu"		"{1} játékostól való engedélykérés, mivel lázadó vagy..."
+	}
+	"Target Is Not Alive Or In Wrong Team"
+	{
+		"hu"		"A kiválasztot játékos nem él, vagy rossz csapatban van az LRhez."
+	}
+	"Declined LR Request"
+	{
+		"hu"		"{1} elutasította az LR kérésed."
+	}
+	"LR Partner Died"
+	{
+		"hu"		"Az LR partnered meghalt."
+	}
+	"Too Slow Another LR In Progress"
+	{
+		"hu"		"Hoppá, túl lassú vagy. Már folyamatban van egy másik LR."
+	}
+	"LR Request Decline Or Too Long"
+	{
+		"hu"		"{1} elutasította az LR kérésed, vagy túl sokáig tartott elfogadnia."
+	}
+	"LR Has Chosen to Rebel!"
+	{
+		"hu"		"{1} a lázadást választotta!"
+	}
+	"No Rebels ATM"
+	{
+		"hu"		"Jelenleg nincsenek lázadó rabok"
+	}
+	"Rebelling Terrorists"
+	{
+		"hu"		"Lázadó rabok:"
+	}
+	"CheckPlayers CMD Disabled"
+	{
+		"hu"		"A !checkplayers-parancs ezen a szerveren ki van kapcsolva."
+	}
+	"Server Rules"
+	{
+		"hu"		"Szerver szabályok:"
+	}
+	"HP Win"
+	{
+		"hu"		"{1} megnyerte a Hot Potato versenyt - {2} meg lett ölve."
+	}
+	"HP Last One To Have The Potato"
+	{
+		"hu"		"Nálad maradt a Hot Potato, ezért meghaltál!"
+	}
+	"Ts Muted"
+	{
+		"hu"		"A rabok le lettek némítva a kör első {1} másodpercére!"
+	}
+	"Ts Can Speak Again"
+	{
+		"hu"		"A rabok mostmár beszélhetnek, halkan..."
+	}
+	"Now Muted"
+	{
+		"hu"		"Le lettél némítva, a kör végén leszel unmuted."
+	}
+	"NS Weapon Chooser Menu"
+	{
+		"hu"		"Kérlek válassz fegyvert a No Scope Harchoz:"
+	}
+	"CT Attack T Gun"
+	{
+		"hu"		"{1} megtámadta {2} akinek fegyvere volt..."
+	}
+	"Rock"
+	{
+		"hu"		"Kő"
+	}
+	"Paper"
+	{
+		"hu"		"Papír"
+	}
+	"Scissors"
+	{
+		"hu"		"Olló"
+	}
+	"LR RPS No Answer"
+	{
+		"hu"		"{1} nem választott a kő-papír-ollóban, vagy nem sikerült időben válaszolnia."
+	}
+	"LR RPS Done"
+	{
+		"hu"		"{1} ezt választotta: {2}, {3} ezt választotta: {4} - {5} nyert"
+	}
+	"LR RPS Tie"
+	{
+		"hu"		"{1} ezt választotta: {2}, {3} ezt választotta: {4} - döntetlen"
+	}
+	"LR Not With Bot"
+	{
+		"hu"		"Sajnos, nem tudsz LR-t indítani egy BOT-tal"
+	}
+	"LR Not Available"
+	{
+		"hu"		"Most nem tudsz LR indítani."
+	}
+	"LR Delay Announcement"
+	{
+		"hu"		"A rabok a következő {1} másodpercben nem LR-ezhetnek!"
+	}
+	"Freekill Slay"
+	{
+		"hu"		"{1} meg lett ölve, mert túl sok nem lázadó rabot ölt meg."
+	}
+	"Freekill Kick"
+	{
+		"hu"		"{1} ki lett rúgva, mert túl sok nem lázadó rabot ölt meg."
+	}
+	"Freekill Kick Reason"
+	{
+		"hu"		"Ki lettél rúgva mert, túl sok nem lázadó rabot öltél meg"
+	}
+	"Freekill Ban"
+	{
+		"hu"		"{1} ki lett bannolva, mert túl sok nem lázadó rabot ölt meg."
+	}
+	"Freekill Ban Reason"
+	{
+		"hu"		"Ki lettél bannolva mert, túl sok nem lázadó rabot öltél meg"
+	}
+	"Freekill Record Increased"
+	{
+		"hu"		"{1} nem lázadó rab ölésed van a {2}-ból(mielőtt következménye lenne)..."
+	}
+	"Race Won"
+	{
+		"hu"		"{1} megnyerte a versenyt!"
+	}
+	"LR Won"
+	{
+		"hu"		"{1} megnyerte a(z) {2}!"
+	}
+	"Won Jump Contest"
+	{
+		"hu"		"{1} megnyerte az ugró versenyt!"
+	}
+	"Russian Roulette - Hit"
+	{
+		"hu"		"Orosz rulett: A golyó eltalálta {1} játékost!"
+	}
+	"Russian Roulette - Miss"
+	{
+		"hu"		"Orosz Rulett: Mellé. A tár megpörgetése..."
+	}
+	"Randomly Chose First Player"
+	{
+		"hu"		"Véletlenszerűen {1} lett kiválasztva, hogy elkezdje az LR-t."
+	}
+	"LR Interference Slay"
+	{
+		"hu"		"{1} meg lett ölve, mert megtámadta {2} játékost ezzel: {3} LR alatt."
+	}
+	"LR Interference Abort"
+	{
+		"hu"		"{1} megtámadta {2} játékost ezzel: {3}. LR felfüggesztve."
+	}
+	"LR Interference Slay - No Victim"
+	{
+		"hu"		"{1} meg lett ölve mert {2} fegyverrel megtámadott valakit LR alatt."
+	}
+	"LR Interference Abort - No Victim"
+	{
+		"hu"		"{1} megsebződött {2} fegyverrel. LR felfüggesztve."
+	}
+	"LR Cheating Abort"
+	{
+		"hu"		"{1} csalt LR alatt! LR felfüggesztve."
+	}
+	"LR Cheating Slay"
+	{
+		"hu"		"{1} meg lett ölve, mert LR alatt csalt."
+	}
+	"Noscope Knife Attack Slay"
+	{
+		"hu"		"{1} meg lett ölve mert, megtámadta {2} játékost késsel No Scope harc alatt."
+	}
+	"Noscope Knife Attack Abort"
+	{
+		"hu"		"{1} megtámadta {2} játékost késsel - No Scope harc felfüggesztve."
+	}
+	"S4S Rebel Slayed"
+	{
+		"hu"		"{1} meg lett ölve, mert lázadó lett Shot4Shot alatt."
+	}
+	"S4S Rebel Aborted"
+	{
+		"hu"		"{1} lázadó lett LR alatt - Shot4Shot felfüggesztve."
+	}
+	"M4M Mag Used"
+	{
+		"hu"		"{1} elhasználta a tárját."
+	}
+	"LR No CTs Available"
+	{
+		"hu"		"Jelenleg nincs szabad őr akivel LR-ezhess."
+	}
+	"LR Aborted"
+	{
+		"hu"		"Az összes utolsó kívánság fel lett függesztve!"
+	}
+	"Knife Fight Selection Menu"
+	{
+		"hu"		"Válassz kés harc fajtát:"
+	}
+	"Knife_Vintage"
+	{
+		"hu"		"Sima késharc"
+	}
+	"Knife_Drunk"
+	{
+		"hu"		"Részeg késharc"
+	}
+	"Knife_LowGrav"
+	{
+		"hu"		"Alacsony gravitáció késharc"
+	}
+	"Knife_HiSpeed"
+	{
+		"hu"		"Fénysebességű késharc"
+	}
+	"Knife_Drugs"
+	{
+		"hu"		"Drogos késharc"
+	}
+	"Knife_ThirdPerson"
+	{
+		"hu"		"Külső nézetes késharc"
+	}
+	"Pistol Selection Menu"
+	{
+		"hu"		"Válassz fegyver:"
+	}
+	"Pistol_Deagle"
+	{
+		"hu"		"Deagle"
+	}
+	"Pistol_P228"
+	{
+		"hu"		"P228"
+	}
+	"Pistol_P250"
+	{
+		"hu"		"P250"
+	}
+	"Pistol_Glock"
+	{
+		"hu"		"Glock"
+	}
+	"Pistol_FiveSeven"
+	{
+		"hu"		"Five-Seven"
+	}
+	"Pistol_Dualies"
+	{
+		"hu"		"Dualies"
+	}
+	"Pistol_USP"
+	{
+		"hu"		"USP"
+	}
+	"Pistol_P2000"
+	{
+		"hu"		"P2000"
+	}
+	"Pistol_Tec9"
+	{
+		"hu"		"Tec 9"
+	}
+	"NSW_AWP"
+	{
+		"hu"		"AWP"
+	}
+	"NSW_Scout"
+	{
+		"hu"		"Scout"
+	}
+	"NSW_SSG08"
+	{
+		"hu"		"SSG08 (Scout)"
+	}
+	"NSW_SG550"
+	{
+		"hu"		"SG550"
+	}
+	"NSW_SCAR20"
+	{
+		"hu"		"SCAR20"
+	}
+	"NSW_G3SG1"
+	{
+		"hu"		"G3SG1"
+	}
+	"Find a Starting Location"
+	{
+		"hu"		"Válassz kezdőpontot"
+	}
+	"Choose an End Point"
+	{
+		"hu"		"Válassz végpontot"
+	}
+	"Use Current Position"
+	{
+		"hu"		"Használd a jelenlegi pozíciót"
+	}
+	"Race Points too Close"
+	{
+		"hu"		"A végpont és a kezdőpont túl közel van egymáshoz."
+	}
+	"Too Near Obstruction"
+	{
+		"hu"		"Valami az útban van. Menj nyílt térre és próbáld újra."
+	}
+	"Jump Contest Menu"
+	{
+		"hu"		"Válassz ugr versenyt:"
+	}
+	"Jump_TheMost"
+	{
+		"hu"		"Legtöbb ugrás"
+	}
+	"Jump_Farthest"
+	{
+		"hu"		"Legtávolabbi ugrás"
+	}
+	"Jump_BrinkOfDeath"
+	{
+		"hu"		"Brink of Death"
+	}
+	"Must Be On Ground"
+	{
+		"hu"		"A földön kell legyél, hogy ezt kiválaszd."
+	}
+	"Farthest Jump Won"
+	{
+		"hu"		"{1} megnyerte az ugróversenyt {3} egységgel szemben a {2} {4} egységével."
+	}
+	"Race Could Start Soon"
+	{
+		"hu"		"{1} versenyt választott. Figyeld a kezdő- és végpontot!"
+	}
+	"Respawned Target"
+	{
+		"hu"		"Újraélesztette {1} játékost"
+	}	
+	"Player Alive"
+	{
+		"hu"		"A játékos életben van"
+	}
+	"Respawn Player"
+	{
+		"hu"		"Játékos újraélesztése"
+	}	
+	"Respawn Data Unavailable"
+	{
+		"hu"		"{1} játékosnak nincs újraéledési adata még és vissza lett küldve a cellába."
+	}
+	"Blocked Warmup"
+	{
+		"hu"		"Nem indíthatsz LR-t a bemelegítés alatt."
+	}
+	"GT No Throw"
+	{
+		"hu"		"{1} megnyerte a Gun Toss-t, mert {2} nem dobta el a fegyverét."
+	}
+	"JF No Jump"
+	{
+		"hu"		"{1} megnyerte az ugró versenyt, mert {2} nem ugrott."
+	}
+	"JF Jump Warning"
+	{
+		"hu"		"Az ellenfeled ugrott. Van 10 másodperced, hogy ezt te is megtedd."
+	}
+	"GT Throw Warning"
+	{
+		"hu"		"Az ellenfeled eldobta a fegyverét. Van 10 másodperced, hogy ezt te is megtedd."
+	}
+	"LR Block EventDay"
+	{
+		"hu"		"Utolsó kívánság nem indítható, mert Event nap van."
+	}
+}
