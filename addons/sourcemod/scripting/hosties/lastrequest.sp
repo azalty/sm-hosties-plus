@@ -4741,7 +4741,7 @@ void InitializeGame(int iPartnersIndex)
 		}
 	}
 	
-	if (selection != LR_Rebel && selection != LR_JumpContest && selection <= BASE_LR_Number)
+	if (selection != LR_Rebel && selection != LR_JumpContest && selection < BASE_LR_Number)
 	{
 		char LR_Name[32];
 		EMP_LoopPlayers(TargetForLang)
