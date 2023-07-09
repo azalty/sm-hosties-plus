@@ -3760,7 +3760,7 @@ void InitializeGame(int iPartnersIndex)
 	int LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, view_as<int>(Block_Guard));
 	
 	// Beacon players
-	if (gH_Cvar_LR_Beacons.BoolValue && selection != LR_Rebel && selection != LR_RussianRoulette)
+	if (gH_Cvar_LR_Beacons.BoolValue && selection != LR_Rebel && selection != LR_RussianRoulette && IsLastRequestAutoStart(selection))
 	{
 		AddBeacon(LR_Player_Prisoner);
 		AddBeacon(LR_Player_Guard);
