@@ -56,8 +56,8 @@ void StartWeapons_OnPluginStart()
 	}
 	else if (g_Game == Game_CSGO)
 	{
-		gH_Cvar_CT_Weapons = AutoExecConfig_CreateConVar("sm_hosties_ct_start", "weapon_knife,weapon_m4a1,weapon_hkp2000", "Comma delimitted list of items to give to CTs at spawn", 0);
-		Format(gShadow_CT_Weapons, sizeof(gShadow_CT_Weapons), "weapon_knife,weapon_m4a1,weapon_hkp2000");
+		gH_Cvar_CT_Weapons = AutoExecConfig_CreateConVar("sm_hosties_ct_start", "weapon_knife,weapon_m4a1,weapon_usp_silencer", "Comma delimitted list of items to give to CTs at spawn", 0);
+		Format(gShadow_CT_Weapons, sizeof(gShadow_CT_Weapons), "weapon_knife,weapon_m4a1,weapon_usp_silencer");
 	}
 	UpdateStartWeapons();	
 	
@@ -91,8 +91,12 @@ void StartWeapons_Spawn(Event event, const char[] name, bool dontBroadcast)
 			{
 				for (int Tidx = 0; Tidx < g_iSizeOfTList; Tidx++)
 				{
-					if (!Client_HasWeapon(client, gs_T_WeaponList[Tidx]))
-						EMP_GiveWeapon(client, gs_T_WeaponList[Tidx]);
+					/* Ignore check if starts with "item_", as you can also give items like kevlars+helmet "item_assaultsuit", which are not weapons.
+					 * Not checking will crash the game. */
+					if (StrContains(gs_T_WeaponList[Tidx], "item_") == 0)
+						GivePlayerItem(client, sWeapon)
+					else if (!Client_HasWeapon(client, gs_T_WeaponList[Tidx]))
+						EMP_GiveWeapon(client, sWeapon); // Gives the weapon with the skin if a player has one (CS:GO)
 				}
 			}
 			case CS_TEAM_CT:
@@ -103,15 +107,19 @@ void StartWeapons_Spawn(Event event, const char[] name, bool dontBroadcast)
 					
 					if(g_Game == Game_CSGO && strcmp(gs_CT_WeaponList[CTidx], "weapon_usp", false) == 0)
 					{
-						Format(sWeapon, sizeof(sWeapon), "weapon_hkp2000");
+						Format(sWeapon, sizeof(sWeapon), "weapon_usp_silencer");
 					}
 					else
 					{
 						Format(sWeapon, sizeof(sWeapon), gs_CT_WeaponList[CTidx]);
 					}
 
-					if (!Client_HasWeapon(client, sWeapon))
-						EMP_GiveWeapon(client, sWeapon);
+					/* Ignore check if starts with "item_", as you can also give items like kevlars+helmet "item_assaultsuit", which are not weapons.
+					 * Not checking will crash the game. */
+					if (StrContains(sWeapon, "item_") == 0)
+						GivePlayerItem(client, sWeapon)
+					else if (!Client_HasWeapon(client, sWeapon))
+						EMP_GiveWeapon(client, sWeapon); // Gives the weapon with the skin if a player has one (CS:GO)
 				}
 			}
 		}
