@@ -73,13 +73,23 @@ stock void UnblockEntity(int client, int cachedOffset)
 	SetEntData(client, cachedOffset, 2, 4, true);
 }
 
+stock void BlockEntity2(int client)
+{
+	SetEntProp(client, Prop_Data, "m_CollisionGroup", 5);
+}
+
+stock void UnblockEntity2(int client)
+{
+	SetEntProp(client, Prop_Data, "m_CollisionGroup", 2);
+}
+
 stock void BlockClientAll()
 {
 	for (int i = 1; i <= MaxClients; i++)
 	{
 		if ( IsClientInGame(i) && IsPlayerAlive(i) )
 		{
-			BlockEntity(i);
+			BlockEntity2(i);
 		}
 	}
 }
@@ -90,7 +100,7 @@ stock void UnblockClientAll()
 	{
 		if ( IsClientInGame(i) && IsPlayerAlive(i) )
 		{
-			UnblockEntity(i);
+			UnblockEntity2(i);
 		}
 	}
 }
