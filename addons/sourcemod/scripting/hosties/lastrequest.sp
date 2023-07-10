@@ -2047,6 +2047,19 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 					{
 						if ((attacker == LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim == LR_Player_Guard))
 						{
+							if (damagetype & CS_DMG_HEADSHOT) // This is the right way to check for headshots, it will take into account the spread and recoil.
+							{
+								damage = 200.0; // Ensures it will kill
+								return Plugin_Changed;
+							}
+							else
+							{
+								return Plugin_Handled; // Prevents the shot from counting, removing the slowdown effect and bullet punch.
+							}
+							
+							// Tracing a ray is not the way, as bullets don't always go to the center of the crosshair, especially with recoil, spread, and movement.
+							
+							/* HERE LIES THE OLD METHOD
 							GetClientEyePosition(attacker, start);
 							GetClientEyeAngles(attacker, ang);
 							
@@ -2060,6 +2073,7 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 								return Plugin_Changed;
 							}
 							EMP_FreeHandle(hTrace);
+							*/
 						}
 					}
 					case LR_HEFight:
