@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -107,7 +110,7 @@ stock void UnmuteAll()
 	}
 }
 
-public Action MutePrisoners_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
+void MutePrisoners_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
 	if ((gH_Cvar_MuteStatus.IntValue == 1 || gH_Cvar_MuteStatus.IntValue == 3) && ((g_Game == Game_CSGO && GameRules_GetProp("m_bWarmupPeriod") == 0) || g_Game == Game_CSS))
 	{
@@ -129,7 +132,7 @@ public Action MutePrisoners_PlayerSpawn(Event event, const char[] name, bool don
 	}
 }
 
-public Action MutePrisoners_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
+void MutePrisoners_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
 {
 	if (gH_Cvar_MuteStatus.IntValue <= 1)
 	{
@@ -170,7 +173,7 @@ Action Timer_Mute(Handle timer, any id)
 	return Plugin_Stop;
 }
 
-public Action MutePrisoners_RoundEnd(Event event, const char[] name, bool dontBroadcast)
+void MutePrisoners_RoundEnd(Event event, const char[] name, bool dontBroadcast)
 {
 	if (gH_Cvar_MuteStatus.IntValue)
 	{
@@ -179,7 +182,7 @@ public Action MutePrisoners_RoundEnd(Event event, const char[] name, bool dontBr
 	}
 }
 
-public Action MutePrisoners_RoundStart(Event event, const char[] name, bool dontBroadcast)
+void MutePrisoners_RoundStart(Event event, const char[] name, bool dontBroadcast)
 {
 	if (gH_Cvar_MuteStatus.IntValue == 1 || gH_Cvar_MuteStatus.IntValue == 3)
 	{

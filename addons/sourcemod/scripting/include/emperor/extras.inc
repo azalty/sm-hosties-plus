@@ -3,6 +3,7 @@
  * by: Entity
  *
  * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -23,7 +24,9 @@
 #endif
 #define _emperor_extras_included
 
+/*
 stock float EMP_GetPercentage(any all, any count) 
 {
     return RoundFloat(FloatMul((float(number) / float(count)), 100.0)); 
 }
+*/

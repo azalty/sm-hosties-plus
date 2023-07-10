@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -85,7 +88,7 @@ public void OnStopLR(int PrisonerIndex, int GuardIndex)
 	}
 }
 
-public Action HealBlock(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3])
+Action HealBlock(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3])
 {
 	if (EMP_IsValidClient(victim, false, false) && gH_Cvar_AntiHeal_Enabled.BoolValue && IsClientInLastRequest(victim))
 	{
@@ -94,4 +97,5 @@ public Action HealBlock(int victim, int &attacker, int &inflictor, float &damage
 	}
 	else
 		SDKUnhook(victim, SDKHook_OnTakeDamage, HealBlock);
+	return Plugin_Continue;
 }

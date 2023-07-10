@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -186,7 +189,7 @@ public void AdminMenu_Slay(Handle topmenu,
 	}
 }
 
-public int MenuHandler_Slay(Handle menu, MenuAction action, int param1, int param2)
+int MenuHandler_Slay(Handle menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_End)
 	{
@@ -229,6 +232,7 @@ public int MenuHandler_Slay(Handle menu, MenuAction action, int param1, int para
 		
 		DisplaySlayMenu(param1);
 	}
+	return 0;
 }
 
 // from kick.sp
@@ -279,7 +283,7 @@ public void AdminMenu_Kick(Handle topmenu,
 	}
 }
 
-public int MenuHandler_Kick(Handle menu, MenuAction action, int param1, int param2)
+int MenuHandler_Kick(Handle menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_End)
 	{
@@ -322,6 +326,7 @@ public int MenuHandler_Kick(Handle menu, MenuAction action, int param1, int para
 			DisplayKickMenu(param1);
 		}
 	}
+	return 0;
 }
 
 // from ban.sp
@@ -473,7 +478,7 @@ public void AdminMenu_Ban(Handle topmenu,
 	}
 }
 
-public int MenuHandler_BanReasonList(Handle menu, MenuAction action, int param1, int param2)
+int MenuHandler_BanReasonList(Handle menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_End)
 	{
@@ -494,9 +499,10 @@ public int MenuHandler_BanReasonList(Handle menu, MenuAction action, int param1,
 
 		PrepareBan(param1, g_BanTarget[param1], g_BanTime[param1], info);
 	}
+	return 0;
 }
 
-public int MenuHandler_BanPlayerList(Handle menu, MenuAction action, int param1, int param2)
+int MenuHandler_BanPlayerList(Handle menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_End)
 	{
@@ -532,9 +538,10 @@ public int MenuHandler_BanPlayerList(Handle menu, MenuAction action, int param1,
 			DisplayBanTimeMenu(param1);
 		}
 	}
+	return 0;
 }
 
-public int MenuHandler_BanTimeList(Handle menu, MenuAction action, int param1, int param2)
+int MenuHandler_BanTimeList(Handle menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_End)
 	{
@@ -556,4 +563,5 @@ public int MenuHandler_BanTimeList(Handle menu, MenuAction action, int param1, i
 
 		DisplayBanReasonMenu(param1);
 	}
+	return 0;
 }

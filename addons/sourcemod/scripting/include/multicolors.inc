@@ -5,8 +5,8 @@
 
 #define MuCo_VERSION "2.1.2"
 
-#include <multicolors/morecolors>
-#include <multicolors/colors>
+#include "multicolors/morecolors"
+#include "multicolors/colors"
 
 /*
 *
@@ -90,19 +90,41 @@ stock void CPrintToChat(int client, const char[] message, any ...) {
  * @param message     Message (formatting rules)
  */
 stock void CPrintToChatAll(const char[] message, any ...) {
-	char buffer[MAX_MESSAGE_LENGTH];
-	SetGlobalTransTarget(LANG_SERVER);
-	VFormat(buffer, sizeof(buffer), message, 2);
-
 	if (!g_bCFixColors) {
 		CFixColors();
 	}
 
+	char buffer[MAX_BUFFER_LENGTH];
 	if (!IsSource2009()) {
-		C_PrintToChatAll("%s%s", g_sCPrefix, buffer);
+		for (int i = 1; i <= MaxClients; ++i) {
+			if (IsClientInGame(i) && !IsFakeClient(i) && !C_SkipList[i]) {
+				SetGlobalTransTarget(i);
+				VFormat(buffer, sizeof(buffer), message, 2);
+
+				C_PrintToChat(i, "%s", buffer);
+			}
+
+			C_SkipList[i] = false;
+		}
 	}
 	else {
-		MC_PrintToChatAll("%s%s", g_sCPrefix, buffer);
+		MC_CheckTrie();
+
+		char buffer2[MAX_BUFFER_LENGTH];
+
+		for (int i = 1; i <= MaxClients; ++i) {
+			if (!IsClientInGame(i) || MC_SkipList[i]) {
+				MC_SkipList[i] = false;
+				continue;
+			}
+
+			SetGlobalTransTarget(i);
+			Format(buffer, sizeof(buffer), "\x01%s", message);
+			VFormat(buffer2, sizeof(buffer2), buffer, 2);
+
+			MC_ReplaceColorCodes(buffer2);
+			MC_SendMessage(i, buffer2);
+		}
 	}
 }
 
@@ -369,6 +391,7 @@ stock void CShowActivityEx(int author, const char[] tag, const char[] message, a
 		MC_ShowActivity2(author, tag, "%s", buffer);
 	}
 }
+
 
 /**
  * Replaces color tags in a string with color codes

@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -61,15 +64,15 @@ int 	g_LastButtons[MAXPLAYERS+1],
 		g_Offset_PunchAngle 					= -1, 
 		g_Offset_SecAttack 						= -1,
 		g_iLastCT_FreeAttacker 					= -1,
-		g_LR_Player_Guard[MAXPLAYERS + 1]	 	= 0;
+		g_LR_Player_Guard[MAXPLAYERS + 1]	 	= {0, ...};
 		
 		
-bool	g_TriedToStab[MAXPLAYERS+1]				= false,
+bool	g_TriedToStab[MAXPLAYERS+1]				= {false, ...},
 		g_bPushedToMenu 						= false,
-		LR_Player_Jumped[MAXPLAYERS+1] 			= false,
-		LR_Player_Landed[MAXPLAYERS+1] 			= false,
+		LR_Player_Jumped[MAXPLAYERS+1] 			= {false, ...},
+		LR_Player_Landed[MAXPLAYERS+1] 			= {false, ...},
 		BlockLR 								= false,
-		LR_Player_OnCD[MAXPLAYERS+1] 			= false,
+		LR_Player_OnCD[MAXPLAYERS+1] 			= {false, ...},
 		g_bIsLRAvailable 						= true,
 		g_bRoundInProgress						= true,
 		g_bListenersAdded 						= false,
@@ -78,8 +81,8 @@ bool	g_TriedToStab[MAXPLAYERS+1]				= false,
 		g_bIsARebel[MAXPLAYERS+1];
 		
 char 	LR_C_sWeapon[MAXPLAYERS + 1][11][64];
-int 	LR_C_WeaponCount[MAXPLAYERS + 1] = 0;
-int 	LR_C_FlashCounter[MAXPLAYERS + 1] = 0;
+int 	LR_C_WeaponCount[MAXPLAYERS + 1] = {0, ...};
+int 	LR_C_FlashCounter[MAXPLAYERS + 1] = {0, ...};
 
 char	BeforeModel[MAXPLAYERS+1][PLATFORM_MAX_PATH],
 		g_sLastRequestPhrase[BASE_LR_Number][MAX_DISPLAYNAME_SIZE];
@@ -182,7 +185,7 @@ ConVar	g_hRoundTime,
 
 Handle	RoundTimeTicker						= INVALID_HANDLE,
 		TickerState							= INVALID_HANDLE,
-		gH_BuildLR[MAXPLAYERS+1]			= INVALID_HANDLE,
+		gH_BuildLR[MAXPLAYERS+1]			= {INVALID_HANDLE, ...},
 		g_GunTossTimer						= INVALID_HANDLE,
 		g_ChickenFightTimer 				= INVALID_HANDLE,
 		g_DodgeballTimer 					= INVALID_HANDLE,
@@ -535,6 +538,7 @@ public void AdminMenu_StopLR(Handle h_TopMenu, TopMenuAction action, TopMenuObje
 
 void LastRequest_APL()
 {
+	CreateNative("IsLastRequestAvailable", 		Native_LR_Available);
 	CreateNative("AddLastRequestToList", 		Native_LR_AddToList);
 	CreateNative("RemoveLastRequestFromList", 	Native_LR_RemoveFromList);
 	CreateNative("IsClientRebel", 				Native_IsClientRebel);
@@ -547,7 +551,7 @@ void LastRequest_APL()
 	RegPluginLibrary("lastrequest");
 }
 
-public int Native_ProcessLRs(Handle h_Plugin, int iNumParameters)
+int Native_ProcessLRs(Handle h_Plugin, int iNumParameters)
 {
 	Function LoopCallback = GetNativeCell(1);
 	AddToForward(gH_Frwd_LR_Process, h_Plugin, LoopCallback);
@@ -570,7 +574,7 @@ public int Native_ProcessLRs(Handle h_Plugin, int iNumParameters)
 	return theLRArraySize;
 }
 
-public int Native_LR_AddToList(Handle h_Plugin, int iNumParameters)
+int Native_LR_AddToList(Handle h_Plugin, int iNumParameters)
 {
 	Function StartCall = GetNativeCell(1);
 	Function CleanUpCall = GetNativeCell(2);
@@ -587,7 +591,7 @@ public int Native_LR_AddToList(Handle h_Plugin, int iNumParameters)
 	return iPosition;
 }
 
-public int Native_LR_RemoveFromList(Handle h_Plugin, int iNumParameters)
+int Native_LR_RemoveFromList(Handle h_Plugin, int iNumParameters)
 {
 	Function StartCall = GetNativeCell(1);
 	Function CleanUpCall = GetNativeCell(2);
@@ -609,7 +613,7 @@ public int Native_LR_RemoveFromList(Handle h_Plugin, int iNumParameters)
 	return 1;
 }
 
-public int Native_LR_Initialize(Handle h_Plugin, int iNumParameters)
+int Native_LR_Initialize(Handle h_Plugin, int iNumParameters)
 {
 	if(iNumParameters > 0)
 	{
@@ -658,9 +662,10 @@ public int Native_LR_Initialize(Handle h_Plugin, int iNumParameters)
 	{
 		ThrowNativeError(SP_ERROR_NATIVE, "InitializeLR Failure (Wrong number of parameters).");
 	}
+	return 0;
 }
 
-public int Native_LR_Cleanup(Handle h_Plugin, int iNumParameters)
+int Native_LR_Cleanup(Handle h_Plugin, int iNumParameters)
 {
 	if(iNumParameters == 1)
 	{
@@ -697,14 +702,15 @@ public int Native_LR_Cleanup(Handle h_Plugin, int iNumParameters)
 	{
 		ThrowNativeError(SP_ERROR_NATIVE, "CleanupLR Failure (Wrong number of parameters).");
 	}
+	return 0;
 }
 
-public int Native_LR_Available(Handle h_Plugin, int iNumParameters)
+int Native_LR_Available(Handle h_Plugin, int iNumParameters)
 {
 	return g_bIsLRAvailable;
 }
 
-public int Native_IsClientRebel(Handle h_Plugin, int iNumParameters)
+int Native_IsClientRebel(Handle h_Plugin, int iNumParameters)
 {
 	int client = GetNativeCell(1);
 	if (client > MaxClients || client < 0)
@@ -714,7 +720,7 @@ public int Native_IsClientRebel(Handle h_Plugin, int iNumParameters)
 	return view_as<bool>(g_bIsARebel[client]);
 }
 
-public int Native_ChangeRebelStatus(Handle h_Plugin, int iNumParameters)
+int Native_ChangeRebelStatus(Handle h_Plugin, int iNumParameters)
 {
 	int client = GetNativeCell(1);
 	if (client > MaxClients || client < 0)
@@ -734,7 +740,7 @@ public int Native_ChangeRebelStatus(Handle h_Plugin, int iNumParameters)
 	return 1;
 }
 
-public int Native_IsClientInLR(Handle h_Plugin, int iNumParameters)
+int Native_IsClientInLR(Handle h_Plugin, int iNumParameters)
 {
 	int client = GetNativeCell(1);
 	if (!IsClientInGame(client))
@@ -791,7 +797,7 @@ int Local_IsClientInLR(int client)
 	return 0;
 }
 
-public Action LastRequest_RoundStart(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_RoundStart(Event event, const char[] name, bool dontBroadcast)
 {
 	g_RoundTime = GetConVarInt(g_hRoundTime) * 60;
 	if (TickerState == INVALID_HANDLE)
@@ -877,7 +883,7 @@ void StopActiveLRs(int client)
 	CShowActivity(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Aborted");
 }
 
-public Action LastRequest_RoundEnd(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_RoundEnd(Event event, const char[] name, bool dontBroadcast)
 {
 	RoundTimeTicker = INVALID_HANDLE;
 
@@ -901,7 +907,7 @@ public Action LastRequest_RoundEnd(Event event, const char[] name, bool dontBroa
 	ClosePotentialLRMenus();
 }
 
-public Action LastRequest_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
 {
 	int attacker = GetClientOfUserId(GetEventInt(event, "attacker"));
 	int victim = GetClientOfUserId(GetEventInt(event, "userid"));
@@ -993,7 +999,7 @@ public Action LastRequest_PlayerDeath(Event event, const char[] name, bool dontB
 	}
 }
 
-public Action LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 {
 	int attacker = GetClientOfUserId(GetEventInt(event, "attacker"));
 	int target = GetClientOfUserId(GetEventInt(event, "userid"));
@@ -1142,7 +1148,7 @@ public Action LastRequest_PlayerHurt(Event event, const char[] name, bool dontBr
 	}
 }
 
-public Action LastRequest_PlayerDisconnect(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_PlayerDisconnect(Event event, const char[] name, bool dontBroadcast)
 {
 	int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 	if (iArraySize > 0)
@@ -1511,7 +1517,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 	}
 }
 
-public Action LastRequest_BulletImpact(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_BulletImpact(Event event, const char[] name, bool dontBroadcast)
 {
 	int attacker = GetClientOfUserId(GetEventInt(event, "userid"));
 	if (!g_bIsARebel[attacker] && gH_Cvar_RebelOnImpact.BoolValue && (GetClientTeam(attacker) == CS_TEAM_T) && !Local_IsClientInLR(attacker))
@@ -1542,7 +1548,7 @@ public Action OnPlayerRunCmd(int client, int &buttons, int &impulse, float vel[3
 	return Plugin_Continue;
 }
 
-public Action LastRequest_WeaponZoom(Event event, const char[] name, bool dontBroadcast)
+Action LastRequest_WeaponZoom(Event event, const char[] name, bool dontBroadcast)
 {
 	if (gH_DArray_LR_Partners != INVALID_HANDLE)
 	{
@@ -1570,7 +1576,7 @@ public Action LastRequest_WeaponZoom(Event event, const char[] name, bool dontBr
 	return Plugin_Continue;
 }
 
-public Action LastRequest_PlayerJump(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_PlayerJump(Event event, const char[] name, bool dontBroadcast)
 {
 	int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 	if (iArraySize > 0)
@@ -1659,7 +1665,7 @@ public Action LastRequest_PlayerJump(Event event, const char[] name, bool dontBr
 	}
 }
 
-public Action LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 {
 	int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 	if (iArraySize > 0)
@@ -1921,10 +1927,8 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 	if ((victim != attacker) && (victim > 0) && (victim <= MaxClients) && (attacker > 0) && (attacker <= MaxClients))
 	{
 		int iArraySize = GetArraySize(gH_DArray_LR_Partners);
-		int LR_Player_Prisoner, LR_Player_Guard, Pistol_Prisoner, Pistol_Guard, bullet, iHitGroup;
+		int LR_Player_Prisoner, LR_Player_Guard, Pistol_Prisoner, Pistol_Guard, bullet;
 		char UsedWeapon[64];
-		float start[3], ang[3];
-		Handle hTrace;
 		
 		if (iArraySize > 0)
 		{
@@ -2488,7 +2492,7 @@ public Action Timer_EnemyMustThrow(Handle timer)
 	return Plugin_Stop;
 }
 
-public Action OnPreThink(int client)
+void OnPreThink(int client)
 {
 	if (gH_DArray_LR_Partners != INVALID_HANDLE)
 	{
@@ -3010,7 +3014,7 @@ void DisplayLastRequestMenu(int client, int Ts, int CTs)
 	DisplayMenu(menu, client, gH_Cvar_LR_MenuTime.IntValue);
 }
 
-public int LR_Selection_Handler(Handle menu, MenuAction action, int client, int iButtonChoice)
+int LR_Selection_Handler(Handle menu, MenuAction action, int client, int iButtonChoice)
 {
 	switch (action)
 	{
@@ -3275,6 +3279,7 @@ public int LR_Selection_Handler(Handle menu, MenuAction action, int client, int 
 			}
 		}
 	}
+	return 0;
 }
 
 void CreateMainPlayerHandler(int client)
@@ -3315,7 +3320,7 @@ void CreateMainPlayerHandler(int client)
 	}
 }
 
-public int SubLRType_MenuHandler(Handle SelectionMenu, MenuAction action, int client, int iMenuChoice)
+int SubLRType_MenuHandler(Handle SelectionMenu, MenuAction action, int client, int iMenuChoice)
 {
 	if (action == MenuAction_Select)
 	{
@@ -3354,9 +3359,10 @@ public int SubLRType_MenuHandler(Handle SelectionMenu, MenuAction action, int cl
 		}
 		EMP_FreeHandle(SelectionMenu);
 	}
+	return 0;
 }
 
-public int RaceEndPointHandler(Handle menu, MenuAction action, int client, int param2)
+int RaceEndPointHandler(Handle menu, MenuAction action, int client, int param2)
 {
 	if (action == MenuAction_Select)
 	{
@@ -3430,9 +3436,10 @@ public int RaceEndPointHandler(Handle menu, MenuAction action, int client, int p
 		}
 		EMP_FreeHandle(menu);
 	}
+	return 0;
 }
 
-public int RaceStartPointHandler(Handle menu, MenuAction action, int client, int param2)
+int RaceStartPointHandler(Handle menu, MenuAction action, int client, int param2)
 {
 	if (action == MenuAction_Select)
 	{
@@ -3508,6 +3515,7 @@ public int RaceStartPointHandler(Handle menu, MenuAction action, int client, int
 		}
 		EMP_FreeHandle(menu);
 	}
+	return 0;
 }
 
 public Action Timer_RaceCD(Handle timer, int id)
@@ -3529,7 +3537,7 @@ void CreateRaceEndPointMenu(int client)
 	DisplayMenu(EndPointMenu, client, MENU_TIME_FOREVER);
 }
 
-public int MainPlayerHandler(Handle playermenu, MenuAction action, int client, int iButtonChoice)
+int MainPlayerHandler(Handle playermenu, MenuAction action, int client, int iButtonChoice)
 {
 	switch (action)
 	{
@@ -3674,9 +3682,10 @@ public int MainPlayerHandler(Handle playermenu, MenuAction action, int client, i
 			EMP_FreeHandle(playermenu);
 		}
 	}
+	return 0;
 }
 
-public int MainAskHandler(Handle askmenu, MenuAction action, int client, int param2)
+int MainAskHandler(Handle askmenu, MenuAction action, int client, int param2)
 {
 	switch (action)
 	{
@@ -3763,6 +3772,7 @@ public int MainAskHandler(Handle askmenu, MenuAction action, int client, int par
 			EMP_FreeHandle(askmenu);
 		}
 	}
+	return 0;
 }
 
 void InitializeGame(int iPartnersIndex)
@@ -4802,7 +4812,7 @@ void InitializeGame(int iPartnersIndex)
 	}
 }
 
-public Action Timer_FarthestJumpDetector(Handle timer)
+Action Timer_FarthestJumpDetector(Handle timer)
 {
 	int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 	if (iArraySize > 0)
@@ -4877,7 +4887,7 @@ public Action Timer_FarthestJumpDetector(Handle timer)
 	return Plugin_Continue;
 }
 
-public Action Timer_EnemyMustJump(Handle timer)
+Action Timer_EnemyMustJump(Handle timer)
 {
 	int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 	if (iArraySize > 0)
@@ -4913,7 +4923,7 @@ public Action Timer_EnemyMustJump(Handle timer)
 	return Plugin_Stop;
 }
 
-public Action Timer_JumpContestOver(Handle timer)
+Action Timer_JumpContestOver(Handle timer)
 {
 	int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 	if (iArraySize > 0)
@@ -4977,7 +4987,8 @@ public Action Timer_JumpContestOver(Handle timer)
 				}
 			}
 		}
-	}	
+	}
+	return Plugin_Stop;
 }
 
 public Action Timer_Beacon(Handle timer)
@@ -5122,7 +5133,7 @@ public void OnEntityCreated(int entity, const char[] classname)
     }
 }
 
-public Action OnEntitySpawnedFix(int entity)
+Action OnEntitySpawnedFix(int entity)
 {
     int client = GetEntPropEnt(entity, Prop_Send, "m_hOwnerEntity");
     int iArraySize = GetArraySize(gH_DArray_LR_Partners);
@@ -5140,15 +5151,17 @@ public Action OnEntitySpawnedFix(int entity)
             }
         }
     }
+    return Plugin_Continue;
 }
 
-public Action Timer_RemoveThinkTick(Handle timer, any entity)
+Action Timer_RemoveThinkTick(Handle timer, any entity)
 {
 	SetEntProp(entity, Prop_Data, "m_nNextThinkTick", -1);
 	CreateTimer(gH_Cvar_LR_Dodgeball_SpawnTime.FloatValue, Timer_RemoveFlashbang, entity, TIMER_FLAG_NO_MAPCHANGE);
+	return Plugin_Stop;
 }
 
-public Action Timer_RemoveFlashbang(Handle timer, any entity)
+Action Timer_RemoveFlashbang(Handle timer, any entity)
 {
 	if (IsValidEntity(entity))
 	{
@@ -5160,6 +5173,7 @@ public Action Timer_RemoveFlashbang(Handle timer, any entity)
 			EMP_EquipWeapon(client, "weapon_flashbang");
 		}
 	}
+	return Plugin_Stop;
 }
 
 public Action Timer_Countdown(Handle timer, int iPartnersIndex)
@@ -5393,7 +5407,7 @@ public Action Timer_Race(Handle timer)
 	return Plugin_Continue;
 }
 
-public int RPSmenuHandler(Handle menu, MenuAction action, int client, int param2)
+int RPSmenuHandler(Handle menu, MenuAction action, int client, int param2)
 {
 	if (action == MenuAction_Select)
 	{
@@ -5572,9 +5586,10 @@ public int RPSmenuHandler(Handle menu, MenuAction action, int client, int param2
 	{
 		EMP_FreeHandle(menu);
 	}
+	return 0;
 }
 
-public Action Timer_DodgeballCheckCheaters(Handle timer)
+Action Timer_DodgeballCheckCheaters(Handle timer)
 {
 	// is there still a gun toss LR going on?
 	bool bDodgeball = false;
@@ -6027,13 +6042,14 @@ void DecideRebelsFate(int rebeller, int LRIndex, int victim = 0)
 	}
 }
 
-public Action Timer_SafeSlay(Handle timer, any userid)
+Action Timer_SafeSlay(Handle timer, any userid)
 {
 	int client = GetClientOfUserId(userid);
 	EMP_SafeSlay(client);
+	return Plugin_Stop;
 }
 
-public Action Timer_BeerGoggles(Handle timer)
+Action Timer_BeerGoggles(Handle timer)
 {
 	int timerCount = 1;
 	timerCount++;
@@ -6241,7 +6257,7 @@ void UpdatePlayerCounts(int &Prisoners, int &Guards, int &iNumGuardsAvailable)
 	}
 }
 
-public Action LastRequest_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
+void LastRequest_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
 	SetCorrectPlayerColor(client);

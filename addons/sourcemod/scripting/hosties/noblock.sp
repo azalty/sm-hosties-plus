@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -39,7 +42,7 @@ void NoBlock_OnPluginStart()
 	HookEvent("player_spawn", NoBlock_PlayerSpawn);
 }
 
-public Action NoBlock_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
+void NoBlock_PlayerSpawn(Event event, const char[] name, bool dontBroadcast)
 {
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
 	

@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -72,7 +75,7 @@ public Action Command_Respawn(int client, int args)
 	return Plugin_Handled;
 }
 
-public Action Respawn_PlayerDeath(Event event, const char[] name , bool dontBroadcast)
+void Respawn_PlayerDeath(Event event, const char[] name , bool dontBroadcast)
 {
 	int victim = GetClientOfUserId(GetEventInt(event, "userid"));
 	GetClientAbsOrigin(victim, g_DeathLocation[victim]);
@@ -148,7 +151,7 @@ public void AdminMenu_Respawn(Handle topmenu,
 	}
 }
 
-public int MenuHandler_Respawn(Menu menu, MenuAction action, int param1, int param2)
+int MenuHandler_Respawn(Menu menu, MenuAction action, int param1, int param2)
 {
 	if (action == MenuAction_End)
 	{
@@ -191,4 +194,5 @@ public int MenuHandler_Respawn(Menu menu, MenuAction action, int param1, int par
 		
 		DisplayRespawnMenu(param1);
 	}
+	return 0;
 }

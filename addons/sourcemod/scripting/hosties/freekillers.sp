@@ -1,8 +1,11 @@
 /*
- * SourceMod Hosties Project
- * by: SourceMod Hosties Dev Team
+ * SourceMod Hosties+ Project
+ * by: SourceMod Hosties+ Dev Team
  *
- * This file is part of the SM Hosties project.
+ * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
+ *
+ * This file is part of the Hosties+ project.
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -125,7 +128,7 @@ public void Freekillers_CvarChanged(Handle cvar, const char[] oldValue, const ch
 		gShadow_Freekill_Punishment = StringToInt(newValue);
 }
 
-public Action Freekillers_RoundEnd(Event event, const char[] name, bool dontBroadcast)
+void Freekillers_RoundEnd(Event event, const char[] name, bool dontBroadcast)
 {
 	if (gH_Cvar_Freekill_Reset.IntValue == 0)
 	{
@@ -177,6 +180,7 @@ public Action Freekillers_PlayerDeath(Event event, const char[] name, bool dontB
 			}
 		}
 	}
+	return Plugin_Continue;
 }
 
 public Action Timer_ResetKills(Handle timer, any client)
