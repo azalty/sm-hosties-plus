@@ -158,9 +158,9 @@ public Action MutePrisoners_PlayerDeath(Event event, const char[] name, bool don
 	}
 }
 
-public Action Timer_Mute(Handle timer, any id)
+Action Timer_Mute(Handle timer, any id)
 {
-	int client = GetClientOfUserId(client);
+	int client = GetClientOfUserId(id);
 	if (EMP_IsValidClient(client))
 	{
 		MutePlayer(client);

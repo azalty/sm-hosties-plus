@@ -36,7 +36,7 @@
 #pragma semicolon 1
 
 // Global variables
-int LR_Number = BASE_LR_Number;
+#define BASE_LR_Number LR_Number
 
 int 	g_LastButtons[MAXPLAYERS+1],
 		SuitSetBack,
