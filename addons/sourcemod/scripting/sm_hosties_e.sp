@@ -162,7 +162,7 @@ int				gA_FreekillsOfCT[MAXPLAYERS+1],
 public Plugin myinfo =
 {
 	name     	  	=		PLUGIN_NAME,
-	author    	 	=		"databomb & Entity",
+	author    	 	=		"databomb, Entity, azalty",
 	description 	= 		"SM_Hosties Remake",
 	version    		=		PLUGIN_VERSION,
 };
