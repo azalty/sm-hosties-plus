@@ -41,11 +41,11 @@
 
 #pragma			semicolon 					1
 
-#define 		PLUGIN_VERSION				"4.2.44b"
-#define 		PLUGIN_NAME					"ENT_Hosties(V4.2.3b)"
+#define 		PLUGIN_VERSION				"5.0.0"
+#define 		PLUGIN_NAME					"Hosties+"
 #define 		MAX_DISPLAYNAME_SIZE		64
 #define 		MAX_DATAENTRY_SIZE			5
-#define 		SERVERTAG					"ENT_Hosties,LR,LastRequest"
+#define 		SERVERTAG					"ENT_Hosties,LR,LastRequest,Hosties+"
 
 // Note: you cannot safely turn these modules on and off yet. Use cvars to disable functionality.
 
