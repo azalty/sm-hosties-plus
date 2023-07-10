@@ -3,6 +3,7 @@
  * by: Entity
  *
  * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -54,21 +55,24 @@ stock bool EMP_IsValidClient(int client, bool bAllowBots = false, bool bAllowDea
 * @param bAllowBots			IF set the adminflag will be ignored
 * @return					Returns the idx of the client
 */
+/*
 stock int EMP_RandomClient(bool alive = false, int ignoreFlags = 0)
 {
-    int[] clients = new int [MaxClients+1];
-    int total;
+	int[] clients = new int [MaxClients+1];
+	int total;
 
-    clients[total++] = -1;
+	clients[total++] = -1;
 
-    for (int client = 1; client <= MaxClients; client++)
-        if(ClientIsValid(client))
-            if(!alive || ClientIsAlive(client))
-                if((ignoreFlags != 0 && HasClientUserFlags(client, ignoreFlags)) || ignoreFlags == 0) 
-                    clients[total++] = client;
-    
-    return clients[RandomInt(0, total)];
+	for (int client = 1; client <= MaxClients; client++)
+	{
+		if(EMP_IsValidClient(client, false, !alive))
+			if((ignoreFlags != 0 && HasClientUserFlags(client, ignoreFlags)) || ignoreFlags == 0) 
+				clients[total++] = client;
+	}
+
+	return clients[RandomInt(0, total)];
 }
+*/
 
 /**
 * Checks if a client is in the sight range
@@ -81,6 +85,7 @@ stock int EMP_RandomClient(bool alive = false, int ignoreFlags = 0)
 * @param negativeangle		Negate the Vector or not?
 * @return					Returns True if in the sight range, otherwise false
 */
+/*
 stock bool EMP_IsTargetInSightRange(int client, int target, float angle = 90.0, float floatdistance = 0.0, bool heightcheck = true, bool negativeangle = false)
 {
 	if((angle > 360.0 || angle < 0.0) || !EMP_IsValidClient(client, true, false) || !EMP_IsValidClient(target, true, false))
@@ -126,12 +131,14 @@ stock bool EMP_IsTargetInSightRange(int client, int target, float angle = 90.0, 
 	else
 		return false;
 }
+*/
 
 /**
 * Returns if the client is currently playing sound from HLDJ or SLAM
 *
 * @param client				Player index
 */
+/*
 stock bool EMP_CheckAudio(int client)
 {
 	if (EMP_IsValidClient(client))
@@ -147,6 +154,7 @@ stock bool EMP_Query_CheckAudio(QueryCookie cookie, int client, ConVarQueryResul
 	else
 		return false;
 }
+*/
 
 /**
 * Sets the Clan Tag for a client
@@ -211,7 +219,7 @@ stock void EMP_GodMode(int client, bool mode)
 		if (mode)
 			SetEntProp(client, Prop_Data, "m_takedamage", 0, 1);
 		else
-			SetEntProp(attacker, Prop_Data, "m_takedamage", 2, 1);
+			SetEntProp(client, Prop_Data, "m_takedamage", 2, 1);
 	}
 }
 
@@ -298,7 +306,7 @@ stock void EMP_CancelAllMenus()
 */
 stock void EMP_SetPlayerModel(int client, char model_path[PLATFORM_MAX_PATH])
 {
-	if (EMP_IsValidClient(idx))
+	if (EMP_IsValidClient(client))
 	{
 		if(strcmp(model_path, "") != 0)
 		{
@@ -388,7 +396,7 @@ stock void EMP_RadarVisibilityToggle(int client, bool status)
 	{
 		Address g_aCanBeSpotted = view_as<Address>(offset - 4);
 		
-		if (active)
+		if (status) // was (active)?
 		{
 			SetEntProp(client, Prop_Send, "m_bSpotted", false);
 			SetEntProp(client, Prop_Send, "m_bSpottedByMask", 0, 4, 0);

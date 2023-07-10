@@ -3,6 +3,7 @@
  * by: Entity
  *
  * Copyright (C) 2020 Kőrösfalvi "Entity" Martin
+ * Copyright (C) 2023 azalty
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -26,8 +27,8 @@
 #define	FlashbangOffsetForHC			15
 
 public char C_sWeapon[MAXPLAYERS + 1][11][64]; 
-public int C_WeaponCount[MAXPLAYERS + 1] = 0;
-public int C_FlashCounter[MAXPLAYERS + 1] = 0;
+public int C_WeaponCount[MAXPLAYERS + 1] = {0, ...};
+public int C_FlashCounter[MAXPLAYERS + 1] = {0, ...};
 
 /**
 * Strip all weapons from the target and save them
@@ -194,9 +195,9 @@ stock void EMP_EquipKnife(int client)
 stock bool EMP_IsKnife(char[] knifename)
 {
 	if(strcmp(knifename, "weapon_bayonet") == 0 || StrContains(knifename, "weapon_knife") != -1)
-    	return true;
+		return true;
 
-    return false;
+	return false;
 }
 
 /**

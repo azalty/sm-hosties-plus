@@ -23,7 +23,7 @@
 #endif
 #define _emperor_messages_included
 
-Database EMP_DB;
+//Database EMP_DB;
 
 /**
 * Strip all weapons from the target and save them
@@ -60,14 +60,16 @@ stock int EMP_GetRandomColor()
 *
 * @param string				Strign to escape
 */
+/*
 stock void EMP_EscapeString(const char[] string)
 {
 	int len = strlen(string) * 2 + 1;
-	char[len] escapedString = new char[len];
+	char[] escapedString = new char[len];
 	EMP_DB.Escape(string, escapedString, len);
 	
 	return escapedString;
 }
+*/
 
 /**
 * Replace the color names with code
@@ -209,7 +211,7 @@ stock void EMP_ReplaceFormats(char[] string, int size, int client = 0)
 	}
 }
 
-stock char EMP_GetServerIP()
+stock char[] EMP_GetServerIP()
 {
 	char NetIP[32];
 	int pieces[4];
@@ -237,7 +239,7 @@ stock int EMP_GetPlayers(bool connecting)
 	return players;
 }
 
-stock char EMP_FormatShortTime(int time)
+stock char[] EMP_FormatShortTime(int time)
 {
 	char Time[12];
 	int g_iHours = 0;
