@@ -2115,24 +2115,23 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 					}
 					default:
 					{
-						if ((attacker == LR_Player_Guard && victim != LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim != LR_Player_Guard) && type != LR_Rebel && (GetClientTeam(attacker) != GetClientTeam(victim)))
-						{
-							damage = 0.0;
-							return Plugin_Changed;
-						}
-						else if ((victim == LR_Player_Prisoner && attacker == LR_Player_Guard) || (victim == LR_Player_Guard && attacker == LR_Player_Prisoner))
+						if ((victim == LR_Player_Prisoner && attacker == LR_Player_Guard) || (victim == LR_Player_Guard && attacker == LR_Player_Prisoner))
 						{
 							return Plugin_Continue;
 						}
-						else if (victim == LR_Player_Prisoner || victim == LR_Player_Guard || attacker == LR_Player_Prisoner || attacker == LR_Player_Guard)
-						{
-							damage = 0.0;
-							return Plugin_Changed;
-						}
-						else if (!gH_Cvar_LR_Damage.BoolValue)
-						{
-							return Plugin_Continue;
-						}
+					}
+				}
+				
+				// Prevent players that are not in a LastRequest together from damaging each other
+				if (gH_Cvar_LR_Damage.BoolValue && type != LR_Rebel) // Ignore this check for the Rebel LastRequest
+				{
+					if ((attacker == LR_Player_Guard && victim != LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim != LR_Player_Guard) && (GetClientTeam(attacker) != GetClientTeam(victim)))
+					{
+						return Plugin_Handled;
+					}
+					else if (((attacker != LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker != LR_Player_Prisoner && victim == LR_Player_Guard)) && attacker != victim)
+					{
+						return Plugin_Handled;
 					}
 				}
 			}
