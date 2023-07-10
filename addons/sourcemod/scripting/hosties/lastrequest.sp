@@ -670,7 +670,7 @@ int Native_LR_Cleanup(Handle h_Plugin, int iNumParameters)
 	if(iNumParameters == 1)
 	{
 		int LR_Player_Prisoner = GetNativeCell(1);
-		PrintToChatAll("Debug: %d", LR_Player_Prisoner);
+		//PrintToChatAll("Debug: %d", LR_Player_Prisoner);
 		if(IsClientInGame(LR_Player_Prisoner))
 		{
 			if(!IsLastRequestAutoStart(g_selection[LR_Player_Prisoner]))
