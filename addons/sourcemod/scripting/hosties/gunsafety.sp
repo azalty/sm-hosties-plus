@@ -227,7 +227,7 @@ int MenuHandler_Slay(Handle menu, MenuAction action, int param1, int param2)
 			char name[32];
 			GetClientName(target, name, sizeof(name));
 			PerformSlay(param1, target);
-			CShowActivity2(param1, gShadow_Hosties_ChatBanner, "%t", "Slayed target", "_s", name);
+			Hosties_ShowActivity2(param1, "%t", "Slayed target", "_s", name);
 		}
 		
 		DisplaySlayMenu(param1);
@@ -316,7 +316,7 @@ int MenuHandler_Kick(Handle menu, MenuAction action, int param1, int param2)
 		{
 			char name[MAX_NAME_LENGTH];
 			GetClientName(target, name, sizeof(name));
-			CShowActivity2(param1, gShadow_Hosties_ChatBanner, "%t", "Kicked target", "_s", name);
+			Hosties_ShowActivity2(param1, "%t", "Kicked target", "_s", name);
 			PerformKick(param1, target, "");
 		}
 		
@@ -356,16 +356,16 @@ void PrepareBan(int client, int target, int time, const char[] reason)
 	{
 		if (reason[0] == '\0')
 		{
-			CShowActivity(client, "%t", "Permabanned player", name);
+			Hosties_ShowActivity(client, "%t", "Permabanned player", name);
 		} else {
-			CShowActivity(client, "%t", "Permabanned player reason", name, reason);
+			Hosties_ShowActivity(client, "%t", "Permabanned player reason", name, reason);
 		}
 	} else {
 		if (reason[0] == '\0')
 		{
-			CShowActivity(client, "%t", "Banned player", name, time);
+			Hosties_ShowActivity(client, "%t", "Banned player", name, time);
 		} else {
-			CShowActivity(client, "%t", "Banned player reason", name, time, reason);
+			Hosties_ShowActivity(client, "%t", "Banned player reason", name, time, reason);
 		}
 	}
 

@@ -880,7 +880,7 @@ void StopActiveLRs(int client)
 		RemoveFromArray(gH_DArray_LR_Partners, iArraySize-1);
 		iArraySize--;
 	}
-	CShowActivity(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Aborted");
+	Hosties_ShowActivity(client, "%t", "LR Aborted");
 }
 
 void LastRequest_RoundEnd(Event event, const char[] name, bool dontBroadcast)

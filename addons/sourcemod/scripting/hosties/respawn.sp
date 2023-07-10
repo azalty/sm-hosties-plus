@@ -70,7 +70,7 @@ public Action Command_Respawn(int client, int args)
 		PerformRespawn(client, target_list[i]);
 	}
 	
-	CShowActivity(client, "%s %t", gShadow_Hosties_ChatBanner, "Respawned Target", target_name);
+	Hosties_ShowActivity(client, "%t", "Respawned Target", target_name);
 	
 	return Plugin_Handled;
 }
@@ -189,7 +189,7 @@ int MenuHandler_Respawn(Menu menu, MenuAction action, int param1, int param2)
 			char name[32];
 			GetClientName(target, name, sizeof(name));
 			PerformRespawn(param1, target);
-			CShowActivity(param1, "%s %t", gShadow_Hosties_ChatBanner, "Respawned Target", name);
+			Hosties_ShowActivity(param1, "%t", "Respawned Target", name);
 		}
 		
 		DisplayRespawnMenu(param1);

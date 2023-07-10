@@ -44,7 +44,7 @@
 
 #pragma			semicolon 					1
 
-#define 		PLUGIN_VERSION				"5.0.3"
+#define 		PLUGIN_VERSION				"5.0.4"
 #define 		PLUGIN_NAME					"Hosties+"
 #define 		MAX_DISPLAYNAME_SIZE		64
 #define 		MAX_DATAENTRY_SIZE			5
@@ -103,7 +103,8 @@ ConVar 			gH_Cvar_Add_ServerTag,
 				gH_Cvar_ChatTag,
 				gH_Cvar_CT_Name,
 				gH_Cvar_T_Name,
-				gH_Cvar_LR_Debug_Enabled;
+				gH_Cvar_LR_Debug_Enabled,
+				gH_Cvar_Chat_ActivityType;
 
 #if (MODULE_FREEKILL == 1)
 ConVar			gH_Cvar_Freekill_Sound,
@@ -188,6 +189,7 @@ public void OnPluginStart()
 	gH_Cvar_LR_Debug_Enabled 	= 	AutoExecConfig_CreateConVar("sm_hosties_debug_enabled", "0", "Allow prisoners to set race points in the air.", 0, true, 0.0, true, 1.0);
 	gH_Cvar_CT_Name 			= 	AutoExecConfig_CreateConVar("sm_hosties_team_name_ct", "Guards", "Edit CT Team Name - Leave empty for no change");
 	gH_Cvar_T_Name 				= 	AutoExecConfig_CreateConVar("sm_hosties_team_name_t", "Prisoners", "Edit T Team Name - Leave empty for no change");
+	gH_Cvar_Chat_ActivityType	=	AutoExecConfig_CreateConVar("sm_hosties_chat_activitytype", "1", "0 = Use the [SM] tag for admin activity messages\n1 = Use the plugin tag for admin activity messages", 0, true, 0.0, true, 1.0);
 	
 	#if (MODULE_STARTWEAPONS == 1)
 		StartWeapons_OnPluginStart();
@@ -530,4 +532,67 @@ stock bool DirExistsEx(const char[] path)
 	}
 
 	return true;
+}
+
+/**
+ * Displays usage of an admin command to users depending on the 
+ * setting of the sm_show_activity cvar.  
+ * Also respects the sm_hosties_chat_activitytype cvar.
+ *
+ * This version does not display a message to the originating client 
+ * if used from chat triggers or menus.  If manual replies are used 
+ * for these cases, then this function will suffice.  Otherwise, 
+ * CShowActivity2() is slightly more useful.
+ * Supports color tags.
+ *
+ * @param client		Client index doing the action, or 0 for server.
+ * @param format		Formatting rules.
+ * @param ...			Variable number of format parameters.
+ * 
+ * @error
+ */
+void Hosties_ShowActivity(int client, const char[] message, any ...)
+{
+	char buffer[MAX_MESSAGE_LENGTH];
+	SetGlobalTransTarget(LANG_SERVER);
+	VFormat(buffer, sizeof(buffer), message, 3);
+	
+	if (gH_Cvar_Chat_ActivityType.IntValue == 0)
+	{
+		CShowActivity(client, buffer);
+	}
+	else
+	{
+		CShowActivityEx(client, gShadow_Hosties_ChatBanner, buffer);
+	}
+}
+
+/**
+ * Displays usage of an admin command to users depending on the setting of the sm_show_activity cvar.
+ * Also respects the sm_hosties_chat_activitytype cvar.
+ * All users receive a message in their chat text, except for the originating client, 
+ * who receives the message based on the current ReplySource.
+ * Supports color tags.
+ *
+ * @param client		Client index doing the action, or 0 for server.
+ * @param tags			Tag to prepend to the message.
+ * @param format		Formatting rules.
+ * @param ...			Variable number of format parameters.
+ * 
+ * @error
+ */
+void Hosties_ShowActivity2(int client, const char[] message, any ...)
+{
+	char buffer[MAX_MESSAGE_LENGTH];
+	SetGlobalTransTarget(LANG_SERVER);
+	VFormat(buffer, sizeof(buffer), message, 3);
+	
+	if (gH_Cvar_Chat_ActivityType.IntValue == 0)
+	{
+		CShowActivity2(client, "[SM] ", buffer);
+	}
+	else
+	{
+		CShowActivity2(client, gShadow_Hosties_ChatBanner, buffer);
+	}
 }
