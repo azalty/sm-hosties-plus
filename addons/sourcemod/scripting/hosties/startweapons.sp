@@ -94,9 +94,9 @@ void StartWeapons_Spawn(Event event, const char[] name, bool dontBroadcast)
 					/* Ignore check if starts with "item_", as you can also give items like kevlars+helmet "item_assaultsuit", which are not weapons.
 					 * Not checking will crash the game. */
 					if (StrContains(gs_T_WeaponList[Tidx], "item_") == 0)
-						GivePlayerItem(client, sWeapon)
+						GivePlayerItem(client, gs_T_WeaponList[Tidx])
 					else if (!Client_HasWeapon(client, gs_T_WeaponList[Tidx]))
-						EMP_GiveWeapon(client, sWeapon); // Gives the weapon with the skin if a player has one (CS:GO)
+						EMP_GiveWeapon(client, gs_T_WeaponList[Tidx]); // Gives the weapon with the skin if a player has one (CS:GO)
 				}
 			}
 			case CS_TEAM_CT:
