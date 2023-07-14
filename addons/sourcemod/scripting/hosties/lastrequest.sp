@@ -2013,10 +2013,19 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 					{
 						if (((attacker == LR_Player_Guard || attacker == LR_Player_Prisoner) && (victim == LR_Player_Guard || victim == LR_Player_Prisoner)))
 						{
-							Client_GetActiveWeaponName(attacker, UsedWeapon, sizeof(UsedWeapon));
-							ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false); 		
+							bool bCheated;
 							
-							if (strcmp(UsedWeapon, "flashbang") != 0)
+							// If a nade is used, inflictor != attacker
+							if (attacker == inflictor)
+							{
+								bCheated = true;
+							}
+							else if (!StrEqual(UsedWeapon, "flashbang"))
+							{
+								bCheated = true;
+							}
+							
+							if (bCheated)
 							{
 								DecideRebelsFate(attacker, idx, -1);
 								if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
