@@ -84,7 +84,7 @@ char 	LR_C_sWeapon[MAXPLAYERS + 1][11][64];
 int 	LR_C_WeaponCount[MAXPLAYERS + 1] = {0, ...};
 int 	LR_C_FlashCounter[MAXPLAYERS + 1] = {0, ...};
 
-char	BeforeModel[MAXPLAYERS+1][PLATFORM_MAX_PATH],
+char	BeforeModel[MAXPLAYERS+1][PLATFORM_MAX_PATH+1],
 		g_sLastRequestPhrase[BASE_LR_Number][MAX_DISPLAYNAME_SIZE];
 
 ConVar	g_hRoundTime,
@@ -1352,7 +1352,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 					if (strlen(BeforeModel[LR_Player_Prisoner]) > 0)
 					{
 						SetEntityModel(LR_Player_Prisoner, BeforeModel[LR_Player_Prisoner]);
-						FormatEx(BeforeModel[LR_Player_Prisoner], sizeof(BeforeModel), "");
+						FormatEx(BeforeModel[LR_Player_Prisoner], sizeof(BeforeModel[]), "");
 					}
 				}
 			}
@@ -1367,7 +1367,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 					if (strlen(BeforeModel[LR_Player_Guard]) > 0)
 					{
 						SetEntityModel(LR_Player_Guard, BeforeModel[LR_Player_Guard]);
-						FormatEx(BeforeModel[LR_Player_Guard], sizeof(BeforeModel), "");
+						FormatEx(BeforeModel[LR_Player_Guard], sizeof(BeforeModel[]), "");
 					}
 				}
 			}
@@ -4015,8 +4015,8 @@ void InitializeGame(int iPartnersIndex)
 		{
 			if (GetEngineVersion() == Engine_CSGO)
 			{
-				GetEntPropString(LR_Player_Prisoner, Prop_Data, "m_ModelName", BeforeModel[LR_Player_Prisoner], sizeof(BeforeModel));
-				GetEntPropString(LR_Player_Guard, Prop_Data, "m_ModelName", BeforeModel[LR_Player_Guard], sizeof(BeforeModel));
+				GetEntPropString(LR_Player_Prisoner, Prop_Data, "m_ModelName", BeforeModel[LR_Player_Prisoner], sizeof(BeforeModel[]));
+				GetEntPropString(LR_Player_Guard, Prop_Data, "m_ModelName", BeforeModel[LR_Player_Guard], sizeof(BeforeModel[]));
 			
 				if (g_cvSvSuit == INVALID_HANDLE)
 					g_cvSvSuit = FindConVar("mp_weapons_allow_heavyassaultsuit");
