@@ -1924,6 +1924,7 @@ public Action Timer_ResetZoom(Handle timer, any UserId)
 
 public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3])
 {
+	LogMessage("OnTakeDamage - victim: %i | attacker: %i | inflictor: %i | damage: %.1f | weapon: %i", victim, attacker, inflictor, damage, weapon);
 	if ((victim != attacker) && (victim > 0) && (victim <= MaxClients) && (attacker > 0) && (attacker <= MaxClients))
 	{
 		int iArraySize = GetArraySize(gH_DArray_LR_Partners);
@@ -1957,12 +1958,13 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 							
 							if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 							{
+								LogMessage("Russian Roulette LR: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i", weapon, Pistol_Prisoner, Pistol_Guard);
 								DecideRebelsFate(attacker, idx, victim);
 								if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
 							}
 							
 							// null any damage
-							damage = 0.0;
+							// damage = 0.0;
 							
 							// decide if there's a winner
 							bullet = GetRandomInt(1,6);
@@ -1970,9 +1972,9 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 							{
 								case 1:
 								{
-									KillAndReward(victim, attacker);
+									// KillAndReward(victim, attacker);
+									damage = 200.0; // Make sure it one-shots
 									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Hit", victim);
-
 								}
 								default:
 								{
@@ -1985,6 +1987,7 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 										CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
 										CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
 									}
+									return Plugin_Handled;
 								}
 							}
 							return Plugin_Changed;
@@ -2014,13 +2017,14 @@ public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &dam
 						if (((attacker == LR_Player_Guard || attacker == LR_Player_Prisoner) && (victim == LR_Player_Guard || victim == LR_Player_Prisoner)))
 						{
 							bool bCheated;
+							char sInflictorClass[64];
 							
 							// If a nade is used, inflictor != attacker
-							if (attacker == inflictor)
+							if (attacker == inflictor || !IsValidEntity(inflictor))
 							{
 								bCheated = true;
 							}
-							else if (!StrEqual(UsedWeapon, "flashbang"))
+							else if (!GetEntityClassname(inflictor, sInflictorClass, sizeof(sInflictorClass)) || !StrEqual(sInflictorClass, "flashbang_projectile")) // Check that what inflicted the damage was a flashbang projectile
 							{
 								bCheated = true;
 							}
@@ -4632,8 +4636,8 @@ void InitializeGame(int iPartnersIndex)
 			int Pistol_PrisonerEntRef = EntIndexToEntRef(Pistol_Prisoner);
 			int Pistol_GuardEntRef = EntIndexToEntRef(Pistol_Guard);
 			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_PrisonerEntRef, view_as<int>(Block_PrisonerData));
-			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_GuardEntRef, view_as<int>(Block_GuardData));	
-				
+			SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, Pistol_GuardEntRef, view_as<int>(Block_GuardData));
+			
 			// randomize who starts first
 			if (GetRandomInt(0, 1) == 0)
 			{
