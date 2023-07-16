@@ -1922,7 +1922,7 @@ public Action Timer_ResetZoom(Handle timer, any UserId)
 	return Plugin_Handled;
 }
 
-public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3])
+public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& damage, int& damagetype, int& weapon, float damageForce[3], float damagePosition[3])
 {
 	LogMessage("OnTakeDamage - victim: %i | attacker: %i | inflictor: %i | damage: %.1f | weapon: %i", victim, attacker, inflictor, damage, weapon);
 	if ((victim != attacker) && (victim > 0) && (victim <= MaxClients) && (attacker > 0) && (attacker <= MaxClients))
