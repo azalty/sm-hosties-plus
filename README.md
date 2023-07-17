@@ -4,7 +4,7 @@
 ## Stable and beta versions
 Stable versions can be found on the [releases page](https://github.com/azalty/sm-hosties-plus/releases).
 
-Beta/dev/untested versions, which often contains the latest patches and upgrades but can be buggy and unstable, can be found in the `main` branch. They're not recommended unless you were advised to try them or you know what you're doing.
+Beta/dev/untested versions, which often contain the latest patches and upgrades but can be buggy and unstable, can be found in the `main` branch. They're not recommended unless you were advised to try them or you know what you're doing.
 
 Beta versions might also end up as releases with a yellow mention "Pre-release" and "BETA" in their version name.\
 This will be done when a beta version needs more testing and is considered more stable than the `main` branch.
