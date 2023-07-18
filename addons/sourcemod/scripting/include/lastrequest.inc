@@ -23,6 +23,9 @@
 #endif
 #define _LastRequest_Included_
 
+// Include cstrike if not included yet. Needed for some constants present in this file.
+#include <cstrike>
+
 // Custom types
 #define		LR_Number	18
 
