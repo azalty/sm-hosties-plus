@@ -1937,7 +1937,37 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 			{
 				LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_Prisoner));
 				LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_Guard));
+				
+				// Check if victim or attacker are not one of the currently checked LR_Player_Prisoner or LR_Player_Guard
+				if (victim != LR_Player_Prisoner && victim != LR_Player_Guard && attacker != LR_Player_Prisoner && victim != LR_Player_Guard)
+				{
+					// Let's improve performance and just skip here instead of checking a lot of useless things.
+					continue;
+				}
+				
+				// Now, we are guaranteed at least one of victim, attacker is LR_Player_Prisoner or LR_Player_Guard
+				
 				int type = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_LRType));
+				
+				// Prevent players that are not in a LastRequest together from damaging each other
+				if (gH_Cvar_LR_Damage.BoolValue && type != LR_Rebel) // Ignore this check for the Rebel LastRequest
+				{
+					// If an in-LR player attacked a non-in-LR player
+					if ((attacker == LR_Player_Guard && victim != LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim != LR_Player_Guard))
+					{
+						return Plugin_Handled;
+					}
+					// If a non-in-LR player attacked an in-LR-player
+					else if ((attacker != LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker != LR_Player_Prisoner && victim == LR_Player_Guard))
+					{
+						return Plugin_Handled;
+					}
+				}
+				else
+				{
+					// gH_Cvar_LR_Damage not enabled, so let damage between in-LR players and non-in-LR player happen
+					return Plugin_Continue;
+				}
 				
 				if (Weapon_IsValid(weapon))
 				{
@@ -1950,167 +1980,145 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 				{
 					case LR_RussianRoulette:
 					{
-						if ((attacker == LR_Player_Guard || attacker == LR_Player_Prisoner) && (victim == LR_Player_Guard || victim == LR_Player_Prisoner))
+						// determine if LR weapon is being used
+						Pistol_Prisoner = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData)));
+						Pistol_Guard = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData)));
+						
+						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 						{
-							// determine if LR weapon is being used
-							Pistol_Prisoner = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData)));
-							Pistol_Guard = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData)));
-							
-							if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
-							{
-								LogMessage("Russian Roulette LR: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i", weapon, Pistol_Prisoner, Pistol_Guard);
-								DecideRebelsFate(attacker, idx, victim);
-								if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
-							}
-							
-							// null any damage
-							// damage = 0.0;
-							
-							// decide if there's a winner
-							bullet = GetRandomInt(1,6);
-							switch (bullet)
-							{
-								case 1:
-								{
-									// KillAndReward(victim, attacker);
-									damage = 200.0; // Make sure it one-shots
-									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Hit", victim);
-								}
-								default:
-								{
-									if (gH_Cvar_SendGlobalMsgs.BoolValue)
-									{						
-										EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
-									}
-									else
-									{
-										CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
-										CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
-									}
-									return Plugin_Handled;
-								}
-							}
-							return Plugin_Changed;
+							LogMessage("Russian Roulette LR: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i", weapon, Pistol_Prisoner, Pistol_Guard);
+							DecideRebelsFate(attacker, idx, victim);
+							if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
 						}
+						
+						// null any damage
+						// damage = 0.0;
+						
+						// decide if there's a winner
+						bullet = GetRandomInt(1,6);
+						switch (bullet)
+						{
+							case 1:
+							{
+								// KillAndReward(victim, attacker);
+								damage = 200.0; // Make sure it one-shots
+								EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Hit", victim);
+							}
+							default:
+							{
+								if (gH_Cvar_SendGlobalMsgs.BoolValue)
+								{						
+									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
+								}
+								else
+								{
+									CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
+									CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
+								}
+								return Plugin_Handled;
+							}
+						}
+						return Plugin_Changed;
 					}
 					case LR_RockPaperScissors, LR_Race, LR_JumpContest:
 					{
-						if ((attacker == LR_Player_Guard || attacker == LR_Player_Prisoner) && (victim == LR_Player_Guard || victim == LR_Player_Prisoner))
-						{
-							DecideRebelsFate(attacker, idx, -1);
-							if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
-							
-							damage = 0.0;
-							return Plugin_Changed;
-						}
+						DecideRebelsFate(attacker, idx, -1);
+						if (g_Game == Game_CSGO)
+							RightKnifeAntiCheat(attacker, idx);
+						
+						return Plugin_Handled;
 					}
 					case LR_ChickenFight:
 					{
-						if ((attacker == LR_Player_Guard || attacker == LR_Player_Prisoner) && (victim == LR_Player_Guard || victim == LR_Player_Prisoner))
-						{
-							damage = 0.0;
-							return Plugin_Changed;
-						}
+						return Plugin_Handled;
 					}
 					case LR_Dodgeball:
 					{
-						if (((attacker == LR_Player_Guard || attacker == LR_Player_Prisoner) && (victim == LR_Player_Guard || victim == LR_Player_Prisoner)))
+						bool bCheated;
+						char sInflictorClass[64];
+						
+						// If a nade is used, inflictor != attacker
+						if (attacker == inflictor || !IsValidEntity(inflictor))
 						{
-							bool bCheated;
-							char sInflictorClass[64];
+							bCheated = true;
+						}
+						else if (!GetEntityClassname(inflictor, sInflictorClass, sizeof(sInflictorClass)) || !StrEqual(sInflictorClass, "flashbang_projectile")) // Check that what inflicted the damage was a flashbang projectile
+						{
+							bCheated = true;
+						}
+						
+						if (bCheated)
+						{
+							DecideRebelsFate(attacker, idx, -1);
+							if (g_Game == Game_CSGO)
+								RightKnifeAntiCheat(attacker, idx);
 							
-							// If a nade is used, inflictor != attacker
-							if (attacker == inflictor || !IsValidEntity(inflictor))
-							{
-								bCheated = true;
-							}
-							else if (!GetEntityClassname(inflictor, sInflictorClass, sizeof(sInflictorClass)) || !StrEqual(sInflictorClass, "flashbang_projectile")) // Check that what inflicted the damage was a flashbang projectile
-							{
-								bCheated = true;
-							}
-							
-							if (bCheated)
-							{
-								DecideRebelsFate(attacker, idx, -1);
-								if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
-								
-								damage = 0.0;
-								return Plugin_Changed;
-							}
+							return Plugin_Handled;
 						}
 					}
 					case LR_Shot4Shot, LR_Mag4Mag, LR_NoScope:
 					{
-						if ((attacker == LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim == LR_Player_Guard))
+						Pistol_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData));
+						Pistol_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData));
+						
+						if (!Weapon_IsValid(weapon))
 						{
-							Pistol_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData));
-							Pistol_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData));
-							
-							if (!Weapon_IsValid(weapon))
-							{
-								weapon = Client_GetActiveWeapon(attacker);
-							}
-							
-							if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard) && (!Entity_ClassNameMatches(weapon, "weapon_knife") && !Entity_ClassNameMatches(weapon, "weapon_bayonet")))
-							{
-								damage = 0.0;
-								if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
-								DecideRebelsFate(attacker, idx);
-								return Plugin_Changed;
-							}
+							weapon = Client_GetActiveWeapon(attacker);
+						}
+						
+						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard) && (!Entity_ClassNameMatches(weapon, "weapon_knife") && !Entity_ClassNameMatches(weapon, "weapon_bayonet")))
+						{
+							if (g_Game == Game_CSGO)
+								RightKnifeAntiCheat(attacker, idx);
+							DecideRebelsFate(attacker, idx);
+							return Plugin_Handled;
 						}
 					}
 					case LR_OnlyHS:
 					{
-						if ((attacker == LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim == LR_Player_Guard))
+						if (damagetype & CS_DMG_HEADSHOT) // This is the right way to check for headshots, it will take into account the spread and recoil.
 						{
-							if (damagetype & CS_DMG_HEADSHOT) // This is the right way to check for headshots, it will take into account the spread and recoil.
-							{
-								damage = 200.0; // Ensures it will kill
-								return Plugin_Changed;
-							}
-							else
-							{
-								return Plugin_Handled; // Prevents the shot from counting, removing the slowdown effect and bullet punch.
-							}
-							
-							// Tracing a ray is not the way, as bullets don't always go to the center of the crosshair, especially with recoil, spread, and movement.
-							
-							/* HERE LIES THE OLD METHOD
-							GetClientEyePosition(attacker, start);
-							GetClientEyeAngles(attacker, ang);
-							
-							hTrace = TR_TraceRayFilterEx(start, ang, MASK_SHOT, RayType_Infinite, TraceRayDontHitEntity, attacker);
-							iHitGroup = TR_GetHitGroup(hTrace);
-							delete hTrace;
-							
-							if (!(iHitGroup == 1))
-							{
-								damage = 0.0;
-								return Plugin_Changed;
-							}
-							EMP_FreeHandle(hTrace);
-							*/
+							damage = 200.0; // Ensures it will kill
+							return Plugin_Changed;
 						}
-					}
-					case LR_HEFight:
-					{
-						if ((attacker == LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim == LR_Player_Guard))
+						else
 						{
-							if (Entity_IsValid(weapon))
-							{
-								if (!Entity_ClassNameMatches(weapon, "weapon_grenade"))
-								{
-									damage = 0.0;
-									return Plugin_Changed;
-								}
-							}
+							return Plugin_Handled; // Prevents the shot from counting, removing the slowdown effect and bullet punch.
 						}
-						else if (victim != LR_Player_Prisoner && victim != LR_Player_Guard && (attacker == LR_Player_Prisoner || attacker == LR_Player_Guard))
+						
+						// Tracing a ray is not the way, as bullets don't always go to the center of the crosshair, especially with recoil, spread, and movement.
+						
+						/* HERE LIES THE OLD METHOD
+						GetClientEyePosition(attacker, start);
+						GetClientEyeAngles(attacker, ang);
+						
+						hTrace = TR_TraceRayFilterEx(start, ang, MASK_SHOT, RayType_Infinite, TraceRayDontHitEntity, attacker);
+						iHitGroup = TR_GetHitGroup(hTrace);
+						delete hTrace;
+						
+						if (!(iHitGroup == 1))
 						{
 							damage = 0.0;
 							return Plugin_Changed;
 						}
+						EMP_FreeHandle(hTrace);
+						*/
+					}
+					case LR_HEFight:
+					{
+						// Prevent all non-explosive damage
+						if (!(damagetype & DMG_BLAST))
+						{
+							return Plugin_Handled;
+						}
+						
+						// Check if direct damage has been done. HE Grenades don't deal direct damage.
+						if (attacker == inflictor)
+						{
+							return Plugin_Handled;
+						}
+						
+						// Might be good to also check for the inflictor here, if possible.
 					}
 					case LR_Rebel:
 					{
@@ -2118,37 +2126,20 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					}
 					case LR_JuggernoutBattle:
 					{
-						if ((attacker == LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim == LR_Player_Guard))
-						{
-							LogToFileEx(gShadow_Hosties_LogFile, "Juggernout opponent got hit");
-							return Plugin_Continue;
-						}
-						else if (victim != LR_Player_Prisoner && victim != LR_Player_Guard && (attacker == LR_Player_Prisoner || attacker == LR_Player_Guard))
-						{
-							damage = 0.0;
-							LogToFileEx(gShadow_Hosties_LogFile, "Juggernout random player got hit");
-							return Plugin_Changed;
-						}
+						// TODO: Add anti-cheat to prevent players from using other weapons
+						return Plugin_Continue;
 					}
 					default:
 					{
+						return Plugin_Continue;
+						
+						// This verification is no longer needed because all the checks are now done earlier.
+						/*
 						if ((victim == LR_Player_Prisoner && attacker == LR_Player_Guard) || (victim == LR_Player_Guard && attacker == LR_Player_Prisoner))
 						{
 							return Plugin_Continue;
 						}
-					}
-				}
-				
-				// Prevent players that are not in a LastRequest together from damaging each other
-				if (gH_Cvar_LR_Damage.BoolValue && type != LR_Rebel) // Ignore this check for the Rebel LastRequest
-				{
-					if ((attacker == LR_Player_Guard && victim != LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim != LR_Player_Guard) && (GetClientTeam(attacker) != GetClientTeam(victim)))
-					{
-						return Plugin_Handled;
-					}
-					else if (((attacker != LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker != LR_Player_Prisoner && victim == LR_Player_Guard)) && attacker != victim)
-					{
-						return Plugin_Handled;
+						*/
 					}
 				}
 			}
