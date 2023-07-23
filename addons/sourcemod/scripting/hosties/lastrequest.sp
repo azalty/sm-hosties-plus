@@ -1972,8 +1972,12 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 				if (Weapon_IsValid(weapon))
 				{
 					GetEntityClassname(weapon, UsedWeapon, sizeof(UsedWeapon));
+					ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false); 
 				}
-				ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false); 
+				else
+				{
+					UsedWeapon[0] = '\0'; // Makes UsedWeapon an empty string
+				}
 				
 				// if a roulette player is hurting the other contestant
 				switch (type)
@@ -1986,9 +1990,9 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						
 						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 						{
-							LogMessage("Russian Roulette LR: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i", weapon, Pistol_Prisoner, Pistol_Guard);
+							LogMessage("Russian Roulette LR: Cheating detected: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i - UsedWeapon: %s", weapon, Pistol_Prisoner, Pistol_Guard, UsedWeapon);
 							DecideRebelsFate(attacker, idx, victim);
-							if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
+							return Plugin_Handled;
 						}
 						
 						// null any damage
@@ -2020,62 +2024,76 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						}
 						return Plugin_Changed;
 					}
-					case LR_RockPaperScissors, LR_Race, LR_JumpContest:
+					case LR_RockPaperScissors, LR_Race, LR_JumpContest, LR_ChickenFight:
 					{
-						DecideRebelsFate(attacker, idx, -1);
-						if (g_Game == Game_CSGO)
-							RightKnifeAntiCheat(attacker, idx);
-						
-						return Plugin_Handled;
-					}
-					case LR_ChickenFight:
-					{
+						DecideRebelsFate(attacker, idx, victim);
 						return Plugin_Handled;
 					}
 					case LR_Dodgeball:
 					{
-						bool bCheated;
 						char sInflictorClass[64];
 						
 						// If a nade is used, inflictor != attacker
 						if (attacker == inflictor || !IsValidEntity(inflictor))
 						{
-							bCheated = true;
-						}
-						else if (!GetEntityClassname(inflictor, sInflictorClass, sizeof(sInflictorClass)) || !StrEqual(sInflictorClass, "flashbang_projectile")) // Check that what inflicted the damage was a flashbang projectile
-						{
-							bCheated = true;
-						}
-						
-						if (bCheated)
-						{
-							DecideRebelsFate(attacker, idx, -1);
-							if (g_Game == Game_CSGO)
-								RightKnifeAntiCheat(attacker, idx);
-							
+							DecideRebelsFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
+						
+						// Check if the inflictor is indeed a flashbang_projectile
+						if (!GetEntityClassname(inflictor, sInflictorClass, sizeof(sInflictorClass)) || !StrEqual(sInflictorClass, "flashbang_projectile")) // Check that what inflicted the damage was a flashbang projectile
+						{
+							DecideRebelsFate(attacker, idx, -1);
+							return Plugin_Handled;
+						}
+						
+						// Also possible to check for DMG_CLUB (A grenade impact (for instance a flash hitting a teammate) will inflict damage of type DMG_CLUB.)
 					}
 					case LR_Shot4Shot, LR_Mag4Mag, LR_NoScope:
 					{
+						// Prevent indirect damage
+						if (attacker != inflictor)
+						{
+							DecideRebelsFate(attacker, idx, -1);
+							return Plugin_Handled;
+						}
+						
 						Pistol_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData));
 						Pistol_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData));
 						
 						if (!Weapon_IsValid(weapon))
 						{
+							LogMessage("Unable to detect weapon in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope - working around..");
 							weapon = Client_GetActiveWeapon(attacker);
+							if (weapon == INVALID_ENT_REFERENCE)
+							{
+								LogMessage("Workaround failed in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope");
+								DecideRebelsFate(attacker, idx, -1);
+								return Plugin_Handled;
+							}
+							LogMessage("Workaround worked in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope");
+							
+							GetEntityClassname(weapon, UsedWeapon, sizeof(UsedWeapon));
 						}
 						
-						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard) && (!Entity_ClassNameMatches(weapon, "weapon_knife") && !Entity_ClassNameMatches(weapon, "weapon_bayonet")))
+						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 						{
-							if (g_Game == Game_CSGO)
-								RightKnifeAntiCheat(attacker, idx);
-							DecideRebelsFate(attacker, idx);
+							DecideRebelsFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 					}
 					case LR_OnlyHS:
 					{
+						// determine if LR weapon is being used
+						Pistol_Prisoner = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData)));
+						Pistol_Guard = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData)));
+						
+						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
+						{
+							DecideRebelsFate(attacker, idx, victim);
+							return Plugin_Handled;
+						}
+						
 						if (damagetype & CS_DMG_HEADSHOT) // This is the right way to check for headshots, it will take into account the spread and recoil.
 						{
 							damage = 200.0; // Ensures it will kill
@@ -2106,15 +2124,17 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					}
 					case LR_HEFight:
 					{
-						// Prevent all non-explosive damage
-						if (!(damagetype & DMG_BLAST))
-						{
-							return Plugin_Handled;
-						}
-						
 						// Check if direct damage has been done. HE Grenades don't deal direct damage.
 						if (attacker == inflictor)
 						{
+							DecideRebelsFate(attacker, idx, victim);
+							return Plugin_Handled;
+						}
+						
+						// Prevent all non-explosive damage
+						if (!(damagetype & DMG_BLAST))
+						{
+							DecideRebelsFate(attacker, idx, -1);
 							return Plugin_Handled;
 						}
 						
@@ -2126,7 +2146,23 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					}
 					case LR_JuggernoutBattle:
 					{
-						// TODO: Add anti-cheat to prevent players from using other weapons
+						if (GetEngineVersion() == Engine_CSGO)
+						{
+							if (!StrEqual(UsedWeapon, "negev") && !StrEqual(UsedWeapon, "deagle") && !IsWeaponClassKnife(UsedWeapon))
+							{
+								DecideRebelsFate(attacker, idx, victim);
+								return Plugin_Handled;
+							}
+						}
+						else if (GetEngineVersion() == Engine_CSS)
+						{
+							if (!StrEqual(UsedWeapon, "m249") && !StrEqual(UsedWeapon, "deagle") && !IsWeaponClassKnife(UsedWeapon))
+							{
+								DecideRebelsFate(attacker, idx, victim);
+								return Plugin_Handled;
+							}
+						}
+						
 						return Plugin_Continue;
 					}
 					default:
@@ -6174,7 +6210,7 @@ void GetLastButton(int client, int &buttons, int idx)
 						if (button == IN_ATTACK2 || button == IN_ATTACK)
 						{
 							Client_GetActiveWeaponName(client, classname, 32);
-							if ((StrContains(classname, "knife", false) != -1) || (StrContains(classname, "bayonet", false) != -1))
+							if (IsWeaponClassKnife(classname))
 							{
 								g_TriedToStab[client] = true;
 							}
@@ -6445,4 +6481,14 @@ void SetCorrectPlayerColor(int client)
 	{
 		SetEntityRenderColor(client, 255, 255, 255, 255);
 	}
+}
+
+/* Returns whether the passed classname is a knife or not.
+ * ---
+ * const char[] classname	The classname to check. It doesn't have to contain "weapon_".
+ * -
+ * return bool				true if the passed classname contains "knife" or "bayonet", false if not. */
+bool IsWeaponClassKnife(const char[] classname)
+{
+	return ((StrContains(classname, "knife", false) != -1) || (StrContains(classname, "bayonet", false) != -1));
 }
