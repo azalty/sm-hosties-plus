@@ -1966,7 +1966,17 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 				else
 				{
 					// gH_Cvar_LR_Damage not enabled, so let damage between in-LR players and non-in-LR player happen
-					return Plugin_Continue;
+					
+					// If an in-LR player attacked a non-in-LR player
+					if ((attacker == LR_Player_Guard && victim != LR_Player_Prisoner) || (attacker == LR_Player_Prisoner && victim != LR_Player_Guard))
+					{
+						return Plugin_Continue;
+					}
+					// If a non-in-LR player attacked an in-LR-player
+					else if ((attacker != LR_Player_Guard && victim == LR_Player_Prisoner) || (attacker != LR_Player_Prisoner && victim == LR_Player_Guard))
+					{
+						return Plugin_Continue;
+					}
 				}
 				
 				if (Weapon_IsValid(weapon))
