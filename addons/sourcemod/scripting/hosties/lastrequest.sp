@@ -2101,6 +2101,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						}
 						else
 						{
+							Weapon_SetPrimaryClip(weapon, 99); // Recharges the weapon's clip to avoid running out of bullets
 							return Plugin_Handled; // Prevents the shot from counting, removing the slowdown effect and bullet punch.
 						}
 						
