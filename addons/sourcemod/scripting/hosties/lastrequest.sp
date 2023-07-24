@@ -2207,6 +2207,14 @@ public Action OnWeaponDecideUse(int client, int weapon)
 			
 			switch (type)
 			{
+				case LR_RockPaperScissors, LR_Race, LR_JumpContest: // Add LRs which should prevent players from picking any kind of weapon
+				{
+					// Prevent LR players from picking up weapons
+					if ((client == LR_Player_Guard || client == LR_Player_Prisoner))
+					{
+						return Plugin_Handled;
+					}
+				}
 				case LR_HotPotato:
 				{
 					HPdeagle = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_Global4)));
@@ -2257,14 +2265,40 @@ public Action OnWeaponDecideUse(int client, int weapon)
 				}
 				case LR_KnifeFight:
 				{
-					if ((client == LR_Player_Guard || client == LR_Player_Prisoner) && !Entity_ClassNameMatches(weapon, "weapon_knife"))
+					// Prevent LR players from picking up any weapon other than a knife
+					if (client == LR_Player_Guard || client == LR_Player_Prisoner)
 					{
-						return Plugin_Handled;
+						char classname[64];
+						GetEntityClassname(weapon, classname, sizeof(classname));
+						if (!IsWeaponClassKnife(classname))
+						{
+							return Plugin_Handled;
+						}
 					}
 				}
 				case LR_ChickenFight:
 				{
-					if ((client == LR_Player_Guard || client == LR_Player_Prisoner) && !Entity_ClassNameMatches(weapon, "weapon_knife"))
+					if (client == LR_Player_Guard || client == LR_Player_Prisoner)
+					{
+						// Prevent LR players from picking up weapons IF loser auto-slay is enabled for this LR
+						if (gH_Cvar_LR_ChickenFight_Slay.BoolValue)
+						{
+							return Plugin_Handled;
+						}
+						
+						// Else, only prevent picking up weapons IF they're not a knife
+						char classname[64];
+						GetEntityClassname(weapon, classname, sizeof(classname));
+						if (!IsWeaponClassKnife(classname))
+						{
+							return Plugin_Handled;
+						}
+					}
+				}
+				case LR_HEFight:
+				{
+					// Prevent LR players from picking up any weapon other than an HE Grenade
+					if ((client == LR_Player_Guard || client == LR_Player_Prisoner) && !Entity_ClassNameMatches(weapon, "weapon_hegrenade"))
 					{
 						return Plugin_Handled;
 					}
