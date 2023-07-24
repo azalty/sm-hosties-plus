@@ -114,7 +114,7 @@ ConVar	g_hRoundTime,
 		gH_Cvar_Announce_Delay_Enable,
 		gH_Cvar_LR_HotPotato_Mode,
 		gH_Cvar_MaxPrisonersToLR,
-		gH_Cvar_RebelAction,
+		gH_Cvar_CheatAction,
 		gH_Cvar_RebelHandling,
 		gH_Cvar_SendGlobalMsgs,
 		gH_Cvar_ColorRebels,
@@ -160,9 +160,6 @@ ConVar	g_hRoundTime,
 		gH_Cvar_LR_Delay_Enable_Time,
 		gH_Cvar_LR_Damage,
 		gH_Cvar_LR_NoScope_Delay,
-		gH_Cvar_LR_ChickenFight_Rebel,
-		gH_Cvar_LR_HotPotato_Rebel,
-		gH_Cvar_LR_KnifeFight_Rebel,
 		gH_Cvar_LR_Rebel_MaxTs,
 		gH_Cvar_LR_Rebel_MinCTs,
 		gH_Cvar_LR_Rebel_Weapons,
@@ -419,7 +416,7 @@ void LastRequest_OnPluginStart()
 	gH_Cvar_LR_HotPotato_Mode 			= AutoExecConfig_CreateConVar("sm_hosties_lr_hp_teleport", "2", "Teleport CT to T on hot potato contest start: 0 - disable, 1 - enable, 2 - enable and freeze", 0, true, 0.0, true, 2.0);
 	gH_Cvar_SendGlobalMsgs				= AutoExecConfig_CreateConVar("sm_hosties_lr_send_global_msgs", "0", "Specifies if non-death related LR messages are sent to everyone or just the active participants in that LR. 0: participants, 1: everyone", 0, true, 0.0, true, 1.0);
 	gH_Cvar_MaxPrisonersToLR 			= AutoExecConfig_CreateConVar("sm_hosties_lr_ts_max", "2", "The maximum number of terrorists left to enable LR: 0 - LR is always enabled, >0 - maximum number of Ts", 0, true, 0.0, true, 63.0);
-	gH_Cvar_RebelAction 				= AutoExecConfig_CreateConVar("sm_hosties_lr_rebel_action", "2", "Decides what to do with those who rebel/interfere during an LR. 1 - Abort, 2 - Slay.", 0, true, 1.0, true, 2.0);
+	gH_Cvar_CheatAction 				= AutoExecConfig_CreateConVar("sm_hosties_lr_cheat_action", "2", "Decides what to do with those who cheat/interfere during an LR. 0 - Nothing, but prevent cheating, 1 - Abort the LR, 2 - Slay the culprit", 0, true, 0.0, true, 2.0);
 	gH_Cvar_RebelHandling 				= AutoExecConfig_CreateConVar("sm_hosties_lr_rebel_mode", "1", "LR-mode for rebelling terrorists: 0 - Rebelling Ts can never have a LR, 1 - Rebelling Ts must let the CT decide if a LR is OK, 2 - Rebelling Ts can have a LR just like other Ts", 0, true, 0.0);
 	gH_Cvar_RebelOnImpact 				= AutoExecConfig_CreateConVar("sm_hosties_lr_rebel_impact", "0", "Sets terrorists to rebels for firing a bullet. 0 - Disabled, 1 - Enabled.", 0, true, 0.0, true, 1.0);
 	gH_Cvar_ColorRebels 				= AutoExecConfig_CreateConVar("sm_hosties_rebel_color", "0", "Turns on coloring rebels", 0, true, 0.0, true, 1.0);
@@ -453,9 +450,6 @@ void LastRequest_OnPluginStart()
 	gH_Cvar_LR_Delay_Enable_Time 		= AutoExecConfig_CreateConVar("sm_hosties_lr_enable_delay", "0.0", "Delay in seconds before a last request can be started: 0.0 - instantly, >0.0 - (float value) delay in seconds", 0, true, 0.0);
 	gH_Cvar_LR_Damage 					= AutoExecConfig_CreateConVar("sm_hosties_lr_damage", "0", "Enables that players can not attack players in LR and players in LR can not attack players outside LR: 0 - disable, 1 - enable", 0, true, 0.0, true, 1.0);
 	gH_Cvar_LR_NoScope_Delay 			= AutoExecConfig_CreateConVar("sm_hosties_lr_ns_delay", "3", "Delay in seconds before a No Scope Battle begins (to prepare the contestants...)", 0, true, 0.0);
-	gH_Cvar_LR_ChickenFight_Rebel		= AutoExecConfig_CreateConVar("sm_hosties_lr_cf_cheat_action", "1", "What to do with a chicken fighter who attacks the other player with another weapon than knife: 0 - abort LR, 1 - slay player", 0, true, 0.0, true, 1.0);
-	gH_Cvar_LR_HotPotato_Rebel 			= AutoExecConfig_CreateConVar("sm_hosties_lr_hp_cheat_action", "1", "What to do with a hot potato contestant who attacks the other player: 0 - abort LR, 1 - slay player", 0, true, 0.0, true, 1.0);
-	gH_Cvar_LR_KnifeFight_Rebel 		= AutoExecConfig_CreateConVar("sm_hosties_lr_kf_cheat_action", "1", "What to do with a knife fighter who attacks the other player with another weapon than knife: 0 - abort LR, 1 - slay player", 0, true, 0.0, true, 1.0);
 	gH_Cvar_LR_Race_AirPoints 			= AutoExecConfig_CreateConVar("sm_hosties_lr_race_airpoints", "0", "Allow prisoners to set race points in the air.", 0, true, 0.0, true, 1.0);
 	gH_Cvar_LR_Race_NotifyCTs 			= AutoExecConfig_CreateConVar("sm_hosties_lr_race_tell_cts", "1", "Tells all CTs when a T has selected the race option from the LR menu", 0, true, 0.0, true, 1.0);
 	gH_Cvar_LR_Race_CDOnCancel 			= AutoExecConfig_CreateConVar("sm_hosties_lr_race_cd_on_cancel", "1", "Set a cooldown for LR after Race cancel (against exploits)", 0, true, 0.0, true, 1.0);
@@ -934,7 +928,7 @@ void LastRequest_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
 					else
 					{
 						// follow rebel action
-						DecideRebelsFate(attacker, idx);
+						DecideCheatersFate(attacker, idx);
 						return;
 					}
 				}
@@ -1653,7 +1647,7 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 					
 					if (iClientWeapon != M4M_Prisoner_Weapon && iClientWeapon != M4M_Guard_Weapon && StrContains(FiredWeapon, "knife") == -1)
 					{
-						DecideRebelsFate(client, idx, -1);
+						DecideCheatersFate(client, idx, -1);
 					}
 					else if (strcmp(FiredWeapon, "knife") != 0)
 					{
@@ -1776,7 +1770,7 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 					if (iClientWeapon != Prisoner_S4S_Pistol && iClientWeapon != Guard_S4S_Pistol && StrContains(FiredWeapon, "knife") == -1)
 					{
 						if (g_Game == Game_CSGO) RightKnifeAntiCheat(client, idx);
-						DecideRebelsFate(client, idx, -1);
+						DecideCheatersFate(client, idx, -1);
 					}
 					else if (StrContains(FiredWeapon, "knife") == -1)
 					{
@@ -1788,7 +1782,7 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 						{
 							// this should no longer be possible to do without extra manipulation	
 							if (g_Game == Game_CSGO) RightKnifeAntiCheat(client, idx);
-							DecideRebelsFate(client, idx, -1);
+							DecideCheatersFate(client, idx, -1);
 						}
 						else // if we didn't repeat
 						{		
@@ -1954,14 +1948,14 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						// Prevent indirect damage
 						if (attacker != inflictor)
 						{
-							DecideRebelsFate(attacker, idx, -1);
+							DecideCheatersFate(attacker, idx, -1);
 							return Plugin_Handled;
 						}
 						
 						// Check if weapon used isn't a knife
 						if (!IsWeaponClassKnife(UsedWeapon))
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						
@@ -1976,7 +1970,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 						{
 							LogMessage("Russian Roulette LR: Cheating detected: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i - UsedWeapon: %s", weapon, Pistol_Prisoner, Pistol_Guard, UsedWeapon);
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						
@@ -2011,7 +2005,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					}
 					case LR_RockPaperScissors, LR_Race, LR_JumpContest, LR_ChickenFight, LR_HotPotato:
 					{
-						DecideRebelsFate(attacker, idx, victim);
+						DecideCheatersFate(attacker, idx, victim);
 						return Plugin_Handled;
 					}
 					case LR_Dodgeball:
@@ -2021,14 +2015,14 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						// If a nade is used, inflictor != attacker
 						if (attacker == inflictor || !IsValidEntity(inflictor))
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						
 						// Check if the inflictor is indeed a flashbang_projectile
 						if (!GetEntityClassname(inflictor, sInflictorClass, sizeof(sInflictorClass)) || !StrEqual(sInflictorClass, "flashbang_projectile")) // Check that what inflicted the damage was a flashbang projectile
 						{
-							DecideRebelsFate(attacker, idx, -1);
+							DecideCheatersFate(attacker, idx, -1);
 							return Plugin_Handled;
 						}
 						
@@ -2040,7 +2034,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						// Prevent indirect damage
 						if (attacker != inflictor)
 						{
-							DecideRebelsFate(attacker, idx, -1);
+							DecideCheatersFate(attacker, idx, -1);
 							return Plugin_Handled;
 						}
 						
@@ -2054,7 +2048,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 							if (weapon == INVALID_ENT_REFERENCE)
 							{
 								LogMessage("Workaround failed in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope");
-								DecideRebelsFate(attacker, idx, -1);
+								DecideCheatersFate(attacker, idx, -1);
 								return Plugin_Handled;
 							}
 							LogMessage("Workaround worked in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope");
@@ -2064,7 +2058,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						
 						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						
@@ -2078,7 +2072,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						
 						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						
@@ -2116,14 +2110,14 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						// Check if direct damage has been done. HE Grenades don't deal direct damage.
 						if (attacker == inflictor)
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						
 						// Prevent all non-explosive damage
 						if (!(damagetype & DMG_BLAST))
 						{
-							DecideRebelsFate(attacker, idx, -1);
+							DecideCheatersFate(attacker, idx, -1);
 							return Plugin_Handled;
 						}
 						
@@ -2140,7 +2134,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						{
 							if (!StrEqual(UsedWeapon, "negev") && !StrEqual(UsedWeapon, "deagle") && !IsWeaponClassKnife(UsedWeapon))
 							{
-								DecideRebelsFate(attacker, idx, victim);
+								DecideCheatersFate(attacker, idx, victim);
 								return Plugin_Handled;
 							}
 						}
@@ -2148,7 +2142,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						{
 							if (!StrEqual(UsedWeapon, "m249") && !StrEqual(UsedWeapon, "deagle") && !IsWeaponClassKnife(UsedWeapon))
 							{
-								DecideRebelsFate(attacker, idx, victim);
+								DecideCheatersFate(attacker, idx, victim);
 								return Plugin_Handled;
 							}
 						}
@@ -2159,7 +2153,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					{
 						if (!StrEqual(UsedWeapon, "fists"))
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						return Plugin_Continue;
@@ -2168,7 +2162,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					{
 						if (!StrEqual(UsedWeapon, "shield"))
 						{
-							DecideRebelsFate(attacker, idx, victim);
+							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
 						return Plugin_Continue;
@@ -6032,8 +6026,38 @@ public Action Timer_ChickenFight(Handle timer)
 	return Plugin_Continue;
 }
 
-void DecideRebelsFate(int rebeller, int LRIndex, int victim = 0)
+void DecideCheatersFate(int rebeller, int LRIndex, int victim = 0)
 {
+	// Grab the current LR and get the rebel action. Rebel action overrides are now discontinued.
+	int rebelAction;	
+	int type = GetArrayCell(gH_DArray_LR_Partners, LRIndex, view_as<int>(Block_LRType));
+	switch (type)
+	{
+		/*
+		case LR_KnifeFight:
+		{
+			rebelAction = gH_Cvar_LR_KnifeFight_Rebel.IntValue+1;
+		}
+		case LR_ChickenFight:
+		{
+			rebelAction = gH_Cvar_LR_ChickenFight_Rebel.IntValue+1;
+		}
+		case LR_HotPotato:
+		{
+			rebelAction = gH_Cvar_LR_HotPotato_Rebel.IntValue+1;
+		}
+		*/
+		default:
+		{
+			rebelAction = gH_Cvar_CheatAction.IntValue;
+		}
+	}
+	
+	if (rebelAction == 0)
+	{
+		return;
+	}
+	
 	char sWeaponName[32];
 	int iClientWeapon = GetEntDataEnt2(rebeller, g_Offset_ActiveWeapon);
 	if (IsValidEdict(iClientWeapon))
@@ -6046,35 +6070,9 @@ void DecideRebelsFate(int rebeller, int LRIndex, int victim = 0)
 		FormatEx(sWeaponName, sizeof(sWeaponName), "unknown");
 	}
 	
-	// grab the current LR and override default rebel action if requested (backward compatibility)
-	int rebelAction;	
-	int type = GetArrayCell(gH_DArray_LR_Partners, LRIndex, view_as<int>(Block_LRType));
-	switch (type)
-	{
-		case LR_KnifeFight:
-		{
-			rebelAction = gH_Cvar_LR_KnifeFight_Rebel.IntValue+1;
-		}
-		case LR_ChickenFight:
-		{
-			rebelAction = gH_Cvar_LR_ChickenFight_Rebel.IntValue+1;
-		}
-		case LR_HotPotato:
-		{
-			rebelAction = gH_Cvar_LR_HotPotato_Rebel.IntValue+1;
-		}		
-		default:
-		{
-			rebelAction = gH_Cvar_RebelAction.IntValue;
-		}
-	}
 	
 	switch (rebelAction)
 	{
-		case 0:
-		{
-			// take no action here (for now)
-		}
 		case 1:
 		{
 			if (IsPlayerAlive(rebeller))
@@ -6312,7 +6310,7 @@ void RightKnifeAntiCheat(int client, int idx)
 			{
 				if (g_TriedToStab[client] == true)
 				{					
-					DecideRebelsFate(client, idx);
+					DecideCheatersFate(client, idx);
 					g_TriedToStab[client] = false;
 				}
 			}

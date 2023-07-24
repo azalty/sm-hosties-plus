@@ -44,7 +44,7 @@
 
 #pragma			semicolon 					1
 
-#define 		PLUGIN_VERSION				"5.1.0 BETA 1"
+#define 		PLUGIN_VERSION				"5.1.0 BETA 2"
 #define 		PLUGIN_NAME					"Hosties+"
 #define 		MAX_DISPLAYNAME_SIZE		64
 #define 		MAX_DATAENTRY_SIZE			5
