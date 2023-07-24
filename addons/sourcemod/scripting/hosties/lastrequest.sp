@@ -1007,8 +1007,6 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 	if (Local_IsClientInLR(attacker) || Local_IsClientInLR(target))
 	{
 		int LR_Player_Prisoner, LR_Player_Guard;
-		char weapon[32];
-		bool bIsItAKnife;
 		
 		for (int idx = 0; idx < GetArraySize(gH_DArray_LR_Partners); idx++)
 		{
@@ -1022,9 +1020,9 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 			LR_Player_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_Prisoner));
 			LR_Player_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_Guard));
 			
-			// someone outside the group interfered inside this LR
-			if ((target == LR_Player_Prisoner || target == LR_Player_Guard) && \
-            attacker != LR_Player_Prisoner && attacker != LR_Player_Guard)
+			// a T outside the group interfered inside this LR by shooting a CT that was in a LR
+			// Note that this situation is only possible if "sm_hosties_lr_damage" is set to "0"
+			if (target == LR_Player_Guard && attacker != LR_Player_Prisoner && attacker != LR_Player_Guard)
 			{
 				// take action for rebelers
 				if (!g_bIsARebel[attacker] && (GetClientTeam(attacker) == CS_TEAM_T))
@@ -1044,51 +1042,9 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 					}
 				}
 			}
-			// someone inside this LR interfered with someone else
-			else if ((type != LR_HEFight) && target != LR_Player_Prisoner && target != LR_Player_Guard && \
-				(attacker == LR_Player_Prisoner || attacker == LR_Player_Guard))
-			{
-				if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has been killed for attacking someone outside of the LR.", attacker);
-				DecideRebelsFate(attacker, idx, target);
-			}
-			
-			// if the current LR partner is being attacked
-			if ((attacker == LR_Player_Prisoner || attacker == LR_Player_Guard) && \
-            (target == LR_Player_Prisoner || target == LR_Player_Guard))
-			{
-				GetEventString(event, "weapon", weapon, 32);
-				bIsItAKnife = (StrContains(weapon, "knife") == -1 ? false : true);
-				
-				if (g_Game == Game_CSGO) RightKnifeAntiCheat(attacker, idx);
-				
-				switch (type)
-				{
-					case LR_KnifeFight, LR_ChickenFight:
-					{
-						if (!bIsItAKnife)
-						{
-							if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has been killed for using other weapon in KnifeFight.", attacker);
-							DecideRebelsFate(attacker, idx, target);
-						}
-					}
-					case LR_NoScope:
-					{
-						if (bIsItAKnife)
-						{
-							if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has been killed for using Knife in NoScope. - 1239", attacker);
-							DecideRebelsFate(attacker, idx, target);
-						}
-					}
-					case LR_HotPotato:
-					{
-						if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has been killed for attacking the enemy in HotPotato.", attacker);
-						DecideRebelsFate(attacker, idx, target);
-					}
-				}		
-			}
 		}
 	}
-	// if a T attacks a CT and there's no last requests active
+	// if a T attacks a CT and none of them is in a LR
 	else if (attacker && target && (GetClientTeam(attacker) == CS_TEAM_T) && (GetClientTeam(target) == CS_TEAM_CT) \
 		&& !g_bIsARebel[attacker] && g_bRoundInProgress)
 	{
@@ -1098,6 +1054,7 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 			MarkRebel(attacker, target);
 		}
 	}
+	// if a CT attacks a T and none of them is in a LR
 	else if (attacker && target && (GetClientTeam(attacker) == CS_TEAM_CT) && (GetClientTeam(target) == CS_TEAM_T) \
 		&& !g_bIsARebel[target] && g_bRoundInProgress)
 	{
@@ -1992,6 +1949,24 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 				// if a roulette player is hurting the other contestant
 				switch (type)
 				{
+					case LR_KnifeFight:
+					{
+						// Prevent indirect damage
+						if (attacker != inflictor)
+						{
+							DecideRebelsFate(attacker, idx, -1);
+							return Plugin_Handled;
+						}
+						
+						// Check if weapon used isn't a knife
+						if (!IsWeaponClassKnife(UsedWeapon))
+						{
+							DecideRebelsFate(attacker, idx, victim);
+							return Plugin_Handled;
+						}
+						
+						return Plugin_Continue;
+					}
 					case LR_RussianRoulette:
 					{
 						// determine if LR weapon is being used
@@ -2034,7 +2009,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						}
 						return Plugin_Changed;
 					}
-					case LR_RockPaperScissors, LR_Race, LR_JumpContest, LR_ChickenFight:
+					case LR_RockPaperScissors, LR_Race, LR_JumpContest, LR_ChickenFight, LR_HotPotato:
 					{
 						DecideRebelsFate(attacker, idx, victim);
 						return Plugin_Handled;
@@ -2058,6 +2033,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						}
 						
 						// Also possible to check for DMG_CLUB (A grenade impact (for instance a flash hitting a teammate) will inflict damage of type DMG_CLUB.)
+						return Plugin_Continue;
 					}
 					case LR_Shot4Shot, LR_Mag4Mag, LR_NoScope:
 					{
@@ -2091,6 +2067,8 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 							DecideRebelsFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
+						
+						return Plugin_Continue;
 					}
 					case LR_OnlyHS:
 					{
@@ -2150,6 +2128,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						}
 						
 						// Might be good to also check for the inflictor here, if possible.
+						return Plugin_Continue;
 					}
 					case LR_Rebel:
 					{
@@ -2176,6 +2155,24 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						
 						return Plugin_Continue;
 					}
+					case LR_FistFight:
+					{
+						if (!StrEqual(UsedWeapon, "fists"))
+						{
+							DecideRebelsFate(attacker, idx, victim);
+							return Plugin_Handled;
+						}
+						return Plugin_Continue;
+					}
+					case LR_ShieldFight:
+					{
+						if (!StrEqual(UsedWeapon, "shield"))
+						{
+							DecideRebelsFate(attacker, idx, victim);
+							return Plugin_Handled;
+						}
+						return Plugin_Continue;
+					}
 					default:
 					{
 						return Plugin_Continue;
@@ -2189,6 +2186,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						*/
 					}
 				}
+				// return Plugin_Continue; // Shouldn't be needed, but if a case entry doesn't have this, this line will make sure we exit :)
 			}
 		}
 	}
