@@ -62,7 +62,7 @@
 	}
 	"Powered By Hosties"
 	{
-		"chi"		"This server is being powered by ENT_Hosties V3. Enjoy!"
+		"chi"		"This server is powered by Hosties+. Enjoy!"
 	}
 	"Please Follow Rules"
 	{

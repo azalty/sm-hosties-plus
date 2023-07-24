@@ -62,7 +62,7 @@
 	}
 	"Powered By Hosties"
 	{
-		"ro"		"Acest server ruleaza Hosties(Entity-Edition)!"
+		"ro"		"Acest server ruleaza Hosties+!"
 	}
 	"Please Follow Rules"
 	{

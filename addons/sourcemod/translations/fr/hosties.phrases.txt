@@ -91,7 +91,7 @@
 	}
 	"Powered By Hosties"
 	{
-		"fr"		"Ce serveur utilise ENT_Hosties V3. Amusez-vous bien !"
+		"fr"		"Ce serveur utilise Hosties+. Amusez-vous bien !"
 	}
 	"Please Follow Rules"
 	{

@@ -66,7 +66,7 @@
 	}
 	"Powered By Hosties"
 	{
-		"tr"		"Bu sunucu ENT_Hosties V3 tarafından desteklenmektedir. iyi eğlenceler!"
+		"tr"		"Bu sunucu Hosties+ tarafından desteklenmektedir. iyi eğlenceler!"
 	}
 	"Please Follow Rules"
 	{

@@ -66,7 +66,7 @@
 	}
 	"Powered By Hosties"
 	{
-		"pt"		"Este servidor usa o ENT_Hosties V3. Aproveita!"
+		"pt"		"Este servidor usa o Hosties+. Aproveita!"
 	}
 	"Please Follow Rules"
 	{
