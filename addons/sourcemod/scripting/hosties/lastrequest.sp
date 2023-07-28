@@ -1640,7 +1640,7 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 					M4M_Ammo = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_Global3));
 					
 					GetEventString(event, "weapon", FiredWeapon, sizeof(FiredWeapon));
-					iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);	
+					iClientWeapon = GetEntDataEnt2(client, g_Offset_ActiveWeapon);
 					
 					// set the time to enable burst value to a high value
 					SetEntDataFloat(iClientWeapon, g_Offset_SecAttack, GetGameTime() + 9999.0);
@@ -1875,12 +1875,14 @@ public Action Timer_ResetZoom(Handle timer, any UserId)
 
 public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& damage, int& damagetype, int& weapon, float damageForce[3], float damagePosition[3])
 {
-	LogMessage("OnTakeDamage - victim: %i | attacker: %i | inflictor: %i | damage: %.1f | weapon: %i", victim, attacker, inflictor, damage, weapon);
+	//LogMessage("OnTakeDamage - victim: %i | attacker: %i | inflictor: %i | damage: %.1f | weapon: %i", victim, attacker, inflictor, damage, weapon);
 	if ((victim != attacker) && (victim > 0) && (victim <= MaxClients) && (attacker > 0) && (attacker <= MaxClients))
 	{
 		int iArraySize = GetArraySize(gH_DArray_LR_Partners);
 		int LR_Player_Prisoner, LR_Player_Guard, Pistol_Prisoner, Pistol_Guard, bullet;
 		char UsedWeapon[64];
+		
+		int iWeapon = weapon; // We don't want to modify the weapon variable, so we'll just make a copy.
 		
 		if (iArraySize > 0)
 		{
@@ -1930,10 +1932,17 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					}
 				}
 				
-				if (Weapon_IsValid(weapon))
+				if (Weapon_IsValid(iWeapon))
 				{
-					GetEntityClassname(weapon, UsedWeapon, sizeof(UsedWeapon));
+					GetEntityClassname(iWeapon, UsedWeapon, sizeof(UsedWeapon));
 					ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false); 
+				}
+				else if (GetEngineVersion() == Engine_CSS) // CS:S doesn't support the weapon field and will always output -1
+				{
+					GetClientWeapon(attacker, UsedWeapon, sizeof(UsedWeapon)); // Returns the currently equipped weapon classname
+					ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false);
+					
+					iWeapon = GetEntDataEnt2(attacker, g_Offset_ActiveWeapon); // Get the currently equipped weapon
 				}
 				else
 				{
@@ -1967,9 +1976,9 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						Pistol_Prisoner = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData)));
 						Pistol_Guard = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData)));
 						
-						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
+						if ((iWeapon != Pistol_Prisoner) && (iWeapon != Pistol_Guard))
 						{
-							LogMessage("Russian Roulette LR: Cheating detected: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i - UsedWeapon: %s", weapon, Pistol_Prisoner, Pistol_Guard, UsedWeapon);
+							//LogMessage("Russian Roulette LR: Cheating detected: Weapon used: %i - Pistol_Prisoner: %i - Pistol_Guard: %i - UsedWeapon: %s", iWeapon, Pistol_Prisoner, Pistol_Guard, UsedWeapon);
 							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
 						}
@@ -2041,22 +2050,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						Pistol_Prisoner = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData));
 						Pistol_Guard = GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData));
 						
-						if (!Weapon_IsValid(weapon))
-						{
-							LogMessage("Unable to detect weapon in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope - working around..");
-							weapon = Client_GetActiveWeapon(attacker);
-							if (weapon == INVALID_ENT_REFERENCE)
-							{
-								LogMessage("Workaround failed in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope");
-								DecideCheatersFate(attacker, idx, -1);
-								return Plugin_Handled;
-							}
-							LogMessage("Workaround worked in LR_Shot4Shot,LR_Mag4Mag,LR_NoScope");
-							
-							GetEntityClassname(weapon, UsedWeapon, sizeof(UsedWeapon));
-						}
-						
-						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
+						if ((iWeapon != Pistol_Prisoner) && (iWeapon != Pistol_Guard))
 						{
 							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
@@ -2070,7 +2064,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						Pistol_Prisoner = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_PrisonerData)));
 						Pistol_Guard = EntRefToEntIndex(GetArrayCell(gH_DArray_LR_Partners, idx, view_as<int>(Block_GuardData)));
 						
-						if ((weapon != Pistol_Prisoner) && (weapon != Pistol_Guard))
+						if ((iWeapon != Pistol_Prisoner) && (iWeapon != Pistol_Guard))
 						{
 							DecideCheatersFate(attacker, idx, victim);
 							return Plugin_Handled;
@@ -2083,7 +2077,7 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 						}
 						else
 						{
-							Weapon_SetPrimaryClip(weapon, 99); // Recharges the weapon's clip to avoid running out of bullets
+							Weapon_SetPrimaryClip(iWeapon, 99); // Recharges the weapon's clip to avoid running out of bullets
 							return Plugin_Handled; // Prevents the shot from counting, removing the slowdown effect and bullet punch.
 						}
 						
@@ -2130,6 +2124,13 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					}
 					case LR_JuggernoutBattle:
 					{
+						// Verify if indirect damage was used
+						if (attacker != inflictor)
+						{
+							DecideCheatersFate(attacker, idx, -1);
+							return Plugin_Handled;
+						}
+						
 						if (GetEngineVersion() == Engine_CSGO)
 						{
 							if (!StrEqual(UsedWeapon, "negev") && !StrEqual(UsedWeapon, "deagle") && !IsWeaponClassKnife(UsedWeapon))
