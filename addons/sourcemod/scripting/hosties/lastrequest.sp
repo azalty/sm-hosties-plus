@@ -1116,7 +1116,7 @@ void LastRequest_PlayerDisconnect(Event event, const char[] name, bool dontBroad
 				CleanupLastRequest(client, idx);
 				RemoveFromArray(gH_DArray_LR_Partners, idx);
 				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %s", gShadow_Hosties_ChatBanner, "LR Player Disconnect", client);
-				if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has disconnected in LR. LR aborted.", client);
+				if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has disconnected in LR. LR aborted.", client);
 			}
 		}
 	}
@@ -1200,7 +1200,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				}
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Knife Fight.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Knife Fight.");
 		}
 		case LR_GunToss:
 		{
@@ -1217,7 +1217,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				SetEntityRenderMode(GTdeagle2, RENDER_NORMAL);
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Gun Toss.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Gun Toss.");
 		}
 		case LR_HotPotato:
 		{
@@ -1235,7 +1235,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				SetEntityRenderMode(HPdeagle, RENDER_NORMAL);
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Hot Potato.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Hot Potato.");
 		}
 		case LR_RussianRoulette:
 		{
@@ -1244,7 +1244,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				SetEntityMoveType(winner, MOVETYPE_WALK);
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Russian Roulette.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Russian Roulette.");
 		}
 		case LR_Dodgeball:
 		{
@@ -1266,13 +1266,13 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				}
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Dodgeball.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Dodgeball.");
 		}
 		case LR_Race:
 		{
 			CloseHandle(GetArrayCell(gH_DArray_LR_Partners, arrayIndex, 9));
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Race.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Race.");
 		}
 		case LR_JumpContest:
 		{
@@ -1289,7 +1289,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				}
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Jump Contest.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Jump Contest.");
 		}
 		case LR_JuggernoutBattle:
 		{
@@ -1390,7 +1390,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 				g_LR_Player_Guard[LR_Player_Prisoner] = 0;
 			}
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Default.");
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Successfull cleanup after LR - Default.");
 		}
 	}
 	
@@ -1431,7 +1431,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 
 			SetEntityHealth(LR_Player_Prisoner, 100);
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L (Prisoner) attribute reset after LR.", LR_Player_Prisoner);
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L (Prisoner) attribute reset after LR.", LR_Player_Prisoner);
 		}
 	}
 	
@@ -1463,7 +1463,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 			
 			SetEntityHealth(LR_Player_Guard, 100);
 			
-			if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L (Guard) attribute reset after LR.", LR_Player_Guard);
+			if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L (Guard) attribute reset after LR.", LR_Player_Guard);
 		}
 	}
 }
@@ -1948,6 +1948,9 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 				{
 					UsedWeapon[0] = '\0'; // Makes UsedWeapon an empty string
 				}
+				
+				if (gH_Cvar_Debug.BoolValue)
+					LogMessage("OnTakeDamage - victim: %i | attacker: %i | inflictor: %i | damage: %.1f | weapon: %i | iWeapon: %i | UsedWeapon: '%s'", victim, attacker, inflictor, damage, weapon, iWeapon, UsedWeapon);
 				
 				// if a roulette player is hurting the other contestant
 				switch (type)

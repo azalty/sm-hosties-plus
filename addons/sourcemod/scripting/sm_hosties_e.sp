@@ -44,7 +44,7 @@
 
 #pragma			semicolon 					1
 
-#define 		PLUGIN_VERSION				"5.1.0 BETA 3"
+#define 		PLUGIN_VERSION				"5.1.0 BETA 4"
 #define 		PLUGIN_NAME					"Hosties+"
 #define 		MAX_DISPLAYNAME_SIZE		64
 #define 		MAX_DATAENTRY_SIZE			5
@@ -103,7 +103,7 @@ ConVar 			gH_Cvar_Add_ServerTag,
 				gH_Cvar_ChatTag,
 				gH_Cvar_CT_Name,
 				gH_Cvar_T_Name,
-				gH_Cvar_LR_Debug_Enabled,
+				gH_Cvar_Debug,
 				gH_Cvar_Chat_ActivityType;
 
 #if (MODULE_FREEKILL == 1)
@@ -186,7 +186,7 @@ public void OnPluginStart()
 	gH_Cvar_Add_ServerTag		= 	AutoExecConfig_CreateConVar("sm_hosties_add_servertag", "1", "Enable or disable automatic adding of SM_Hosties in sv_tags (visible from the server browser in CS:S): 0 - disable, 1 - enable", 0, true, 0.0, true, 1.0);
 	gH_Cvar_Display_Advert		= 	AutoExecConfig_CreateConVar("sm_hosties_display_advert", "1", "Enable or disable the display of the Powered by Hosties message at the start of each round.", 0, true, 0.0, true, 1.0);
 	gH_Cvar_ChatTag				= 	AutoExecConfig_CreateConVar("sm_hosties_chat_banner", "{darkblue}[{lightblue}Hosties{darkblue}]", "Edit ChatTag for Hosties (Colors can be used).");
-	gH_Cvar_LR_Debug_Enabled 	= 	AutoExecConfig_CreateConVar("sm_hosties_debug_enabled", "0", "Allow prisoners to set race points in the air.", 0, true, 0.0, true, 1.0);
+	gH_Cvar_Debug 				= 	AutoExecConfig_CreateConVar("sm_hosties_debug", "0", "Enables the debug mode, which will mainly create more logs for debugging purposes.", 0, true, 0.0, true, 1.0);
 	gH_Cvar_CT_Name 			= 	AutoExecConfig_CreateConVar("sm_hosties_team_name_ct", "Guards", "Edit CT Team Name - Leave empty for no change");
 	gH_Cvar_T_Name 				= 	AutoExecConfig_CreateConVar("sm_hosties_team_name_t", "Prisoners", "Edit T Team Name - Leave empty for no change");
 	gH_Cvar_Chat_ActivityType	=	AutoExecConfig_CreateConVar("sm_hosties_chat_activitytype", "1", "0 = Use the [SM] tag for admin activity messages\n1 = Use the plugin tag for admin activity messages", 0, true, 0.0, true, 1.0);
@@ -262,7 +262,7 @@ public void OnPluginStart()
 	gH_GameVar_T_Name = FindConVar("mp_teamname_2");
 	
 	EMP_SetLogFile(gShadow_Hosties_LogFile, "Hosties-Logs", "Entity");
-	if (gH_Cvar_LR_Debug_Enabled.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Hosties Successfully started.");
+	if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "Hosties Successfully started.");
 }
 
 public void OnMapStart()
