@@ -1937,8 +1937,12 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 					GetEntityClassname(iWeapon, UsedWeapon, sizeof(UsedWeapon));
 					ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false); 
 				}
-				else if (GetEngineVersion() == Engine_CSS) // CS:S doesn't support the weapon field and will always output -1
+				else if (attacker == inflictor) // Only try to get the equipped weapon if it was direct damage (see https://wiki.alliedmods.net/SDKHooks)
 				{
+					/* CS:S doesn't support the weapon field and will always output -1
+					 * CS:GO, on the other hand, supports the weapon fields but not all weapons do.
+					 * 
+					 * This will try to work around this limitation by getting the currently equipped weapon. */
 					GetClientWeapon(attacker, UsedWeapon, sizeof(UsedWeapon)); // Returns the currently equipped weapon classname
 					ReplaceString(UsedWeapon, sizeof(UsedWeapon), "weapon_", "", false);
 					
