@@ -44,7 +44,7 @@
 
 #pragma			semicolon 					1
 
-#define 		PLUGIN_VERSION				"5.1.0 BETA 4"
+#define 		PLUGIN_VERSION				"5.1.0 BETA 5"
 #define 		PLUGIN_NAME					"Hosties+"
 #define 		MAX_DISPLAYNAME_SIZE		64
 #define 		MAX_DATAENTRY_SIZE			5
@@ -185,7 +185,7 @@ public void OnPluginStart()
 	
 	gH_Cvar_Add_ServerTag		= 	AutoExecConfig_CreateConVar("sm_hosties_add_servertag", "1", "Enable or disable automatic adding of SM_Hosties in sv_tags (visible from the server browser in CS:S): 0 - disable, 1 - enable", 0, true, 0.0, true, 1.0);
 	gH_Cvar_Display_Advert		= 	AutoExecConfig_CreateConVar("sm_hosties_display_advert", "1", "Enable or disable the display of the Powered by Hosties message at the start of each round.", 0, true, 0.0, true, 1.0);
-	gH_Cvar_ChatTag				= 	AutoExecConfig_CreateConVar("sm_hosties_chat_banner", "{darkblue}[{lightblue}Hosties{darkblue}]", "Edit ChatTag for Hosties (Colors can be used).");
+	gH_Cvar_ChatTag				= 	AutoExecConfig_CreateConVar("sm_hosties_chat_banner", "{darkblue}[{lightblue}Hosties{darkblue}]{lightblue} ", "Edit ChatTag for Hosties (Colors can be used).");
 	gH_Cvar_Debug 				= 	AutoExecConfig_CreateConVar("sm_hosties_debug", "0", "Enables the debug mode, which will mainly create more logs for debugging purposes.", 0, true, 0.0, true, 1.0);
 	gH_Cvar_CT_Name 			= 	AutoExecConfig_CreateConVar("sm_hosties_team_name_ct", "Guards", "Edit CT Team Name - Leave empty for no change");
 	gH_Cvar_T_Name 				= 	AutoExecConfig_CreateConVar("sm_hosties_team_name_t", "Prisoners", "Edit T Team Name - Leave empty for no change");
@@ -242,8 +242,7 @@ public void OnPluginStart()
 	HookConVarChange(gH_Cvar_ChatTag, OnCvarChange_ChatTag);
 	
 	char Temp[256];
-	GetConVarString(gH_Cvar_ChatTag, Temp, sizeof(Temp));
-	Format(gShadow_Hosties_ChatBanner, sizeof(gShadow_Hosties_ChatBanner), "%s {lightblue}", Temp);
+	GetConVarString(gH_Cvar_ChatTag, gShadow_Hosties_ChatBanner, sizeof(gShadow_Hosties_ChatBanner));
 	
 	if (StrContains(gShadow_Hosties_ChatBanner, "{red}") != -1)
 		ReplaceString(gShadow_Hosties_ChatBanner, sizeof(gShadow_Hosties_ChatBanner), "{red}", "\x02");	
@@ -473,7 +472,7 @@ public void OnAdminMenuReady(Handle h_TopMenu)
 
 public void OnCvarChange_ChatTag(ConVar cvar, char[] oldvalue, char[] newvalue)
 {
-	Format(gShadow_Hosties_ChatBanner, sizeof(gShadow_Hosties_ChatBanner), "%s {lightblue}", newvalue);
+	strcopy(gShadow_Hosties_ChatBanner, sizeof(gShadow_Hosties_ChatBanner), newvalue);
 	
 	if (StrEqual(gShadow_Hosties_ChatBanner, "{red}"))
 		ReplaceString(gShadow_Hosties_ChatBanner, sizeof(gShadow_Hosties_ChatBanner), "{red}", "\x02");	
