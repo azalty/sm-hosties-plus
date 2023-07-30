@@ -167,7 +167,7 @@ Action Timer_Mute(Handle timer, any id)
 	if (EMP_IsValidClient(client))
 	{
 		MutePlayer(client);
-		CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Now Muted");
+		CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Now Muted");
 	}
 	
 	return Plugin_Stop;
@@ -205,14 +205,14 @@ void MutePrisoners_RoundStart(Event event, const char[] name, bool dontBroadcast
 		
 		CreateTimer(gH_Cvar_MuteLength.FloatValue, Timer_UnmutePrisoners, _, TIMER_FLAG_NO_MAPCHANGE);
 		
-		LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Ts Muted", RoundToNearest(gH_Cvar_MuteLength.FloatValue));
+		LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Ts Muted", RoundToNearest(gH_Cvar_MuteLength.FloatValue));
 	}
 }
 
 public Action Timer_UnmutePrisoners(Handle timer)
 {
 	UnmuteAlive();
-	LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Ts Can Speak Again");
+	LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Ts Can Speak Again");
 	return Plugin_Stop;
 }
 

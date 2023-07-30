@@ -63,7 +63,7 @@ void Rules_RoundStart(Event event, const char[] name, bool dontBroadcast)
 {
 	if (gH_Cvar_Announce_Rules.BoolValue)
 	{
-		LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Please Follow Rules");
+		LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Please Follow Rules");
 	}
 }
 

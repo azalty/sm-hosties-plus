@@ -750,14 +750,14 @@ void MarkRebel(int client, int victim)
 	{
 		if (gH_Cvar_SendGlobalMsgs.BoolValue)
 		{
-			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "New Rebel", client);
+			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "New Rebel", client);
 		}
 		else
 		{
-			CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "New Rebel", client);
+			CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "New Rebel", client);
 			if (EMP_IsValidClient(victim, false, true))
 			{
-				CPrintToChat(victim, "%s %t", gShadow_Hosties_ChatBanner, "New Rebel", client);
+				CPrintToChat(victim, "%s%t", gShadow_Hosties_ChatBanner, "New Rebel", client);
 			}
 		}
 	}
@@ -817,7 +817,7 @@ void LastRequest_RoundStart(Event event, const char[] name, bool dontBroadcast)
 
 		if (gH_Cvar_Announce_Delay_Enable.BoolValue)
 		{
-			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Delay Announcement", RoundToNearest(gH_Cvar_LR_Delay_Enable_Time.FloatValue));
+			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Delay Announcement", RoundToNearest(gH_Cvar_LR_Delay_Enable_Time.FloatValue));
 		}
 	}
 	else
@@ -923,7 +923,7 @@ void LastRequest_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
 				{
 					if (!gH_Cvar_LR_NonContKiller_Action)
 					{
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Non LR Kill LR Abort", attacker, victim);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Non LR Kill LR Abort", attacker, victim);
 					}
 					else
 					{
@@ -946,12 +946,12 @@ void LastRequest_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
 	{
 		if (gH_Cvar_SendGlobalMsgs.BoolValue)
 		{
-			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Rebel Kill", attacker, victim);
+			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Rebel Kill", attacker, victim);
 		}
 		else
 		{
-			CPrintToChat(attacker, "%s %t", gShadow_Hosties_ChatBanner, "Rebel Kill", attacker, victim);
-			CPrintToChat(victim, "%s %t", gShadow_Hosties_ChatBanner, "Rebel Kill", attacker, victim);
+			CPrintToChat(attacker, "%s%t", gShadow_Hosties_ChatBanner, "Rebel Kill", attacker, victim);
+			CPrintToChat(victim, "%s%t", gShadow_Hosties_ChatBanner, "Rebel Kill", attacker, victim);
 		}
 	}
 	
@@ -978,7 +978,7 @@ void LastRequest_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
 		
 			if (gH_Cvar_Announce_LR.BoolValue)
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Available");
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Available");
 				char buffer[PLATFORM_MAX_PATH];
 				gH_Cvar_LR_Sound.GetString(buffer, sizeof(buffer));
 				
@@ -1026,12 +1026,12 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 					{
 						if (gH_Cvar_SendGlobalMsgs.BoolValue)
 						{
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "New Rebel", attacker);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "New Rebel", attacker);
 						}
 						else
 						{
-							CPrintToChat(attacker, "%s %t", gShadow_Hosties_ChatBanner, "New Rebel", attacker);
-							CPrintToChat(target, "%s %t", gShadow_Hosties_ChatBanner, "New Rebel", attacker);
+							CPrintToChat(attacker, "%s%t", gShadow_Hosties_ChatBanner, "New Rebel", attacker);
+							CPrintToChat(target, "%s%t", gShadow_Hosties_ChatBanner, "New Rebel", attacker);
 						}
 					}
 				}
@@ -1072,7 +1072,7 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 							}
 							if(gH_Cvar_Announce_CT_FreeHit.IntValue >= 2)
 							{
-								CPrintToChat(idx, "%s %t", gShadow_Hosties_ChatBanner, "CT Attack T Gun", attacker, target);
+								CPrintToChat(idx, "%s%t", gShadow_Hosties_ChatBanner, "CT Attack T Gun", attacker, target);
 							}
 						}
 					}
@@ -1090,7 +1090,7 @@ void LastRequest_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
 						}
 						if(gH_Cvar_Announce_CT_FreeHit.IntValue >= 2)
 						{
-							CPrintToChat(idx, "%s %t", gShadow_Hosties_ChatBanner, "Freeattack", attacker, target);
+							CPrintToChat(idx, "%s%t", gShadow_Hosties_ChatBanner, "Freeattack", attacker, target);
 						}
 					}
 				}
@@ -1115,7 +1115,7 @@ void LastRequest_PlayerDisconnect(Event event, const char[] name, bool dontBroad
 			{
 				CleanupLastRequest(client, idx);
 				RemoveFromArray(gH_DArray_LR_Partners, idx);
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %s", gShadow_Hosties_ChatBanner, "LR Player Disconnect", client);
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Player Disconnect", client);
 				if (gH_Cvar_Debug.BoolValue) LogToFileEx(gShadow_Hosties_LogFile, "%L has disconnected in LR. LR aborted.", client);
 			}
 		}
@@ -1336,7 +1336,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 			EMP_LoopPlayers(TargetForLang)
 			{
 				FormatEx(LR_Name, sizeof(LR_Name), "%t", g_sLastRequestPhrase[LR_JuggernoutBattle]);
-				CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Won", winner, LR_Name);
+				CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Won", winner, LR_Name);
 			}
 		}
 		case LR_HEFight, LR_FistFight, LR_OnlyHS:
@@ -1344,7 +1344,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 			EMP_LoopPlayers(TargetForLang)
 			{
 				FormatEx(LR_Name, sizeof(LR_Name), "%t", g_sLastRequestPhrase[type]);
-				CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Won", winner, LR_Name);
+				CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Won", winner, LR_Name);
 			}
 		}
 		case LR_ShieldFight:
@@ -1373,7 +1373,7 @@ void CleanupLastRequest(int loser, int arrayIndex)
 			EMP_LoopPlayers(TargetForLang)
 			{
 				FormatEx(LR_Name, sizeof(LR_Name), "%t", g_sLastRequestPhrase[type]);
-				CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Won", winner, LR_Name);
+				CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Won", winner, LR_Name);
 			}
 		}
 		default:
@@ -1666,12 +1666,12 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 								{
 									if (gH_Cvar_SendGlobalMsgs.BoolValue)
 									{
-										EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "M4M Mag Used", client);
+										EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "M4M Mag Used", client);
 									}
 									else
 									{
-										CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "M4M Mag Used", client);
-										CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "M4M Mag Used", client);
+										CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "M4M Mag Used", client);
+										CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "M4M Mag Used", client);
 									}
 								}
 
@@ -1716,12 +1716,12 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 					{
 						if (gH_Cvar_SendGlobalMsgs.BoolValue)
 						{
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
 						}
 						else
 						{
-							CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
-							CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
+							CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
+							CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
 						}
 					}
 					
@@ -1790,12 +1790,12 @@ void LastRequest_WeaponFire(Event event, const char[] name, bool dontBroadcast)
 							{
 								if (gH_Cvar_SendGlobalMsgs.BoolValue)
 								{
-									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
+									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
 								}
 								else
 								{
-									CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
-									CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
+									CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
+									CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "S4S Shot Taken", client);
 								}
 							}
 							
@@ -2001,18 +2001,18 @@ public Action OnTakeDamage(int victim, int& attacker, int& inflictor, float& dam
 							{
 								// KillAndReward(victim, attacker);
 								damage = 200.0; // Make sure it one-shots
-								EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Hit", victim);
+								EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Russian Roulette - Hit", victim);
 							}
 							default:
 							{
 								if (gH_Cvar_SendGlobalMsgs.BoolValue)
 								{						
-									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
+									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
 								}
 								else
 								{
-									CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
-									CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
+									CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
+									CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Russian Roulette - Miss");
 								}
 								return Plugin_Handled;
 							}
@@ -2395,12 +2395,12 @@ public Action OnWeaponEquip(int client, int weapon)
 						{
 							if (gH_Cvar_SendGlobalMsgs.BoolValue)
 							{
-								EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Hot Potato PickUp", client);
+								EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Hot Potato PickUp", client);
 							}
 							else
 							{
-								CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Hot Potato Pickup", client);
-								CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Hot Potato Pickup", client);
+								CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Hot Potato Pickup", client);
+								CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Hot Potato Pickup", client);
 							}
 						}
 					}
@@ -2462,7 +2462,7 @@ public Action OnWeaponDrop(int client, int weapon)
 						{
 							if (Entity_ClassNameMatches(weapon, "weapon_deagle"))
 							{
-								CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Already Dropped Deagle");
+								CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Already Dropped Deagle");
 								return Plugin_Handled;
 							}
 						}
@@ -2494,7 +2494,7 @@ public Action OnWeaponDrop(int client, int weapon)
 								if (gH_Cvar_LR_Ten_Timer.BoolValue)
 								{
 									CreateTimer(10.0, Timer_EnemyMustThrow, TIMER_FLAG_NO_MAPCHANGE);
-									CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "GT Throw Warning");
+									CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "GT Throw Warning");
 								}
 							}
 						}
@@ -2522,7 +2522,7 @@ public Action OnWeaponDrop(int client, int weapon)
 								if (gH_Cvar_LR_Ten_Timer.BoolValue)
 								{
 									CreateTimer(10.0, Timer_EnemyMustThrow, TIMER_FLAG_NO_MAPCHANGE);
-									CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "GT Throw Warning");
+									CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "GT Throw Warning");
 								}
 							}
 						}
@@ -2564,12 +2564,12 @@ public Action Timer_EnemyMustThrow(Handle timer)
 				if (GTp1dropped && !GTp2dropped)
 				{
 					KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "GT No Throw", LR_Player_Prisoner, LR_Player_Guard);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "GT No Throw", LR_Player_Prisoner, LR_Player_Guard);
 				}
 				else if (!GTp1dropped && GTp2dropped)
 				{
 					KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "GT No Throw", LR_Player_Guard, LR_Player_Prisoner);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "GT No Throw", LR_Player_Guard, LR_Player_Prisoner);
 				}
 			}
 		}
@@ -2945,7 +2945,7 @@ public Action Command_LastRequest(int client, int args)
 						{
 							if (g_bIsARebel[client] && !gH_Cvar_RebelHandling.IntValue)
 							{
-								CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Rebel Not Allowed");
+								CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Rebel Not Allowed");
 							}
 							else
 							{
@@ -2975,7 +2975,7 @@ public Action Command_LastRequest(int client, int args)
 													}
 													else
 													{
-														CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Grace TimeBlock");
+														CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Grace TimeBlock");
 													}
 												}
 												else if (g_Game == Game_CSS)
@@ -2985,53 +2985,53 @@ public Action Command_LastRequest(int client, int args)
 											}
 											else
 											{
-												CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR No CTs Available");
+												CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR No CTs Available");
 											}
 										}
 										else
 										{
-											CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "No CTs Alive");
+											CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "No CTs Alive");
 										}
 									}
 									else
 									{
-										CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Many Ts");
+										CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Many Ts");
 									}
 								}
 								else
 								{
-									CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Blocked Warmup");
+									CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Blocked Warmup");
 								}
 							}
 						}
 						else
 						{
-							CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
+							CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
 						}
 					}
 					else
 					{
-						CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
+						CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
 					}
 				}
 				else
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 				}
 			}
 			else
 			{
-				CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Race CoolDown");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Race CoolDown");
 			}
 		}
 		else
 		{
-			CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Block EventDay");
+			CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Block EventDay");
 		}
 	}
 	else
 	{
-		CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+		CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 	}
 
 	return Plugin_Handled;
@@ -3260,7 +3260,7 @@ int LR_Selection_Handler(Handle menu, MenuAction action, int client, int iButton
 									{
 										if (EMP_IsValidClient(idx, false, false, CS_TEAM_CT))
 										{
-											CPrintToChat(idx, "%s %t", gShadow_Hosties_ChatBanner, "Race Could Start Soon", client);
+											CPrintToChat(idx, "%s%t", gShadow_Hosties_ChatBanner, "Race Could Start Soon", client);
 										}
 									}
 								}
@@ -3328,17 +3328,17 @@ int LR_Selection_Handler(Handle menu, MenuAction action, int client, int iButton
 					}
 					else
 					{
-						CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
+						CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
 					}
 				}
 				else
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
 				}
 			}
 			else
 			{
-				CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 			}
 		}
 		case MenuAction_End:
@@ -3391,7 +3391,7 @@ void CreateMainPlayerHandler(int client)
 
 	if (iNumCTsAvailable == 0)
 	{
-		CPrintToChat(client,"%s %t", gShadow_Hosties_ChatBanner, "LR No CTs Available");
+		CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR No CTs Available");
 		if (EMP_IsValidClient(client))
 		{
 			EMP_FreeHandle(gH_BuildLR[client]);
@@ -3423,17 +3423,17 @@ int SubLRType_MenuHandler(Handle SelectionMenu, MenuAction action, int client, i
 				}
 				else
 				{
-					CPrintToChat(client,"%s %t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
 				}
 			}
 			else
 			{
-				CPrintToChat(client,"%s %t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
 			}
 		}
 		else
 		{
-			CPrintToChat(client,"%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+			CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 		}
 	}
 	else if (action == MenuAction_End)
@@ -3488,29 +3488,29 @@ int RaceEndPointHandler(Handle menu, MenuAction action, int client, int param2)
 						}
 						else
 						{
-							CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Race Points too Close");
+							CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Race Points too Close");
 							CreateRaceEndPointMenu(client);
 						}
 					}
 					else
 					{
-						CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Must Be On Ground");
+						CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Must Be On Ground");
 						CreateRaceEndPointMenu(client);
 					}
 				}
 				else
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
 				}
 			}
 			else
 			{
-				CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
 			}
 		}
 		else
 		{
-			CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+			CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 		}
 	}
 	else if (action == MenuAction_End)
@@ -3553,22 +3553,22 @@ int RaceStartPointHandler(Handle menu, MenuAction action, int client, int param2
 					}
 					else
 					{
-						CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Must Be On Ground");
+						CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Must Be On Ground");
 					}
 				}
 				else
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
 				}
 			}
 			else
 			{
-				CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
 			}
 		}
 		else
 		{
-			CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+			CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 		}
 	}
 	else if (action == MenuAction_End)
@@ -3585,14 +3585,14 @@ int RaceStartPointHandler(Handle menu, MenuAction action, int client, int param2
 					{
 						if (EMP_IsValidClient(client, false, false, CS_TEAM_CT))
 						{
-							CPrintToChat(idx, "%s %t", gShadow_Hosties_ChatBanner, "Race Aborted", client);
+							CPrintToChat(idx, "%s%t", gShadow_Hosties_ChatBanner, "Race Aborted", client);
 						}
 					}
 				}
 				
 				if (gH_Cvar_LR_Race_CDOnCancel.BoolValue)
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Race CoolDown");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Race CoolDown");
 					LR_Player_OnCD[client] = true;
 					CreateTimer(10.0, Timer_RaceCD, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
 				}
@@ -3606,7 +3606,7 @@ int RaceStartPointHandler(Handle menu, MenuAction action, int client, int param2
 public Action Timer_RaceCD(Handle timer, int id)
 {
 	int client = GetClientOfUserId(id);
-	CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Race CoolDown Done");
+	CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Race CoolDown Done");
 	LR_Player_OnCD[client] = false;
 	return Plugin_Stop;
 }
@@ -3657,17 +3657,17 @@ int MainPlayerHandler(Handle playermenu, MenuAction action, int client, int iBut
 												int game = g_LRLookup[client];
 												if ((game == LR_HotPotato || game == LR_RussianRoulette) && IsClientTooNearObstacle(client))
 												{
-													CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Near Obstruction");
+													CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Near Obstruction");
 												}
 												// player isn't on ground
 												else if ((game == LR_JumpContest) && !(GetEntityFlags(client) & FL_ONGROUND|FL_INWATER))
 												{
-													CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Must Be On Ground");
+													CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Must Be On Ground");
 												}
 												// make sure they're not ducked
 												else if ((game == LR_JumpContest) && (GetEntityFlags(client) & FL_DUCKING))
 												{
-													CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Near Obstruction");
+													CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Near Obstruction");
 												}
 												else if (IsLastRequestAutoStart(game))
 												{
@@ -3691,7 +3691,7 @@ int MainPlayerHandler(Handle playermenu, MenuAction action, int client, int iBut
 											}
 											else
 											{
-												CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
+												CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
 											}
 										}
 										else
@@ -3720,42 +3720,42 @@ int MainPlayerHandler(Handle playermenu, MenuAction action, int client, int iBut
 											SetMenuExitButton(askmenu, true);
 											DisplayMenu(askmenu, ClientIdxOfCT, 6);
 
-											CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Asking For Permission", ClientIdxOfCT);
+											CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Asking For Permission", ClientIdxOfCT);
 										}
 									}
 									else
 									{
-										CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not With Bot");
+										CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not With Bot");
 									}
 								}
 								else
 								{
-									CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR No CTs Available");
+									CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR No CTs Available");
 								}
 							}
 							else
 							{
-								CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "No CTs Alive");
+								CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "No CTs Alive");
 							}
 						}
 						else
 						{
-							CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Many Ts");
+							CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Many Ts");
 						}
 					}
 					else
 					{
-						CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Target Is Not Alive Or In Wrong Team");
+						CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Target Is Not Alive Or In Wrong Team");
 					}
 				}
 				else
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Another LR In Progress");
 				}
 			}
 			else
 			{
-				CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 			}	
 		}
 		case MenuAction_End:
@@ -3808,44 +3808,44 @@ int MainAskHandler(Handle askmenu, MenuAction action, int client, int param2)
 									}
 									else
 									{
-										CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Many Ts");
+										CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Many Ts");
 									}
 								}
 								else
 								{
-									CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
+									CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
 								}
 							}
 							else
 							{
-								CPrintToChat(g_LR_PermissionLookup[client], "%s %t", gShadow_Hosties_ChatBanner, "Declined LR Request", client);
+								CPrintToChat(g_LR_PermissionLookup[client], "%s%t", gShadow_Hosties_ChatBanner, "Declined LR Request", client);
 							}
 						}
 						else
 						{
-							CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
+							CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Not Alive Or In Wrong Team");
 						}
 					}
 					else
 					{
-						CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Partner Died");
+						CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Partner Died");
 					}
 				}
 				else
 				{
-					CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
+					CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Too Slow Another LR In Progress");
 				}
 			}
 			else
 			{
-				CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "LR Not Available");
+				CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "LR Not Available");
 			}
 		}
 		case MenuAction_Cancel:
 		{
 			if (IsClientInGame(g_LR_PermissionLookup[client]))
 			{
-				CPrintToChat(g_LR_PermissionLookup[client], "%s %t", gShadow_Hosties_ChatBanner, "LR Request Decline Or Too Long", client);
+				CPrintToChat(g_LR_PermissionLookup[client], "%s%t", gShadow_Hosties_ChatBanner, "LR Request Decline Or Too Long", client);
 			}
 		}
 		case MenuAction_End:
@@ -4065,12 +4065,12 @@ void InitializeGame(int iPartnersIndex)
 				SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, LR_Player_Prisoner, view_as<int>(Block_Global1));
 				if (gH_Cvar_SendGlobalMsgs.BoolValue)
 				{
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
 				}
 				else
 				{
-					CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
-					CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
 				}
 			}
 			else
@@ -4079,12 +4079,12 @@ void InitializeGame(int iPartnersIndex)
 				SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, LR_Player_Guard, view_as<int>(Block_Global1));
 				if (gH_Cvar_SendGlobalMsgs.BoolValue)
 				{
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
 				}
 				else
 				{
-					CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
-					CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);				
+					CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);				
 				}
 			}
 		}
@@ -4527,7 +4527,7 @@ void InitializeGame(int iPartnersIndex)
 				SetEntData(TargetForSetHP, g_Offset_Health, gH_Cvar_LR_Rebel_CT_HP.IntValue);
 			
 			// announce LR
-			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Has Chosen to Rebel!", LR_Player_Prisoner);
+			EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Has Chosen to Rebel!", LR_Player_Prisoner);
 		}
 		case LR_Mag4Mag:
 		{
@@ -4620,12 +4620,12 @@ void InitializeGame(int iPartnersIndex)
 				SetEntData(Pistol_Guard, g_Offset_Clip1, gH_Cvar_LR_M4M_MagCapacity.IntValue);
 				if (gH_Cvar_SendGlobalMsgs.BoolValue)
 				{
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
 				}
 				else
 				{
-					CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
-					CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
 				}
 				SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, LR_Player_Guard, view_as<int>(Block_Global1)); // S4Slastshot
 			}
@@ -4634,12 +4634,12 @@ void InitializeGame(int iPartnersIndex)
 				SetEntData(Pistol_Prisoner, g_Offset_Clip1, gH_Cvar_LR_M4M_MagCapacity.IntValue);			
 				if (gH_Cvar_SendGlobalMsgs.BoolValue)
 				{
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
 				}
 				else
 				{
-					CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
-					CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
 				}
 				SetArrayCell(gH_DArray_LR_Partners, iPartnersIndex, LR_Player_Prisoner, view_as<int>(Block_Global1));
 			}
@@ -4716,12 +4716,12 @@ void InitializeGame(int iPartnersIndex)
 				SetEntData(Pistol_Guard, g_Offset_Clip1, 1);
 				if (gH_Cvar_SendGlobalMsgs.BoolValue)
 				{
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
 				}
 				else
 				{
-					CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
-					CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
+					CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Guard);
 				}
 			}
 			else
@@ -4729,12 +4729,12 @@ void InitializeGame(int iPartnersIndex)
 				SetEntData(Pistol_Prisoner, g_Offset_Clip1, 1);
 				if (gH_Cvar_SendGlobalMsgs.BoolValue)
 				{
-					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
 				}
 				else
 				{
-					CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
-					CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);				
+					CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);
+					CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "Randomly Chose First Player", LR_Player_Prisoner);				
 				}
 			}
 		}
@@ -4828,7 +4828,7 @@ void InitializeGame(int iPartnersIndex)
 					}
 				}
 
-				CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Start Selected Game", LR_Player_Prisoner, JumpTranslation, LR_Player_Guard);
+				CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Start Selected Game", LR_Player_Prisoner, JumpTranslation, LR_Player_Guard);
 			}
 		}
 		default:
@@ -4855,7 +4855,7 @@ void InitializeGame(int iPartnersIndex)
 		EMP_LoopPlayers(TargetForLang)
 		{
 			FormatEx(LR_Name, sizeof(LR_Name), "%t", g_sLastRequestPhrase[selection]);
-			CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Start Selected Game", LR_Player_Prisoner, LR_Name, LR_Player_Guard);
+			CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Start Selected Game", LR_Player_Prisoner, LR_Name, LR_Player_Guard);
 		}
 	}
 	
@@ -4925,7 +4925,7 @@ Action Timer_FarthestJumpDetector(Handle timer)
 						if (gH_Cvar_LR_Ten_Timer.BoolValue)
 						{
 							CreateTimer(10.0, Timer_EnemyMustJump, TIMER_FLAG_NO_MAPCHANGE);
-							CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "JF Jump Warning");
+							CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "JF Jump Warning");
 						}
 					}
 					
@@ -4939,7 +4939,7 @@ Action Timer_FarthestJumpDetector(Handle timer)
 						if (gH_Cvar_LR_Ten_Timer.BoolValue)
 						{
 							CreateTimer(10.0, Timer_EnemyMustJump, TIMER_FLAG_NO_MAPCHANGE);
-							CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "JF Jump Warning");
+							CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "JF Jump Warning");
 						}
 					}
 					
@@ -4950,13 +4950,13 @@ Action Timer_FarthestJumpDetector(Handle timer)
 						
 						if (Prisoner_Distance > Guard_Distance)
 						{
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Farthest Jump Won", LR_Player_Prisoner, LR_Player_Guard, Prisoner_Distance, Guard_Distance);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Farthest Jump Won", LR_Player_Prisoner, LR_Player_Guard, Prisoner_Distance, Guard_Distance);
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
 						}
 						
 						else if (Guard_Distance >= Prisoner_Distance)
 						{
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Farthest Jump Won", LR_Player_Guard, LR_Player_Prisoner, Guard_Distance, Prisoner_Distance);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Farthest Jump Won", LR_Player_Guard, LR_Player_Prisoner, Guard_Distance, Prisoner_Distance);
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
 						}	
 					}
@@ -4993,12 +4993,12 @@ Action Timer_EnemyMustJump(Handle timer)
 						if (LR_Player_Jumped[LR_Player_Prisoner] && !LR_Player_Jumped[LR_Player_Guard])
 						{
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "JF No Jump", LR_Player_Prisoner, LR_Player_Guard);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "JF No Jump", LR_Player_Prisoner, LR_Player_Guard);
 						}
 						else if (!LR_Player_Jumped[LR_Player_Prisoner] && LR_Player_Jumped[LR_Player_Guard])
 						{
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "JF No Jump", LR_Player_Guard, LR_Player_Prisoner);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "JF No Jump", LR_Player_Guard, LR_Player_Prisoner);
 						}
 					}
 				}
@@ -5031,12 +5031,12 @@ Action Timer_JumpContestOver(Handle timer)
 						
 						if (Prisoner_JumpCount > Guard_JumpCount)
 						{
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Won Jump Contest", LR_Player_Prisoner);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Won Jump Contest", LR_Player_Prisoner);
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
 						}
 						else
 						{
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Won Jump Contest", LR_Player_Guard);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Won Jump Contest", LR_Player_Guard);
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
 						}
 					}
@@ -5067,7 +5067,7 @@ Action Timer_JumpContestOver(Handle timer)
 							}
 						}						
 						
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Won Jump Contest", winner);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Won Jump Contest", winner);
 					}
 				}
 			}
@@ -5467,12 +5467,12 @@ public Action Timer_Race(Handle timer)
 					if (f_DoneDistance[LR_Player_Prisoner] < f_DoneDistance[LR_Player_Guard])
 					{
 						KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Race Won", LR_Player_Prisoner);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Race Won", LR_Player_Prisoner);
 					}
 					else
 					{
 						KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Race Won", LR_Player_Guard);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Race Won", LR_Player_Guard);
 					}
 				}
 				
@@ -5568,24 +5568,24 @@ int RPSmenuHandler(Handle menu, MenuAction action, int client, int param2)
 							{
 								if (gH_Cvar_SendGlobalMsgs.BoolValue)
 								{
-									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
+									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
 								}
 								else
 								{
-									CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
-									CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
+									CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
+									CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Prisoner, RPSc2, LR_Player_Guard, RPSc1);
 								}
 							}
 							else
 							{
 								if (gH_Cvar_SendGlobalMsgs.BoolValue)
 								{
-									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
+									EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
 								}
 								else
 								{
-									CPrintToChat(LR_Player_Guard, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
-									CPrintToChat(LR_Player_Prisoner, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
+									CPrintToChat(LR_Player_Guard, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
+									CPrintToChat(LR_Player_Prisoner, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Tie", LR_Player_Guard, RPSc1, LR_Player_Prisoner, RPSc2);
 								}
 							}
 							
@@ -5624,13 +5624,13 @@ int RPSmenuHandler(Handle menu, MenuAction action, int client, int param2)
 						else if ((RPS_Guard_Choice == 0 && RPS_Prisoner_Choice == 2) || (RPS_Guard_Choice == 1 && RPS_Prisoner_Choice == 0) || (RPS_Guard_Choice == 2 && RPS_Prisoner_Choice == 1))
 						{
 							KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Guard);
 						}
 						// otherwise THIS player has lost
 						else
 						{
 							KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
-							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
+							EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS Done", LR_Player_Prisoner, RPSc1, LR_Player_Guard, RPSc2, LR_Player_Prisoner);
 						}				
 					}				
 				}		
@@ -5661,7 +5661,7 @@ int RPSmenuHandler(Handle menu, MenuAction action, int client, int param2)
 							EMP_SafeSlay(client);
 						}
 						
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR RPS No Answer", client);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR RPS No Answer", client);
 					}
 				}	
 			}
@@ -5734,7 +5734,7 @@ public Action Timer_HotPotatoDone(Handle timer, any HotPotato_ID)
 				HPwinner = ((HPloser == LR_Player_Prisoner) ? LR_Player_Guard : LR_Player_Prisoner);
 				
 				KillAndReward(HPloser, HPwinner);
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "HP Win", HPwinner, HPloser);
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "HP Win", HPwinner, HPloser);
 				
 				if (gH_Cvar_LR_HotPotato_Mode.IntValue != 2)
 				{
@@ -5987,12 +5987,12 @@ public Action Timer_ChickenFight(Handle timer)
 				{
 					if (gH_Cvar_LR_ChickenFight_Slay.BoolValue)
 					{
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Chicken Fight Win And Slay", LR_Player_Prisoner, LR_Player_Guard);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Chicken Fight Win And Slay", LR_Player_Prisoner, LR_Player_Guard);
 						KillAndReward(LR_Player_Guard, LR_Player_Prisoner);
 					}
 					else
 					{
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Chicken Fight Win", LR_Player_Prisoner);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Chicken Fight Win", LR_Player_Prisoner);
 						CPrintToChat(LR_Player_Prisoner, "Chicken Fight Kill Loser", LR_Player_Guard);
 						
 						EMP_EquipKnife(LR_Player_Prisoner);
@@ -6006,12 +6006,12 @@ public Action Timer_ChickenFight(Handle timer)
 				{
 					if (gH_Cvar_LR_ChickenFight_Slay.BoolValue)
 					{
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Chicken Fight Win And Slay", LR_Player_Guard, LR_Player_Prisoner);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Chicken Fight Win And Slay", LR_Player_Guard, LR_Player_Prisoner);
 						KillAndReward(LR_Player_Prisoner, LR_Player_Guard);
 					}
 					else
 					{
-						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Chicken Fight Win", LR_Player_Guard);
+						EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Chicken Fight Win", LR_Player_Guard);
 						CPrintToChat(LR_Player_Guard, "Chicken Fight Kill Loser", LR_Player_Prisoner);
 						
 						EMP_EquipKnife(LR_Player_Guard);
@@ -6091,15 +6091,15 @@ void DecideCheatersFate(int rebeller, int LRIndex, int victim = 0)
 			RemoveFromArray(gH_DArray_LR_Partners, LRIndex);
 			if (victim == 0)
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Interference Abort - No Victim", rebeller, sWeaponName);
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Interference Abort - No Victim", rebeller, sWeaponName);
 			}
 			else if (victim == -1)
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Cheating Abort", rebeller);
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Cheating Abort", rebeller);
 			}
 			else
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Interference Abort", rebeller, victim, sWeaponName);	
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Interference Abort", rebeller, victim, sWeaponName);	
 			}	
 		}
 		case 2:
@@ -6117,15 +6117,15 @@ void DecideCheatersFate(int rebeller, int LRIndex, int victim = 0)
 			}
 			if (victim == 0)
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Interference Slay - No Victim", rebeller, sWeaponName);
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Interference Slay - No Victim", rebeller, sWeaponName);
 			}
 			else if (victim == -1)
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Cheating Slay", rebeller);
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Cheating Slay", rebeller);
 			}
 			else
 			{
-				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "LR Interference Slay", rebeller, victim, sWeaponName);	
+				EMP_LoopPlayers(TargetForLang) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "LR Interference Slay", rebeller, victim, sWeaponName);	
 			}		
 		}
 	}

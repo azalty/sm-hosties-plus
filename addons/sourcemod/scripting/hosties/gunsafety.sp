@@ -212,15 +212,15 @@ int MenuHandler_Slay(Handle menu, MenuAction action, int param1, int param2)
 
 		if ((target = GetClientOfUserId(userid)) == 0)
 		{
-			CPrintToChat(param1, "%s %t", gShadow_Hosties_ChatBanner, "Player no longer available");
+			CPrintToChat(param1, "%s%t", gShadow_Hosties_ChatBanner, "Player no longer available");
 		}
 		else if (!CanUserTarget(param1, target))
 		{
-			CPrintToChat(param1, "%s %t", gShadow_Hosties_ChatBanner, "Unable to target");
+			CPrintToChat(param1, "%s%t", gShadow_Hosties_ChatBanner, "Unable to target");
 		}
 		else if (!IsPlayerAlive(target))
 		{
-			CReplyToCommand(param1, "%s %t", gShadow_Hosties_ChatBanner, "Player has since died");
+			CReplyToCommand(param1, "%s%t", gShadow_Hosties_ChatBanner, "Player has since died");
 		}
 		else
 		{
@@ -306,11 +306,11 @@ int MenuHandler_Kick(Handle menu, MenuAction action, int param1, int param2)
 
 		if ((target = GetClientOfUserId(userid)) == 0)
 		{
-			CPrintToChat(param1, "%s %t", gShadow_Hosties_ChatBanner, "Player no longer available");
+			CPrintToChat(param1, "%s%t", gShadow_Hosties_ChatBanner, "Player no longer available");
 		}
 		else if (!CanUserTarget(param1, target))
 		{
-			CPrintToChat(param1, "%s %t", gShadow_Hosties_ChatBanner, "Unable to target");
+			CPrintToChat(param1, "%s%t", gShadow_Hosties_ChatBanner, "Unable to target");
 		}
 		else
 		{
@@ -338,11 +338,11 @@ void PrepareBan(int client, int target, int time, const char[] reason)
 	{
 		if (client == 0)
 		{
-			CPrintToServer("%s %t", gShadow_Hosties_ChatBanner, "Player no longer available");
+			CPrintToServer("%s%t", gShadow_Hosties_ChatBanner, "Player no longer available");
 		}
 		else
 		{
-			CPrintToChat(client, "%s %t", gShadow_Hosties_ChatBanner, "Player no longer available");
+			CPrintToChat(client, "%s%t", gShadow_Hosties_ChatBanner, "Player no longer available");
 		}
 
 		return;
@@ -525,11 +525,11 @@ int MenuHandler_BanPlayerList(Handle menu, MenuAction action, int param1, int pa
 
 		if ((target = GetClientOfUserId(userid)) == 0)
 		{
-			CPrintToChat(param1, "%s %t", gShadow_Hosties_ChatBanner, "Player no longer available");
+			CPrintToChat(param1, "%s%t", gShadow_Hosties_ChatBanner, "Player no longer available");
 		}
 		else if (!CanUserTarget(param1, target))
 		{
-			CPrintToChat(param1, "%s %t", gShadow_Hosties_ChatBanner, "Unable to target");
+			CPrintToChat(param1, "%s%t", gShadow_Hosties_ChatBanner, "Unable to target");
 		}
 		else
 		{

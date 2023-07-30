@@ -207,13 +207,13 @@ void TakeActionOnFreekiller(int attacker)
 				case FP_Slay:
 				{
 					ForcePlayerSuicide(attacker);
-					LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Freekill Slay", attacker);
+					LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Freekill Slay", attacker);
 					gA_FreekillsOfCT[attacker] = 0;
 				}
 				case FP_Kick:
 				{
 					KickClient(attacker, "%t", "Freekill Kick Reason");
-					LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Freekill Kick", attacker);
+					LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Freekill Kick", attacker);
 					LogMessage("%N was kicked for killing too many non-rebelling terrorists.", attacker);
 				}
 				case FP_Ban:
@@ -227,7 +227,7 @@ void TakeActionOnFreekiller(int attacker)
 						char ban_message[128];
 						Format(ban_message, sizeof(ban_message), "%T", "Freekill Ban Reason", attacker);
 						BanClient(attacker, gH_Cvar_Freekill_BanLength.IntValue, BANFLAG_AUTO, "SM_Hosties: Freekilling", ban_message);
-						LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s %t", gShadow_Hosties_ChatBanner, "Freekill Ban", attacker);
+						LOOP_CLIENTS(TargetForLang, CLIENTFILTER_NOBOTS|CLIENTFILTER_INGAMEAUTH) CPrintToChat(TargetForLang, "%s%t", gShadow_Hosties_ChatBanner, "Freekill Ban", attacker);
 					}
 				}
 			}

@@ -31,8 +31,8 @@ bool 	g_bSTAvailable = false; // SteamTools
 
 void GameDescription_OnPluginStart()
 {
-	gH_Cvar_GameDescriptionOn 	= AutoExecConfig_CreateConVar("sm_hosties_override_gamedesc", "1", "Enable or disable an override of the game description (standard Counter-Strike: Source, override to Hosties/jailbreak): 0 - disable, 1 - enable", 0, true, 0.0, true, 1.0);
-	gH_Cvar_GameDescriptionTag 	= AutoExecConfig_CreateConVar("sm_hosties_gamedesc_tag", "ENT Hosties/Jailbreak v3", "Sets the game description tag.", 0);
+	gH_Cvar_GameDescriptionOn 	= AutoExecConfig_CreateConVar("sm_hosties_override_gamedesc", "1", "Enable or disable an override of the game description (standard Counter-Strike: Source, override to Hosties/Jailbreak): 0 - disable, 1 - enable", 0, true, 0.0, true, 1.0);
+	gH_Cvar_GameDescriptionTag 	= AutoExecConfig_CreateConVar("sm_hosties_gamedesc_tag", "Hosties/Jailbreak", "Sets the game description tag.", 0);
 	gH_Cvar_GameDescriptionTag.GetString(gShadow_GameDescriptionTag, sizeof(gShadow_GameDescriptionTag));
 	
 	// check for SteamTools
